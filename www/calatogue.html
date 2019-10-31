@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAM</title>
+</head>
+
+<body>
+    <section>
+        <h1>¿QUE ESTAS BUSCANDO?</h1>
+        <form action="" class="filters">
+            <fieldset>
+                <label for="category">CATEGORIA</label>
+                <select name="category" id="category">
+                    <option value="">selecciona</option>
+                    <option value="">ORGANIZACIÓN</option>
+                    <option value="">ADMINISTRACIÓN</option>
+                    <option value="">FINANZAS</option>
+                </select>
+            </fieldset>
+            <fieldset>
+                <label for="price">PRECIO</label>
+                desde <input type="number" name="price" id="price1">
+                hasta <input type="number" name="price" id="price2">
+            </fieldset>
+            <fieldset>
+                <label for="order">ORDENAR POR</label>
+                <select name="order" id="order">
+                    <option value="ratings">valoraciones</option>
+                    <option value="asc">precio ascendente</option>
+                    <option value="desc">precio descendente</option>
+                </select>
+            </fieldset>
+            <button id="filter">ENCONTRAR</button>
+        </form>
+    </section>
+    <section class="catalogue"></section>
+</body>
+
+</html>
