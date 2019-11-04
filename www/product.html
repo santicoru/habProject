@@ -13,7 +13,11 @@
     <h2>Editar producto</h2>
     <nav class="option">
       <ul>
-        <h3>Crear</h3>
+        <li><button class="createP">Subir producto</button></li>
+        <li><button class="editP">Editar producto</button></li>
+    </nav>
+        <section class="createProduct">
+        <h1>Crear</h1>
         <form class="create" enctype="multipart/form-data">
           <fieldset>
             <label for="name">Nombre</label>
@@ -44,14 +48,17 @@
           </fieldset>
           <button type="submit">Publicar</button>
         </form>
-        <h3>Editar</h3>
-        <a href="">Mostrar todos los productos</a>
+        </section>
+        
+      <section class="editProduct"> 
+        <h1> Editar produducto </h1>
+        <button class="showAllForEdit">Mostrar todos los productos</button>
         <label for="search">Buscar</label>
         <input type="search" name="search" placeholder="Nombre del producto" />
         <button class="search">Buscar</button>
-        <button class="delete">Eliminar</button>
-      </ul>
-    </nav>
+        <ul class="listProduct">
+        </ul>
+      </section>
 
     <footer></footer>
   </body>
