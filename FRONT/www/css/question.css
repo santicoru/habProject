@@ -1,0 +1,8 @@
+section li{
+    padding: 0;
+    list-style: none;   
+    padding: 0.5rem 0;
+}
+section .hidden{
+    display: none;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAM</title>
+</head>
+
+<body>
+    <main>
+        <section class="election">
+            <H1>ESCOGE COMO VIVIR TU EXPERIENCIA</H1>
+            <button class="collaborator">COLABORADOR</button>
+            <button class="organizer">ORGANIZADOR</button>
+            <button class="buyer">COMPRADOR</button>
+        </section>
+
+        <form action="" name="registry">
+            <h1>Registro</h1>
+            <fieldset>
+                <label for="password">Contraseña:</label>
+                <input type="password" name="password" id="password">
+            </fieldset>
+            <fieldset>
+                <label for="name">Nombre / Razón social:</label>
+                <input type="text" name="name">
+            </fieldset>
+            <fieldset>
+                <label for="surname">Apellidos:</label>
+                <input type="text" name="surname">
+            </fieldset>
+            <fieldset>
+                <label for="document">documento:</label>
+                <select name="document" id="type-document">
+                    <option value="dni">DNI</option>
+                    <option value="nie">NIE</option>
+                    <option value="cif">CIF</option>
+                </select>
+                <input type="text" id="document">
+            </fieldset>
+            <fieldset>
+                <label for="birth-date">Fecha de nacimiento:</label>
+                <input type="date" name="birth-date" id="birth-date">
+            </fieldset>
+            <fieldset>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+            </fieldset>
+            <fieldset>
+                <label for="phone-number">Teléfono:</label>
+                <input type="number" name="phone-number" id="phone-number">
+            </fieldset>
+            <button type="submit" id="send">REGISTRARSE</button>
+            <button>CANCELAR</button>
+        </form>
+    </main>
+</body>
+
+</html>

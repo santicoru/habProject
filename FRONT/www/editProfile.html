@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SAM</title>
+</head>
+
+<body>
+    <main>
+        <form action="" name="edit-profile">
+            <h1>EDITAR PERFIL</h1>
+            <fieldset>
+                <label for="edit-password">Contraseña:</label>
+                <input type="password" name="edit-password" id="edit-password">
+            </fieldset>
+            <fieldset>
+                <label for="name">Nombre / Razón social:</label>
+                <input type="text" name="name">
+            </fieldset>
+            <fieldset>
+                <label for="surname">Apellidos:</label>
+                <input type="text" name="surname">
+            </fieldset>
+            <fieldset>
+                <label for="document">documento:</label>
+                <select name="document" id="type-document">
+                    <option value="dni">DNI</option>
+                    <option value="nie">NIE</option>
+                    <option value="cif">CIF</option>
+                </select>
+                <input type="text" id="edit-document">
+            </fieldset>
+            <fieldset>
+                <label for="edit-birth-date">Fecha de nacimiento:</label>
+                <input type="date" name="edit-birth-date" id="edit-birth-date">
+            </fieldset>
+            <fieldset>
+                <label for="edit-email">Email:</label>
+                <input type="email" name="edit-email" id="edit-email">
+            </fieldset>
+            <fieldset>
+                <label for="edit-phone-number">Teléfono:</label>
+                <input type="number" name="edit-phone-number" id="edit-phone-number">
+            </fieldset>
+            <button type="submit" id="edit-confirm">CONFIRMAR</button>
+            <button>CANCELAR</button>
+        </form>
+    </main>
+</body>
+
+</html>
