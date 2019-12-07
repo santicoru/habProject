@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Producto</title>
+  </head>
+
+  <body>
+    <header></header>
+
+    <h1>GESTIONAR MIS PRODUCTOS</h1>
+    
+    <nav class="option">
+      <ul>
+        <li><button class="createP">Subir producto</button></li>
+        <li><button class="editP">Editar producto</button></li>
+      </ul>
+    </nav>
+    
+    <section class="createProduct">
+      <h1>Crear</h1>
+        <form class="create" enctype="multipart/form-data">
+          <fieldset>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" />
+          </fieldset>
+          <fieldset>
+            <label for="description">Descripción</label>
+            <textarea
+              name="description"
+              cols="30"
+              rows="10"
+              placeholder="Escribe aquí"
+            ></textarea>
+          </fieldset>
+          <fieldset>
+            <label for="category">Categoría</label>
+            <select name="category" id="category">
+              <option value="seleccionar">Seleccionar</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <label for="image">Imagen</label>
+            <input type="file" name="image" />
+          </fieldset>
+          <fieldset>
+            <label for="price">Price</label>
+            <input type="number" name="price" />€
+          </fieldset>
+          <button type="submit">Publicar</button>
+        </form>
+      </section>
+        
+      <section class="editProduct"> 
+        <h1> Editar produducto </h1>
+        <button class="showAllForEdit">Mostrar todos los productos</button>
+        <label for="search">Buscar</label>
+        <input type="search" name="search" placeholder="Nombre del producto" />
+        <button class="search">Buscar</button>
+        <ul class="listProduct">
+        </ul>
+      </section>
+
+    <footer></footer>
+  </body>
+</html>
