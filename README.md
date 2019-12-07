@@ -1,2 +1,0 @@
-# SAM-PROJECT
-Descuentos SW
