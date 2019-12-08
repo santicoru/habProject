@@ -3,11 +3,11 @@
 const express = require('express');
 const router = express.Router();
 const {
-    createAccountController,
-    deleteAccountController,
-    editAccountController,
-    getAccountController,
-    checkAccountSession,
+  createAccountController,
+  deleteAccountController,
+  editAccountController,
+  getAccountController,
+  checkAccountSession,
 } = require('../controllers/account/index');
 
 router.post('/', createAccountController);
