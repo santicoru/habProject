@@ -68,6 +68,7 @@ async function addVerificationCode(userId) {
 
 async function createAccount(req, res, next) {
   const accountData = { ...req.body };
+  console.log(accountData);
   /*
   *sustituir por el del usuario en producción:
   */
@@ -97,6 +98,7 @@ async function createAccount(req, res, next) {
   try {
     const connection = await mysqlPool.getConnection();
     const sqlInsercion = 'INSERT INTO user SET ?';
+
     await connection.query(sqlInsercion, {
       name: accountData.name,
       surname: accountData.surname,
