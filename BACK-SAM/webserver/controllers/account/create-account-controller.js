@@ -3,6 +3,7 @@
 const bcrypt = require('bcrypt');
 const cryptoRandomString = require('crypto-random-string');
 const Joi = require('@hapi/joi');
+const jwt = require('jsonwebtoken');
 const uuidV4 = require('uuidv4');
 const sendgridMail = require('@sendgrid/mail');
 const mysqlPool = require('../../../database/mysql-pool');
@@ -29,8 +30,8 @@ async function validateSchema(payload) {
   Joi.assert(payload, schema);
 }
 
-async function sendEmailRegistration(userEmail, verificationCode) {
-  const linkActivation = `${httpServerDomain}/api/account/activation?verification_code=${verificationCode}`;
+async function sendEmailRegistration(userEmail) {
+
   const msg = {
     to: userEmail,
     from: {
@@ -39,36 +40,13 @@ async function sendEmailRegistration(userEmail, verificationCode) {
     },
     subject: 'Gracias por registrarte en SAM',
     text: 'Ahora podrás encontrar el software que necesitas en la medida que necesitas',
-    html: `Para confirmar tu cuenta <a href="${linkActivation}"> activala aqui`,
   };
   const data = await sendgridMail.send(msg);
   return data;
 }
 
-async function addVerificationCode(userId) {
-  const verificationCode = cryptoRandomString({ length: 64, });
-
-  const now = new Date();
-  const createdAt = now.toISOString().substring(0, 19).replace('T', ' ');
-
-  const sqlQuery = 'INSERT INTO user_verification SET ?';
-
-  const connection = await mysqlPool.getConnection();
-
-  await connection.query(sqlQuery, {
-    user_id: userId,
-    verification_code: verificationCode,
-    created_at: createdAt,
-  });
-
-  connection.release();
-
-  return verificationCode;
-}
-
 async function createAccount(req, res, next) {
   const accountData = { ...req.body };
-  console.log(accountData);
   /*
   *sustituir por el del usuario en producción:
   */
@@ -77,6 +55,7 @@ async function createAccount(req, res, next) {
   try {
     await validateSchema(accountData);
   } catch (e) {
+    console.log(e);
     return res.status(400).send(e);
   }
 
@@ -90,8 +69,6 @@ async function createAccount(req, res, next) {
   const createdAt = now.toISOString().substring(0, 19).replace('T', ' ');
   const securePassword = await bcrypt.hash(accountData.password, 10);
 
-  console.log(securePassword);
-  console.log(securePassword.length);
   /*
   *  REVISAR BASE DE DATOS Y MODIFICAR INSERCIONES
   */
@@ -113,17 +90,29 @@ async function createAccount(req, res, next) {
     });
 
     const [id] = await connection.query(`SELECT id FROM user WHERE email='${accountData.email}'`);
-    console.log(id);
     const idUser = id[0].id;
-    console.log(idUser);
+
     connection.release();
 
-    const verificationCode = await addVerificationCode(idUser);
-    //temporal para verificar, despues activar el de abajo
-    await sendEmailRegistration(userEmail, verificationCode)
-    // await sendEmailRegistration(accountData.email, verificationCode);
+    const payloadJwt = {
+      userId: idUser,
+      role: accountData.user_type,
+    };
 
-    return res.status(201).send('listo');
+    const jwtExpiresIn = parseInt(process.env.AUTH_ACCESS_TOKEN_TTL);
+    const token = jwt.sign(payloadJwt, process.env.AUTH_JWT_SECRET, {
+      expiresIn: jwtExpiresIn,
+    });
+
+    const response = {
+      token,
+      expiresIn: jwtExpiresIn,
+    };
+
+    await sendEmailRegistration(userEmail)
+    // await sendEmailRegistration(accountData.email, verificationCode);
+    return res.status(200).send(response);
+
   } catch (e) {
     console.error(e);
     return res.status(500).send('no se ha grabado nada');

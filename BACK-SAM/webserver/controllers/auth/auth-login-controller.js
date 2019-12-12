@@ -8,14 +8,14 @@ const mysqlPool = require('../../../database/mysql-pool');
 async function validateSchema(payload) {
   const schema = Joi.object({
     email: Joi.string().email().required(),
-    password: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/).required(),
+    password: Joi.string().regex(/^[a-zA-Z0-9]{8,30}$/).required(),
   });
   Joi.assert(payload, schema);
 }
 
 async function login(req, res, next) {
   const authData = { ...req.body };
-
+  console.log(authData);
   try {
     await validateSchema(authData);
   } catch (e) {
