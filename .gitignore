@@ -1,4 +1,6 @@
 FRONT-SAM/node_modules
 BACK-SAM/node_modules
+react-sam/node_modules
 
 BACK-SAM/.env
+react-sam/.env

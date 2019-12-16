@@ -1,0 +1,27 @@
+import React from 'react';
+import ReactDOM from "react-dom";
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { AuthProvider } from './shared/context/auth-context'
+
+import './styles.css';
+import { NotFound } from './pages/NotFound';
+import { Login } from './pages/Login';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AuthProvider>
+        <Switch>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </AuthProvider>
+    </BrowserRouter>
+  );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
