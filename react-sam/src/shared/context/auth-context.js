@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { useHistory } from "react-router-dom";
-import { login } from "../../http";
+import { login, register } from "../../http";
 import decode from 'jwt-decode';
 
 const AuthContext = React.createContext();
@@ -34,9 +34,28 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const signUp = async ({ user_type, name, surname, email, password, phone, birth_date, document_type, document_number }) => {
+    try {
+      const {
+        data: { token }
+      } = await register({ user_type, name, surname, email, password, phone, birth_date, document_type, document_number });
+      let theRole = decode(token);
+      setRole(theRole.role);
+      console.log(token);
+      console.log(theRole);
+      console.log(theRole.role);
+      setIsAuthenticated(true);
+      if (token) {
+        history.push("/");
+      }
+    } catch (error) {
+      return Promise.reject(error);
+    }
+  };
+
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, setIsAuthenticated, signIn, role, setRole }}
+      value={{ isAuthenticated, setIsAuthenticated, signIn, role, setRole, signUp }}
     >
       {children}
     </AuthContext.Provider>
