@@ -6,6 +6,7 @@ import { AuthProvider } from './shared/context/auth-context'
 import './styles.css';
 import { NotFound } from './pages/NotFound';
 import { Login } from './pages/Login';
+import { Register } from './pages/Register';
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
         <Switch>
           <Route path='/login'>
             <Login />
+          </Route>
+          <Route path='/register'>
+            <Register />
           </Route>
           <Route path="*">
             <NotFound />
