@@ -1,21 +1,23 @@
-html{
+@import url("footer.css");
+
+html {
   font-size: 14px;
 }
-body{
+body {
   margin: 0;
-  padding:0;
+  padding: 0;
 }
-nav img{
-    width: 1.8rem;
+nav img {
+  width: 1.8rem;
 }
 nav {
   position: sticky;
   width: 100vw;
-  top:0;
+  top: 0;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
   grid-template-rows: auto;
-  border-top:1px solid black;
+  border-top: 1px solid black;
   border-bottom: 1px solid black;
   justify-items: center;
   align-items: center;
@@ -23,81 +25,81 @@ nav {
   padding: 0.4rem 0 0 0;
   z-index: 1;
 }
-#hidden-mobile{
+#hidden-mobile {
   position: absolute;
-  top:3rem;
+  top: 3rem;
   width: 100%;
-  text-align: center;;
+  text-align: center;
   background: rgb(0, 0, 0);
   color: #ffffff;
   height: 1.5rem;
-    display: none;;
+  display: none;
 }
-#logo{
-    width: 70%;;
+#logo {
+  width: 70%;
 }
-nav button{
-    background: none;
-    border: none;
-    padding: 0.2rem;
+nav button {
+  background: none;
+  border: none;
+  padding: 0.2rem;
 }
-section[data-name='submenu']{
+section[data-name="submenu"] {
   position: fixed;
-  top:0;
+  top: 0;
   background: rgb(0, 0, 0);
-  color:#ffffff;
+  color: #ffffff;
   opacity: 0.9;
   width: 100vw;
   height: 100vh;
   transform: translateX(-100%);
 }
-section[data-name='submenu'] ul{
+section[data-name="submenu"] ul {
   padding: 0;
   margin-top: 20vh;
   text-align: center;
   list-style: none;
 }
-section[data-name='submenu'] ul li{
+section[data-name="submenu"] ul li {
   font-size: 1.2rem;
   padding: 1rem;
 }
-section[data-name='submenu'] ul li a{
+section[data-name="submenu"] ul li a {
   text-decoration-line: none;
   color: #ffffff;
 }
-section[data-name='submenu'] img{
+section[data-name="submenu"] img {
   width: 15px;
   padding: 0 0.4rem;
 }
 
 /* cuando se muestra el buscador */
-#hidden-mobile.show{
-  display:block;
+#hidden-mobile.show {
+  display: block;
 }
 /* cuando se despliega el submenu */
-@keyframes show{
-    from{
-        transform: translateX(-100%);
-    }
-    to{
-        transform: translateX(0%);
-    }
+@keyframes show {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }
-section[data-name='submenu'].show{
+section[data-name="submenu"].show {
   animation: show;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
 }
 /* cuando se repliega el submenu */
-@keyframes remove{
-    from{
-        transform: translateX(0%);
-    }
-    to{
-        transform: translateX(-100%);
-    }
+@keyframes remove {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
-section[data-name='submenu'].removeShow{
+section[data-name="submenu"].removeShow {
   animation: remove;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
