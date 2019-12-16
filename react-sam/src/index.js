@@ -5,6 +5,7 @@ import { AuthProvider } from './shared/context/auth-context'
 
 import './styles.css';
 import { NotFound } from './pages/NotFound';
+import { Homepage } from './pages/Homepage';
 import { Login } from './pages/Login';
 import { Register } from './pages/Register';
 
@@ -13,6 +14,9 @@ function App() {
     <BrowserRouter>
       <AuthProvider>
         <Switch>
+          <Route exact path='/'>
+            <Homepage />
+          </Route>
           <Route path='/login'>
             <Login />
           </Route>
