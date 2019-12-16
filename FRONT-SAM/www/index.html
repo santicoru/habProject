@@ -1,46 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>SAM</title>
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>SAM</title>
-  <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/index.css">
+  <body>
+    <header>
+      <nav>
+        <button id="button-menu"><img src="images/menu.svg" alt="" /></button>
+        <img src="images/SAMlogotipo.png" alt="logo" id="logo" />
+        <input
+          type="text"
+          placeholder="estoy buscando ..."
+          id="hidden-mobile"
+        />
+        <button id="search"><img src="images/lente.svg" alt="lupa" /></button>
+        <button class="login">
+          <img src="images/user1.svg" alt="login" />
+        </button>
+        <button>
+          <a href="shoppingCart.html"
+            ><img src="images/add-to-cart.svg" alt="carrito"
+          /></a>
+        </button>
+      </nav>
 
-</head>
-
-<body>
-  <header>
-    <nav>
-      <button id="button-menu"><img src="images/menu.svg" alt=""></button>
-      <img src="images/SAMlogotipo.png" alt="logo" id="logo" />
-      <input type="text" placeholder="estoy buscando ..." id="hidden-mobile" />
-      <button id="search"> <img src="images/lente.svg" alt="lupa"> </button>
-      <button class="login">
-        <img src="images/user1.svg" alt="login" />
-      </button>
-      <button><a href="shoppingCart.html"><img src="images/add-to-cart.svg" alt="carrito" /></a></button>
-    </nav>
-
-    <section data-name="submenu">
-      <ul>
-        <li><a href="catalogue.html"> CATALOGO </a></li>
-        <li><a href="orders.html"> MIS PEDIDOS</a></li>
-        <li><a href="personalAccount.html"> MI CUENTA</a></li>
-        <li><a href="FQA.html"> PREGUNTAS FRECUENTES</a></li>
-        <li>CONFIGURACIÓN
-          <img src="images/spain.svg" alt="bandera de España">
-          <img src="images/united-kingdom.svg" alt="flag united-kingdom">
-        </li>
-        <li><a href="about.html#contactUs"> ATENCIÓN AL CLIENTE</a></li>
-        <li><a href="legal.html"> LEGAL</a></li>
-      </ul>
-    </section>
-  </header>
-
-  <script src="js/common.js"></script>
-</body>
-
+      <section data-name="submenu">
+        <ul>
+          <li><a href="catalogue.html"> CATALOGO </a></li>
+          <li><a href="orders.html"> MIS PEDIDOS</a></li>
+          <li><a href="personalAccount.html"> MI CUENTA</a></li>
+          <li><a href="FQA.html"> PREGUNTAS FRECUENTES</a></li>
+          <li>
+            CONFIGURACIÓN
+            <img src="images/spain.svg" alt="bandera de España" />
+            <img src="images/united-kingdom.svg" alt="flag united-kingdom" />
+          </li>
+          <li><a href="about.html#contactUs"> ATENCIÓN AL CLIENTE</a></li>
+          <li><a href="legal.html"> LEGAL</a></li>
+        </ul>
+      </section>
+    </header>
+    <footer class="foot">
+      <section class="social">
+        <ul>
+          <a href=""><img src="/images/facebook.png" alt="facebook"/></a>
+          <a href=""><img src="/images/instagram.png" alt="instagram"/></a>
+          <a href=""><img src="/images/linkedin.png" alt="linkedin"/></a>
+          <a href=""><img src="/images/twitter.png" alt="twitter"/></a>
+        </ul>
+      </section>
+      <section class="logo">
+        <img src="/images/logo-a.png" alt="logo" />
+      </section>
+      <section class="elements">
+        <ul>
+          <a href="">Sobre nosotros</a>
+          <a href="">Contacto</a>
+          <a href="">Privacidad</a>
+          <a href="">FAQs</a>
+        </ul>
+      </section>
+      <section class="copyright">
+        SAM y su logotipo son marcas registradas. Proyecto formado por: Andrea,
+        Santiago y Martín. Copyright (c).
+      </section>
+    </footer>
+    <script src="js/common.js"></script>
+  </body>
 </html>
