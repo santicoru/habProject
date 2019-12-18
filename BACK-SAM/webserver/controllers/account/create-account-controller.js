@@ -1,10 +1,8 @@
 'use strict';
 
 const bcrypt = require('bcrypt');
-const cryptoRandomString = require('crypto-random-string');
 const Joi = require('@hapi/joi');
 const jwt = require('jsonwebtoken');
-const uuidV4 = require('uuidv4');
 const sendgridMail = require('@sendgrid/mail');
 const mysqlPool = require('../../../database/mysql-pool');
 
