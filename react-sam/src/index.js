@@ -11,8 +11,11 @@ import { Register } from './pages/Register';
 import { Catalogue } from './pages/Catalogue';
 import { Fqa } from './pages/Fqa';
 import { Legal } from './pages/Legal';
-import { PersonalAccount } from './pages/PersonalAccount';
+import { ProfileColaborator } from './pages/ProfileColaborator';
+import { ProfileOrganizer } from './pages/ProfileOrganizer';
+import { ProfileBuyer } from './pages/ProfileBuyer';
 import { About } from './pages/About';
+import { PrivateRoute } from './components/PrivateRoute';
 
 function App() {
   return (
@@ -40,9 +43,27 @@ function App() {
           <Route path='/about'>
             <About />
           </Route>
-          <Route path='/personalAccount'>
-            <PersonalAccount />
-          </Route>
+          <PrivateRoute
+            exact
+            path='/profileBuyer'
+            allowedRole='buyer'
+          >
+            <ProfileBuyer />
+          </PrivateRoute>
+          <PrivateRoute
+            exact
+            path='/profileColaborator'
+            allowedRole='colaborator'
+          >
+            <ProfileColaborator />
+          </PrivateRoute>
+          <PrivateRoute
+            exact
+            path='/profileOrganizer'
+            allowedRole='organizer'
+          >
+            <ProfileOrganizer />
+          </PrivateRoute>
           <Route path="*">
             <NotFound />
           </Route>

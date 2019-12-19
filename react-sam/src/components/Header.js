@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { useAuth } from '../shared/context/auth-context';
+
 import logo from '../assets/images/SAMlogotipo.png';
 import menu from '../assets/images/menu.svg';
 import lente from '../assets/images/lente.svg';
@@ -11,6 +13,7 @@ import unitedK from '../assets/images/united-kingdom.svg';
 
 export function Header() {
 
+  const { role } = useAuth();
   const [display, setDisplay] = useState('removeShow');
   const [submenu, setSubmenu] = useState('');
 
@@ -30,6 +33,23 @@ export function Header() {
       setSubmenu('show');
     }
   }
+
+  const selectProfile = () => {
+    switch (role) {
+      case 'organizer':
+        return '/profileOrganizer';
+        break;
+      case 'colaborator':
+        return '/profileColaborator';
+        break;
+      case 'buyer':
+        return '/profileBuyer';
+        break;
+      default:
+        return '/login';
+    }
+  }
+
 
   return (
     <header className='header-nav'>
@@ -56,7 +76,7 @@ export function Header() {
       <section data-name="submenu" className={submenu}>
         <ul>
           <li><Link to="/catalogue"> CATALOGO </Link></li>
-          <li><Link to="/personalAccount"> MI CUENTA</Link></li>
+          <li ><Link to={selectProfile}> MI CUENTA</Link></li>
           <li><Link to="/fqa"> PREGUNTAS FRECUENTES</Link></li>
           <li>
             CONFIGURACIÓN
