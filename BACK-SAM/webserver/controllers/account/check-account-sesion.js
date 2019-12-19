@@ -26,7 +26,7 @@ async function checkAccountSession(req, res, next) {
 
   } catch (e) {
     console.error(e);
-    return res.status(413).send();
+    return res.status(401).send();
   }
 }
 

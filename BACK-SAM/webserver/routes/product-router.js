@@ -2,17 +2,17 @@
 
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const upload = multer();
 
-// const checkAccountSession = require('../controllers/account/check-account-sesion');
-// const createProductController = require('../controllers/product/create-product-controller');
 const {
-    createProductController,
+  createProductController,
 } = require('../controllers/product/index');
 
 const {
-    checkAccountSession,
+  checkAccountSession,
 } = require('../controllers/account/index');
 
-router.post('/', checkAccountSession, createProductController);
+router.post('/', checkAccountSession, upload.single('photo'), createProductController);
 
 module.exports = router;

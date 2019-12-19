@@ -1,10 +1,14 @@
 'use strict';
 
-
+const cloudinary = require('cloudinary');
 const Joi = require('@hapi/joi');
 const mysqlPool = require('../../../database/mysql-pool');
 
-const httpServerDomain = process.env.HTTP_SERVER_DOMAIN;
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARI_CLOUD_NAME,
+  api_key: process.env.CLOUDINARI_API_KEY,
+  api_secret: process.env.CLOUDINARI_API_SECRET,
+});
 
 async function validateSchema(payload) {
   const schema = Joi.object({
@@ -21,42 +25,71 @@ async function validateSchema(payload) {
 }
 
 async function createProduct(req, res, next) {
-  let { userId, role } = req.claims;
-  const productData = { ...req.body, userId, role };
-  console.log(productData);
+  const { userId, role } = req.claims;
+  const { file } = req;
+
+  // const productData = { ...req.body, userId, role };
+  const productData = JSON.parse(req.body.datos);
+
+  if (role !== 'colaborator') {
+    return res.status(401).send('sin permisos');
+  }
+
   try {
     await validateSchema(productData);
   } catch (e) {
     return res.status(400).send(e);
   }
 
-  try {
+  if (!file || !file.buffer) {
+    return res.status(400).send({
+      message: 'upload an image',
+    });
+  }
 
-    if (role !== 'colaborator') {
-      return res.status(401).send('sin permisos');
+  cloudinary.v2.uploader.upload_stream({
+    resource_type: 'image',
+    public_id: userId,
+    width: 200,
+    height: 200,
+    format: 'jpg',
+    crop: 'limit',
+  }, async (err, result) => {
+    if (err) {
+      console.error(err);
+      return res.status(400).send(err);
     }
 
-    const connection = await mysqlPool.getConnection();
-    const sqlInsercion = 'INSERT INTO product SET ?';
+    const {
+      secure_url: secureUrl,
+    } = result;
 
-    await connection.query(sqlInsercion, {
-      name: productData.name,
-      description: productData.description,
-      init_price: productData.init_price,
-      discount: productData.discount,
-      final_price: productData.final_price,
-      category: productData.category,
-      user_id: productData.userId,
-    });
+    try {
 
-    connection.release();
+      const connection = await mysqlPool.getConnection();
+      const sqlInsercion = 'INSERT INTO product SET ?';
 
-    res.status(201).send('product created');
+      await connection.query(sqlInsercion, {
+        name: productData.name,
+        description: productData.description,
+        init_price: productData.init_price,
+        discount: productData.discount,
+        final_price: productData.final_price,
+        category: productData.category,
+        user_id: userId,
+        photo: secureUrl,
+      });
 
-  } catch (e) {
-    console.error(e);
-    return res.status(500).send(e.message);
-  }
+      connection.release();
+
+      res.status(201).send('product created');
+
+    } catch (e) {
+      console.error(e);
+      return res.status(500).send(e.message);
+    }
+  }).end(file.buffer);
 }
+
 
 module.exports = createProduct;
