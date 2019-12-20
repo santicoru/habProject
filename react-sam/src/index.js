@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { AuthProvider } from './shared/context/auth-context'
+import { AuthProvider } from './shared/context/auth-context';
+import { PrivateRoute } from './components/PrivateRoute';
 
 import './styles.css';
 import { NotFound } from './pages/NotFound';
@@ -15,7 +16,8 @@ import { ProfileColaborator } from './pages/ProfileColaborator';
 import { ProfileOrganizer } from './pages/ProfileOrganizer';
 import { ProfileBuyer } from './pages/ProfileBuyer';
 import { About } from './pages/About';
-import { PrivateRoute } from './components/PrivateRoute';
+import { Product } from './pages/Product';
+
 
 function App() {
   return (
@@ -43,25 +45,16 @@ function App() {
           <Route path='/about'>
             <About />
           </Route>
-          <PrivateRoute
-            exact
-            path='/profileBuyer'
-            allowedRole='buyer'
-          >
+          <PrivateRoute exact path='/profileBuyer' allowedRole='buyer'>
             <ProfileBuyer />
           </PrivateRoute>
-          <PrivateRoute
-            exact
-            path='/profileColaborator'
-            allowedRole='colaborator'
-          >
+          <PrivateRoute exact path='/profileColaborator' allowedRole='colaborator'>
             <ProfileColaborator />
           </PrivateRoute>
-          <PrivateRoute
-            exact
-            path='/profileOrganizer'
-            allowedRole='organizer'
-          >
+          <PrivateRoute exact path='/profileColaborator/product' allowedRole='colaborator'>
+            <Product />
+          </PrivateRoute>
+          <PrivateRoute exact path='/profileOrganizer' allowedRole='organizer'>
             <ProfileOrganizer />
           </PrivateRoute>
           <Route path="*">

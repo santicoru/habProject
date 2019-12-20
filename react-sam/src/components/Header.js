@@ -50,7 +50,6 @@ export function Header() {
     }
   }
 
-
   return (
     <header className='header-nav'>
       <nav >
@@ -64,7 +63,7 @@ export function Header() {
         />
         <button id="search" onClick={changeVisibility} ><img src={lente} alt="lupa" /></button>
         <button className="login">
-          <img src={user1} alt="login" />
+          <Link to={selectProfile}><img src={user1} alt="login" /></Link>
         </button>
         <button>
           <a href=""

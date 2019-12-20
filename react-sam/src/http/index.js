@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { login, register } from './authService';
-import { getSam } from './samService';
+import { createProductCo } from './ProductService';
 
 function isBearerTokenRequired(url) {
 	const parsedURL = new URL(url);
@@ -46,4 +46,4 @@ axios.interceptors.response.use(
 	}
 );
 
-export { login, register, getSam };
+export { login, register, createProductCo };

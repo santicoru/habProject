@@ -7,11 +7,16 @@ const AuthContext = React.createContext();
 
 const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
+export function tokenDecode(token) {
+  if (currentUser !== null) {
+    const { role } = decode(currentUser.token)
+    return role;
+  }
+}
 export function AuthProvider({ children }) {
 
   const [isAuthenticated, setIsAuthenticated] = useState(currentUser !== null);
-  let tokenRole = decode(currentUser.token)
-  const [role, setRole] = useState(tokenRole.role);
+  const [role, setRole] = useState((currentUser && tokenDecode(currentUser.token)) || null);
 
   const history = useHistory();
 
@@ -21,9 +26,7 @@ export function AuthProvider({ children }) {
         data: { token }
       } = await login(email, password);
       let theRole = decode(token);
-      console.log(theRole);
-      console.log(theRole.role)
-      setRole(theRole.role);
+      setRole(role);
       setIsAuthenticated(true);
 
       if (token) {
@@ -41,9 +44,6 @@ export function AuthProvider({ children }) {
       } = await register({ user_type, name, surname, email, password, phone, birth_date, document_type, document_number });
       let theRole = decode(token);
       setRole(theRole.role);
-      console.log(token);
-      console.log(theRole);
-      console.log(theRole.role);
       setIsAuthenticated(true);
       if (token) {
         history.push("/");

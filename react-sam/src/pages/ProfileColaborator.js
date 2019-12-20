@@ -1,8 +1,15 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Product } from './Product';
 
 export function ProfileColaborator() {
 
   return (
-    <h1>pág. cuenta proveedor</h1>
+    <ul>
+      <li>MODIFICAR CONTRASEÑA</li>
+      <li><Link to='/profileColaborator/product'>GESTIONAR MIS PRODUCTOS</Link></li>
+      <li>CERRAR SESIÓN</li>
+      <li>ELIMINAR CUENTA</li>
+    </ul>
   )
 }
