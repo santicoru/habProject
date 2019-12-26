@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 const Joi = require('@hapi/joi');
 const mysqlPool = require('../../../database/mysql-pool');
@@ -19,6 +19,18 @@ async function validateSchema(payload) {
     Joi.assert(payload, schema);
 }
 
+async function updateOrder(req, rex, next) {
+    //1. pedir el historial de compra
+    //2. coge en la base de datos las compras hechas
+    //3. meter el nuevo pedido en la base de datos
+    //4. devolver el historial de compra ya actualizado, con el nuevo pedido
+
+
+    //función para confirmar la compra; meter los productos en la base de datos
+}
+*/
+
+/*
 async function updateOrder(req, res, next) {
     const { id } = req.params;
     const { userId } = req.claims;
@@ -62,5 +74,6 @@ async function updateOrder(req, res, next) {
         });
     }
 }
+*/
 
-module.exports = updateOrder;
+//module.exports = updateOrder;

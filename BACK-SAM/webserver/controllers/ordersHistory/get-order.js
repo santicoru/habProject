@@ -1,97 +1,61 @@
 'use strict';
 
-const Joi = require('@hapi/joi');
 const mysqlPool = require('../../../database/mysql-pool');
 
-async function validate(payload) {
-    const schema = Joi.object({
-        noteId: Joi.string().guid({
-            version: ['uuidv4'],
-        }).required(),
-        userId: Joi.string().guid({
-            version: ['uuidv4'],
-        }).required(),
-    });
-
-    Joi.assert(payload, schema);
-}
-
-async function getOrderUsingOneQuery(id, userId) {
-    const connection = await mysqlPool.getConnection();
-    const getOrdersQuery = `SELECT *
-    FROM orderFinal
-    WHERE orderFinal.id = ?
-      AND orderFinal.idUser = ?
-    ORDER BY orderDate`;
-    const [ordersData] = await connection.execute(getOrdersQuery, [id, userId]);
-    connection.release();
-
-    if (ordersData.length < 1) {
-        return null;
-    }
-
-    const orderHydrated = ordersData.reduce((acc, rawOrder) => {
-        const order = rawOrder.orderId ? {
-            id: rawOrder.id,
-            priceFinal: rawOrder.prizeFinal,
-            orderDate: rawOrder.orderDate,
-            idUser: rawOrder.idUser,
-        } : undefined;
-
-        const orderProcessed = acc[rawOrder.id];
-
-        if (!orderProcessed) {
-            return {
-                ...acc,
-                [rawOrder.id]: {
-                    ...rawOrder,
-                    orders: order ? [order] : [],
-                    id: undefined,
-                    order: undefined,
-                },
-            }
-        }
-
-        return {
-            ...acc,
-            [rawOrder.id]: {
-                ...rawOrder,
-                orders: order ? [...orderProcessed.orders, order] : orderProcessed,
-                id: undefined,
-                order: undefined,
-            },
-        };
-    }, {});
-
-    return orderHydrated[id];
-}
-
 async function getOrder(req, res, next) {
-    const id = req.params.id;
     const userId = req.claims.userId;
 
-    const payload = {
-        id,
-        userId,
-    };
-
     try {
-        await validate(payload);
-    } catch (e) {
-        return res.status(400).send(e);
-    }
+        const getOrdersQuery = `select 
+        p.id, 
+        p.name, 
+        p.category, 
+        p.description, 
+        p.init_prize, 
+        p.discount, 
+        p.final_prize, 
+        p.photo, 
+        p.user_id
+        from product p
+        inner join enter_product_order eproo
+        on p.id = eproo.id_product 
+        inner join order_final of
+        on eproo.id_order = of.id
+        inner join user_sam us
+        on of.id = us.id
+        where us.id=?
 
-    try {
-        const orderData = await getOrderUsingOneQuery(id, userId);
-        if (!orderData) {
-            return res.status(404).send();
-        }
+        union all
 
-        const orderResponse = {
+        select 
+        p.id, 
+        p.name, 
+        p.category, 
+        p.description, 
+        p.init_prize, 
+        p.discount, 
+        p.final_prize, 
+        p.photo, 
+        p.user_id
+        from product p
+        inner join product_include_package  pip
+        on p.id = pip.id_product 
+        inner join package paq
+        on pip.id_paq = paq.id
+        inner join enter_package_order  epaqo
+        on paq.id = epaqo.id_paq
+        inner join order_final of
+        on epaqo.id_order = of.id
+        inner join user_sam us
+        on of.id = us.id
+        where us.id=?`;
+        const connection = await mysqlPool.getConnection(); //la query meterla en una función para que quede más limpia
+        const [orderData] = await connection.execute(getOrdersQuery, [userId]); //no es lo que devuelve, sino los parámetros que le paso lo de [id, priceFinal...]
+        connection.release();
+
+        return res.send({
             data: orderData,
-        };
-
-        return res.send(orderResponse);
+        });
     } catch (e) {
         console.error(e);
         res.status(500).send({

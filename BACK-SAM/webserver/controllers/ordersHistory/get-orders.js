@@ -2,61 +2,45 @@
 
 const mysqlPool = require('../../../database/mysql-pool');
 
-async function getOrders(req, res, next) {
-    const { id, idUser, } = req.claims;
-    try {
-        const sqlQuery = `SELECT *
-    FROM orderFinal
-    WHERE orderFinal.id = ?
-      AND orderFinal.idUser = ?
-    ORDER BY orderDate`;
+async function getPackage(req, res, next) {
+    const userId = req.claims.userId;
 
-        const connection = await mysqlPool.getConnection();
-        const [ordersData] = await connection.execute(sqlQuery, [id]);
+    try {
+        const getOrdersQuery = `select 
+        p.id, 
+        p.name, 
+        p.category, 
+        p.description, 
+        p.init_prize, 
+        p.discount, 
+        p.final_prize, 
+        p.photo, 
+        p.user_id
+        from product p
+        inner join product_include_package  pip
+        on p.id = pip.id_product 
+        inner join package paq
+        on pip.id_paq = paq.id
+        inner join enter_package_order  epaqo
+        on paq.id = epaqo.id_paq
+        inner join order_final of
+        on epaqo.id_order = of.id
+        inner join user_sam us
+        on of.id = us.id
+        where us.id=?`;
+        const connection = await mysqlPool.getConnection(); //la query meterla en una función para que quede más limpia
+        const [orderData] = await connection.execute(getOrdersQuery, [userId]); //no es lo que devuelve, sino los parámetros que le paso lo de [id, priceFinal...]
         connection.release();
 
-        const orderHydrated = ordersData.reduce((acc, rawOrder) => {
-            const order = rawOrder.orderId ? {
-                id: rawOrder.id,
-                priceFinal: rawOrder.prizeFinal,
-                orderDate: rawOrder.orderDate,
-                idUser: rawOrder.idUser,
-            } : undefined;
-
-            const orderProcessed = acc[rawOrder.id];
-
-            if (!orderProcessed) {
-                return {
-                    ...acc,
-                    [rawOrder.id]: {
-                        ...rawOrder,
-                        orders: order ? [order] : [],
-                        id: undefined,
-                        order: undefined,
-                    },
-                }
-            }
-
-            return {
-                ...acc,
-                [rawOrder.id]: {
-                    ...rawOrder,
-                    orders: order ? [...orderProcessed.orders, order] : orderProcessed,
-                    id: undefined,
-                    order: undefined,
-                },
-            };
-        }, {});
-
-        return res.status(200).send({
-            data: Object.values(orderHydrated),
+        return res.send({
+            data: orderData,
         });
     } catch (e) {
         console.error(e);
-        return res.status(500).send({
+        res.status(500).send({
             message: e.message,
         });
     }
 }
 
-module.exports = getOrders;
+module.exports = getPackage;
