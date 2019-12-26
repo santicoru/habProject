@@ -10,7 +10,7 @@ async function deleteProduct(req, res, next) {
     return res.status(401).send('sin permisos');
   }
   try {
-    const sqlQuery = `DELETE FROM product WHERE id=${productId}`;
+    const sqlQuery = `DELETE FROM product WHERE id=${productId} AND user_id=${userId}`;
     const connection = await mysqlPool.getConnection();
     const [productData] = await connection.execute(sqlQuery);
     connection.release();
