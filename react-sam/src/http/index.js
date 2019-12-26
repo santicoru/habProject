@@ -4,7 +4,7 @@ import { createProductCo } from './ProductService';
 
 function isBearerTokenRequired(url) {
 	const parsedURL = new URL(url);
-	if (['/api/auth', '/api/account'].includes(parsedURL.pathname)) {
+	if (['/api/auth', '/api/account', 'api/product'].includes(parsedURL.pathname)) {
 		return false;
 	}
 	return true;

@@ -26,7 +26,8 @@ export function AuthProvider({ children }) {
         data: { token }
       } = await login(email, password);
       let theRole = decode(token);
-      setRole(role);
+      console.log(theRole.role);
+      setRole(theRole.role);
       setIsAuthenticated(true);
 
       if (token) {
