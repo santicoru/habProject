@@ -51,7 +51,7 @@ function App() {
           <PrivateRoute exact path='/profileColaborator' allowedRole='colaborator'>
             <ProfileColaborator />
           </PrivateRoute>
-          <PrivateRoute exact path='/profileColaborator/product' allowedRole='colaborator'>
+          <PrivateRoute exact path='/product' allowedRole='colaborator'>
             <Product />
           </PrivateRoute>
           <PrivateRoute exact path='/profileOrganizer' allowedRole='organizer'>
