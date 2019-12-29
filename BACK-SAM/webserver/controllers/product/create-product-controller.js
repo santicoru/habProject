@@ -26,10 +26,13 @@ async function validateSchema(payload) {
 
 async function createProduct(req, res, next) {
   const { userId, role } = req.claims;
+  const productData = req.body;
+  console.log(productData);
   const { file } = req;
+  console.log(file);
 
   // const productData = { ...req.body, userId, role };
-  const productData = JSON.parse(req.body.datos);
+  // const productData = JSON.parse(req.body.datos);
 
   if (role !== 'colaborator') {
     return res.status(401).send('sin permisos');
