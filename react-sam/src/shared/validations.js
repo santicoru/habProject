@@ -34,3 +34,27 @@ export const REGISTER_VALIDATIONS = {
     }
   }
 };
+
+export const EDITPRODUCT_VALIDATIONS = {
+  init_price: {
+    required: "The init_price should be in place",
+    minLength: {
+      message: "introducir precio inicial",
+      value: 1
+    }
+  },
+  discount: {
+    required: "The discount should be in place",
+    minLength: {
+      message: "introducir descuento",
+      value: 1
+    }
+  },
+  final_price: {
+    required: "The init_price should be in place",
+    minLength: {
+      message: "introducir precio inicial",
+      value: 1
+    }
+  }
+};
