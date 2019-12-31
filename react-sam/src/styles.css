@@ -1,32 +1,38 @@
-body{
+@import url("https://fonts.googleapis.com/css?family=ABeeZee|Rubik:400,500,700|Kulim+Park:400,700|Sulphur+Point&display=swap");
+body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: rgb(81, 3, 155);
+  background-color: #ffffff;
 }
-html, div#root, body{
+html,
+div#root,
+body {
   width: 100%;
   height: 100%;
 }
 
 /* homepage */
 
-img.logo-homepage{
+img.logo-homepage {
   width: 30%;
-  margin: 2% 31% 0% ;
+  margin: 2% 31% 0%;
 }
-section.photo-back{
-  margin-top:2rem;
+section.photo-back {
+  margin-top: 2rem;
   height: 100vh;
-  background-image: url('./assets/images/principal.png');
+  background-image: url("./assets/images/principal.png");
   background-size: contain;
-  background-repeat: no-repeat;   
+  background-repeat: no-repeat;
 }
-section.photo-back h1{
-  font-size: 7vw;
+section.photo-back h1 {
+  font-family: "Kulim Park", sans-serif;
+  font-size: 40px;
+  letter-spacing: 0.75rem;
   text-align: center;
-  color: #390346;
+  color: #063852;
   text-shadow: #ffffff 1px 1px 1px;
+
   margin-bottom: 0;
 }
 
@@ -45,7 +51,7 @@ section.photo-back h1{
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   align-items: center;
-  background-color:rgb(243, 245, 247);
+  background-color: rgb(243, 245, 247);
   opacity: 0.85;
   padding: 0.4rem 0 0 0;
   z-index: 1;
@@ -61,7 +67,7 @@ section.photo-back h1{
   display: none;
 }
 .header-nav #logo {
-  width: 5rem;
+  width: 6rem;
 }
 .header-nav nav button {
   background: none;
@@ -132,25 +138,32 @@ section.photo-back h1{
 
 /* */
 
-section.catalogue{
+section.catalogue {
   display: grid;
   grid-template-columns: 200px, auto, auto, auto;
 }
 
+/* Links */
+li {
+  color: #fff;
+  font-family: "Rubik", sans-serif;
+}
 
- /* Links */
- a{
-   color:#fff;
- }
-
+.header-nav section[data-name="submenu"] ul li a:hover {
+  color: rgb(8, 80, 189);
+  letter-spacing: 0.1rem;
+  transition: 0.4s;
+}
 /* BUTTON: user type */
 /* version mobile */
-.election{
-  display:flex;
+.election {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
-button.colaborator, button.organizer, button.buyer{
+button.colaborator,
+button.organizer,
+button.buyer {
   width: 100%;
   height: 10rem;
   background-repeat: no-repeat;
@@ -160,104 +173,106 @@ button.colaborator, button.organizer, button.buyer{
   border: 4px outset #fff;
   font-size: 2.3rem;
   font-weight: 600;
-  color:#fff;
-  text-shadow: 1px 1px 0px #000,
-    2px 2px 0px #000,
-    3px 3px 0px rgb(58, 4, 102),
-    4px 4px 0px rgb(57, 7, 114),
-    5px 5px 0px rgb(22, 4, 102),
-    6px 16px 5px #000;;
+  color: #fff;
+  text-shadow: 1px 1px 0px #000, 2px 2px 0px #000, 3px 3px 0px rgb(58, 4, 102),
+    4px 4px 0px rgb(57, 7, 114), 5px 5px 0px rgb(22, 4, 102), 6px 16px 5px #000;
 }
-button.colaborator{
-  background-image: url('./assets/images/proveedor.png');
+button.colaborator {
+  background-image: url("./assets/images/proveedor.png");
 }
-button.organizer{
-  background-image: url('./assets/images/organizador.png');
+button.organizer {
+  background-image: url("./assets/images/organizador.png");
 }
-button.buyer{
-  background-image: url('./assets/images/comprador.png');
+button.buyer {
+  background-image: url("./assets/images/comprador.png");
 }
 
 /* BUTTON: user type */
 /* version desktop */
 
-@media (min-width: 450px){
-  .election{
+@media (min-width: 450px) {
+  .election {
     flex-direction: row;
     justify-content: space-around;
   }
-  button.colaborator, button.organizer, button.buyer{
+  button.colaborator,
+  button.organizer,
+  button.buyer {
     width: 30%;
     text-align: center;
     font-size: 95%;
   }
 }
-@media (min-width: 600px){
-  button.colaborator, button.organizer, button.buyer{
-  font-size: 130%;
+@media (min-width: 600px) {
+  button.colaborator,
+  button.organizer,
+  button.buyer {
+    font-size: 130%;
+  }
 }
-}
-@media (min-width: 900px){
-  button.colaborator, button.organizer, button.buyer{
-  font-size: 200%;
-}
+@media (min-width: 900px) {
+  button.colaborator,
+  button.organizer,
+  button.buyer {
+    font-size: 200%;
+  }
 }
 /* class hidden */
 
-.hidden{
+.hidden {
   display: none;
 }
 
 /* BUTTON: form */
 
-form button{
+form button {
   height: 2.2rem;
   border-radius: 8px;
-  color:#fff;
+  color: #fff;
   font-weight: 600;
   border: outset;
-  background:radial-gradient( rgb(179, 123, 157) 0%, rgb(51, 2, 80) 100%);
+  background: radial-gradient(rgb(179, 123, 157) 0%, rgb(51, 2, 80) 100%);
 }
 
 /*PÁGINA REGISTRO*/
-main.main-register{
+main.main-register {
   height: 100%;
-  background: linear-gradient(to right, purple  pink );
+  background: linear-gradient(to right, purple pink);
 }
-main.main-register h1{
+main.main-register h1 {
   font-size: 1.5rem;
   text-align: center;
 }
-main.main-register form.form-register{
-    display: flex;
+main.main-register form.form-register {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
-form.form-register fieldset{
- border: none;
- display: flex; 
+form.form-register fieldset {
+  border: none;
+  display: flex;
 }
-form.form-register fieldset label{
+form.form-register fieldset label {
   font-size: 1.2rem;
-  color:#fff;
+  color: #fff;
 }
-form.form-register fieldset.doc{
+form.form-register fieldset.doc {
   display: inline;
 }
-form.form-register fieldset.doc label{
+form.form-register fieldset.doc label {
   display: block;
 }
-form.form-register fieldset.doc select{
+form.form-register fieldset.doc select {
   width: 3rem;
   height: 2.1rem;
-  border-radius: 8px 0 0 8px;  
+  border-radius: 8px 0 0 8px;
 }
-form.form-register fieldset.doc input{
+form.form-register fieldset.doc input {
   width: 12rem;
   height: 1.8rem;
-  border-radius: 0 8px 8px 0;  
+  border-radius: 0 8px 8px 0;
 }
-form.form-register input{
+form.form-register input {
   width: 15rem;
   height: 1.8rem;
   border-radius: 8px;
@@ -265,73 +280,195 @@ form.form-register input{
 
 /* LOGIN version mobile*/
 
-main.main-login{
+main.main-login {
   height: 100vh;
-  margin:auto 0;
+  margin: auto 0;
   padding: 1rem;
-  background-image: url('./assets/images/login.png');
+  background-image: url("./assets/images/login.png");
   background-size: contain;
-  background-repeat: no-repeat;  
-  background-position: right; 
+  background-repeat: no-repeat;
+  background-position: right;
 }
-main.main-login section{
-  margin-top:3%;
+main.main-login section {
+  margin-top: 3%;
   margin: 0 auto;
   border: #fff ridge 3px;
   border-radius: 25px;
   background: rgb(221, 32, 164);
-  opacity:0.8;
+  opacity: 0.8;
   width: fit-content;
   text-align: end;
   padding: 1rem 1.5rem;
 }
-main.main-login section h3{
+main.main-login section h3 {
   text-align: center;
   font-size: 2rem;
   margin: 0.2rem 0.2rem 1rem 0.2rem;
-  
 }
-main.main-login section input{
+main.main-login section input {
   margin: 0.5rem 0.1rem 0.2rem 0.5rem;
   border-radius: 0.2rem;
 }
-main.main-login section button{
+main.main-login section button {
   margin-top: 0.3rem;
 }
-main.main-login section .register-link{
+main.main-login section .register-link {
   color: #fff;
   text-decoration: none;
 }
-main.main-login section div{
-  margin-top:0.5rem;
+main.main-login section div {
+  margin-top: 0.5rem;
 }
 
 /* LOGIN version desktop */
 
-@media (min-width: 980px){
-  main.main-login section{
+@media (min-width: 980px) {
+  main.main-login section {
     margin-right: 35%;
   }
-  main.main-login form{
+  main.main-login form {
     display: flex;
   }
-  main.main-login section{
-    margin-top:1.5rem;
+  main.main-login section {
+    margin-top: 1.5rem;
   }
-  main.main-login form button{
-  margin-left: 0.5rem;
+  main.main-login form button {
+    margin-left: 0.5rem;
   }
-  main.main-login form input{
+  main.main-login form input {
     height: 1.7rem;
     border: 1px solid #fff;
   }
-  main.main-login form input{
+  main.main-login form input {
     margin: 0.5rem;
   }
-  main.main-login form button{
-    margin:0.4rem;
+  main.main-login form button {
+    margin: 0.4rem;
+  }
+}
+
+/* Footer */
+
+.foot {
+  background-color: #063852;
+  font-family: "Rubik", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+}
+
+.social ul a img {
+  height: 40px;
+  width: auto;
+  padding: 0 2rem;
+}
+
+.social ul a img:hover {
+  color: rgb(61, 173, 70);
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  padding-left: 2rem;
+}
+
+.elements ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.elements ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  padding: 0 3rem;
+}
+
+.elements a:hover {
+  color: rgb(68, 133, 253);
+  transition: 0.3s;
+}
+
+.copyright {
+  padding-bottom: 0.5rem;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 770px) {
+  .social {
+    grid-area: social;
+  }
+  .elements {
+    grid-area: elements;
+  }
+  .logo {
+    grid-area: logo;
+  }
+  .copyright {
+    grid-area: copyright;
+    justify-self: center;
+  }
+
+  .foot {
+    display: grid;
+    grid-template-areas:
+      " social logo"
+      " social elements"
+      " social elements"
+      " copyright copyright";
+  }
+
+  .social {
+    place-self: center;
+  }
+
+  .social ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .social [alt="instagram"] {
+    padding-top: 6px;
+  }
+
+  .social [alt="linkedin"] {
+    padding-top: 6px;
+  }
+
+  .social [alt="twitter"] {
+    padding-top: 6px;
+  }
+
+  .logo {
+    place-self: center;
+    padding-top: 1rem;
+  }
+
+  .elements ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 2rem;
+  }
+
+  .elements ul a {
+    padding-bottom: 0.5rem;
+  }
+
+  .copyright {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .logo {
+    margin-right: 5rem;
   }
 }
 
 /* Pág. product */
-
