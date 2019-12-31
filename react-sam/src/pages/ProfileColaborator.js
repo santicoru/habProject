@@ -7,7 +7,7 @@ export function ProfileColaborator() {
   return (
     <ul>
       <li>MODIFICAR CONTRASEÑA</li>
-      <li><Link to='/profileColaborator/product'>GESTIONAR MIS PRODUCTOS</Link></li>
+      <li><Link to='/product'>GESTIONAR MIS PRODUCTOS</Link></li>
       <li>CERRAR SESIÓN</li>
       <li>ELIMINAR CUENTA</li>
     </ul>

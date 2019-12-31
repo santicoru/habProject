@@ -6,7 +6,7 @@ const multer = require('multer');
 const upload = multer();
 
 const {
-  createProductController,
+  createProductController, getProductController, deleteProductController, editProductController,
 } = require('../controllers/product/index');
 
 const {
@@ -14,5 +14,8 @@ const {
 } = require('../controllers/account/index');
 
 router.post('/', checkAccountSession, upload.single('photo'), createProductController);
+router.get('/', checkAccountSession, getProductController);
+router.delete('/:productId', checkAccountSession, deleteProductController);
+router.put('/:productId', checkAccountSession, editProductController);
 
 module.exports = router;

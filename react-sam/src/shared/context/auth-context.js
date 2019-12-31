@@ -26,7 +26,8 @@ export function AuthProvider({ children }) {
         data: { token }
       } = await login(email, password);
       let theRole = decode(token);
-      setRole(role);
+      console.log(theRole.role);
+      setRole(theRole.role);
       setIsAuthenticated(true);
 
       if (token) {
@@ -53,9 +54,14 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const logout = () => {
+    setIsAuthenticated(false);
+    localStorage.removeItem('currentUser');
+  };
+
   return (
     <AuthContext.Provider
-      value={{ isAuthenticated, setIsAuthenticated, signIn, role, setRole, signUp }}
+      value={{ isAuthenticated, setIsAuthenticated, signIn, role, setRole, signUp, logout }}
     >
       {children}
     </AuthContext.Provider>

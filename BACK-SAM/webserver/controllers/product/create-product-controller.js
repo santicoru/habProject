@@ -14,9 +14,9 @@ async function validateSchema(payload) {
   const schema = Joi.object({
     name: Joi.string(),
     description: Joi.string(),
-    init_price: Joi.string(),
-    discount: Joi.string(),
-    final_price: Joi.string(),
+    init_price: Joi.number(),
+    discount: Joi.number(),
+    final_price: Joi.number(),
     category: Joi.string(),
     userId: Joi.number(),
     role: Joi.string(),
@@ -26,10 +26,13 @@ async function validateSchema(payload) {
 
 async function createProduct(req, res, next) {
   const { userId, role } = req.claims;
+  const productData = req.body;
+  console.log(productData);
   const { file } = req;
+  console.log(file);
 
   // const productData = { ...req.body, userId, role };
-  const productData = JSON.parse(req.body.datos);
+  // const productData = JSON.parse(req.body.datos);
 
   if (role !== 'colaborator') {
     return res.status(401).send('sin permisos');

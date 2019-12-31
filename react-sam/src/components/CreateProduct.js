@@ -1,32 +1,51 @@
-import React from 'react';
-import { createProductCo } from '../http';
+import React, { useState } from 'react';
+import useForm from 'react-hook-form';
+import { createProductCo } from '../http/ProductService';
+import { useAuth } from '../shared/context/auth-context';
+import axios from 'axios';
 
 export function CreateProduct() {
 
-  const createP = async ({ name, description, category, image, initPrice, discount, finalPrice }) => {
-    try {
-      await createProductCo
-    } catch (error) {
-      return Promise.reject(error);
-    }
-  }
+  const [file, setFile] = useState();
+  const [datos, setDatos] = useState();
+
+  const handleFormSubmit = e => {
+    e.preventDefault();
+    createP().then(response => {
+      console.log(response.data);
+    });
+  };
+
+  const createP = () => {
+    const cProduct = document.getElementById('createProduct');
+    const formData = new FormData(cProduct);
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data"
+      }
+    };
+    return createProductCo(formData, config);
+  };
+
   return (
-    <form className="create" enctype="multipart/form-data">
+    // <form className="create" onSubmit={handleSubmit(handleCreate)} name='createProduct' enctype="multipart/form-data">
+    <form onSubmit={handleFormSubmit} className='form-create-product' id='createProduct' name='createProduct'>
       <fieldset>
-        <label for="name">Nombre</label>
-        <input type="text" name="name" />
+        <label>Nombre</label>
+        <input type="text" name="name" id='name' />
       </fieldset>
       <fieldset>
-        <label for="description">Descripción</label>
+        <label>Descripción</label>
         <textarea
           name="description"
+          id='description'
           cols="30"
           rows="10"
           placeholder="Descripción..."
         ></textarea>
       </fieldset>
       <fieldset>
-        <label for="category">Categoría</label>
+        <label>Categoría</label>
         <select name="category" id="category">
           <option value="">Seleccionar</option>
           <option value="admin">Administración</option>
@@ -35,22 +54,23 @@ export function CreateProduct() {
         </select>
       </fieldset>
       <fieldset>
-        <label for="image">Imagen</label>
-        <input type="file" name="image" />
+        <label>Imagen</label>
+        {/* <input type="file" onChange={handleChange} name="img" id='img' ref={register({})} /> */}
+        <input type="file" name='photo' id='photo' />
       </fieldset>
       <fieldset>
-        <label for="initPrice">Precio inicial</label>
-        <input type="number" name="initPrice" placeholder='€' />
+        <label>Precio inicial</label>
+        <input type="number" name="init_price" id='init_price' placeholder='€' />
       </fieldset>
       <fieldset>
-        <label for="discount">Descuento</label>
-        <input type="number" name="discount" placeholder='%' />
+        <label>Descuento</label>
+        <input type="number" name="discount" id='discount' placeholder='%' />
       </fieldset>
       <fieldset>
-        <label for="finalPrice">Precio final</label>
-        <input type="number" name="finalPrice" placeholder='€' />
+        <label>Precio final</label>
+        <input type="number" name="final_price" id='final_price' placeholder='€' />
       </fieldset>
-      <button type="submit">Publicar</button>
-    </form>
+      <button type="submit" value='submit' id='sendProdcut'>Publicar</button>
+    </form >
   )
 }
