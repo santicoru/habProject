@@ -12,7 +12,7 @@ async function deleteProduct(req, res, next) {
   try {
     const sqlQuery = `DELETE FROM product WHERE id=${productId} AND user_id=${userId}`;
     const connection = await mysqlPool.getConnection();
-    const [productData] = await connection.execute(sqlQuery);
+    await connection.execute(sqlQuery);
     connection.release();
     return res.status(200).send('delete product');
   } catch (e) {
