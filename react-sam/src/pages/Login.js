@@ -64,8 +64,10 @@ function Login() {
               Enviar
             </button>
           </form>
-          <div >
-            <Link to="/register" className='register-link'>No tento cuenta, quiero registrarme</Link>
+          <div>
+            <Link to="/register" className="register-link">
+              No tento cuenta, quiero registrarme
+            </Link>
           </div>
         </section>
       </main>
