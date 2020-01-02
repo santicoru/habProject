@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { login, register } from './authService';
+import { getProductCo } from './ProductService';
+
 
 function isBearerTokenRequired(url) {
   const parsedURL = new URL(url);
@@ -45,4 +47,4 @@ axios.interceptors.response.use(
   }
 );
 
-export { login, register };
+export { login, register, getProductCo };

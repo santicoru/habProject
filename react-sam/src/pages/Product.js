@@ -6,21 +6,28 @@ import { EditProduct } from '../components/EditProduct';
 
 export function Product() {
 
-  const [show, setShow] = useState();
+  const [showCreate, setShowCreate] = useState();
+  const [showEdit, setShowEdit] = useState();
 
-  const choice = () => {
+  const choiceCreate = () => {
+    setShowEdit('');
+    setShowCreate(<CreateProduct />);
+  }
 
+  const choiceEdit = () => {
+    setShowCreate('');
+    setShowEdit(<EditProduct />);
   }
   return (
     <section className='product-co'>
       <h1>Gestionar mis productos</h1>
       <section className='select-product'>
-        <button className='bto-product' onClick={choice} >CREAR PRODUCTO</button>
-        <button className='bto-product' onClick={choice} >EDITAR PRODUCTO</button>
+        <button className='bto-product1' onClick={choiceCreate} >CREAR PRODUCTO</button>
+        <button className='bto-product' onClick={choiceEdit} >EDITAR PRODUCTO</button>
       </section>
       <section className='selection-po'>
-        <CreateProduct />
-        <EditProduct />
+        <div>{showCreate}</div>
+        <div>{showEdit}</div>
       </section>
     </section>
   )
