@@ -3,7 +3,7 @@
 const express = require('express');
 const router = express.Router();
 
-const showCatalogueController = require('../controllers/catalogue/index');
+const { showCatalogueController } = require('../controllers/catalogue');
 
 router.get('/', showCatalogueController);
 
