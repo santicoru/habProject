@@ -4,13 +4,13 @@ export function register({ user_type, name, surname, email, password, phone, bir
 	return axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/account`, {
 		user_type,
 		name,
-		surname,
+		surname: surname ? surname : null,
 		email,
 		password,
 		phone,
-		birth_date,
-		document_type,
-		document_number,
+		birth_date: birth_date ? birth_date : null,
+		document_type: document_type ? document_type : null,
+		document_number: document_number ? document_number : null,
 	});
 }
 

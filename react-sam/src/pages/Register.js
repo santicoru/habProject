@@ -56,7 +56,7 @@ export function Register() {
         </fieldset>
         <fieldset className='only-buyer'>
           <label for="surname">Apellidos:</label>
-          <input type="text" name="surname" />
+          <input type="text" name="surname" ref={register({})} />
         </fieldset>
         <fieldset>
           <label for="email">Email:</label>
@@ -69,16 +69,16 @@ export function Register() {
         </fieldset>
         <fieldset className='doc'>
           <label for="document_type">Documento:</label>
-          <select name="document_type" id="document_type">
+          <select name="document_type" id="document_type" ref={register({})}>
             <option value="dni">DNI</option>
             <option value="nie">NIE</option>
             <option value="cif">CIF</option>
           </select>
-          <input type="text" name='document_number' id="document_number" />
+          <input type="text" name='document_number' id="document_number" ref={register({})} />
         </fieldset>
         <fieldset className='only-buyer'>
           <label for="birth_date">Fecha de nacimiento:</label>
-          <input type="date" name="birth_date" id="birth_date" />
+          <input type="date" name="birth_date" id="birth_date" ref={register({})} />
         </fieldset>
         <fieldset>
           <label for="phone">Teléfono:</label>
