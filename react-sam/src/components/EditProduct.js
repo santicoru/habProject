@@ -2,7 +2,6 @@ import React, { useEffect, useReducer, useState } from 'react';
 import { useAuth } from '../shared/context/auth-context';
 import { getProductCo } from '../http';
 import { deleteProduct } from '../http/ProductService';
-import { Product } from '../pages/Product';
 import { ProductListCo } from './ProductListCo';
 import { ProductCo } from './ProductCo';
 
@@ -15,15 +14,6 @@ function productsReducer(state, action) {
       return { ...state, selectedProduct: action.index };
     case 'TOOGLE_PRODUCT':
       return { ...state, isProductOpened: !state.isProductOpened };
-    case 'UPDATE_PRODUCT':
-      return {
-        ...state, product: state.products.map(product => {
-          if (product.id === action.product.id) {
-            return action.product;
-          }
-          return product;
-        })
-      };
     case 'DELETE_PRODUCT':
       return { ...state, products: state.products.filter(product => product.id !== action.id) };
     default: return state;
@@ -31,7 +21,7 @@ function productsReducer(state, action) {
 }
 
 export function EditProduct() {
-  const { user, logout } = useAuth();
+  const { logout } = useAuth();
 
   const [state, dispatch] = useReducer(productsReducer, {
     products: [],
@@ -47,11 +37,6 @@ export function EditProduct() {
 
   const selectProduct = selectedIndex =>
     dispatch({ type: 'SELECT_PRODUCT', index: selectedIndex });
-
-  // const updateP = async idProduct => {
-  //   const response = await updateProduct(idProduct, formData);
-  //   dispatch({ type: 'UPDATE_PRODUCT', idProduct: response.data.id })
-  // }
 
   const deleteP = async idProduct => {
     await deleteProduct(idProduct);
@@ -99,34 +84,3 @@ export function EditProduct() {
     </React.Fragment>
   )
 }
-
-
-// import React, {useEffect, useState} from 'react';
-// import {getProductCo} from '../http';
-      // import axios from 'axios';
-// import {Product} from '../pages/Product';
-
-// export function EditProduct() {
-
-//   const [products, setProducts] = useState();
-
-//   useEffect(() => {
-//     getProductCo()
-//       .then(products => {
-//         setProducts(products)
-//       });
-//   }, []);
-
-//   return (
-//     <section className="editProduct">
-//       <h1> Editar produducto </h1>
-
-//       <button className="showAllForEdit">Mostrar todos los productos</button>
-//       <input type="search" name="search" placeholder="Nombre del producto" />
-//       <button className="search">Buscar</button>
-//       <div className='showProductsForEdit'>
-
-//       </div>
-//     </section>
-//   )
-// }

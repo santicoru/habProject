@@ -19,11 +19,11 @@ async function validateSchema(payload) {
     password: Joi.string().regex(/^[a-zA-Z0-9]{8,30}$/).required(),
     name: Joi.string(),
     user_type: Joi.string(),
-    surname: Joi.string(),
+    surname: Joi.string().allow(null),
     phone: Joi.string(),
-    birth_date: Joi.string(),
-    document_type: Joi.string(),
-    document_number: Joi.string(),
+    birth_date: Joi.string().allow(null),
+    document_type: Joi.string().allow(null),
+    document_number: Joi.string().allow(null),
   });
   Joi.assert(payload, schema);
 }
