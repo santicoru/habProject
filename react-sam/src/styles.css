@@ -1,9 +1,9 @@
-@import url("https://fonts.googleapis.com/css?family=Ubuntu|Rubik:400,500,700|Kulim+Park:400,700|Sulphur+Point&display=swap");
+@import url('https://fonts.googleapis.com/css?family=Ubuntu|Rubik:400,500,700|Kulim+Park:400,700|Sulphur+Point&display=swap');
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: blueviolet;
+  background-color: rgb(102, 156, 255);
 }
 html,
 div#root,
@@ -21,12 +21,12 @@ img.logo-homepage {
 section.photo-back {
   margin-top: 2rem;
   height: 100vh;
-  background-image: url("./assets/images/principal.png");
+  background-image: url('./assets/images/principal.png');
   background-size: contain;
   background-repeat: no-repeat;
 }
 section.photo-back h1 {
-  font-family: "Ubuntu", sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 35px;
   letter-spacing: 0.75rem;
   text-align: center;
@@ -50,7 +50,7 @@ section.photo-back h1 {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   align-items: center;
-  background-color: rgb(132, 243, 188);
+  background-color: rgb(255, 255, 255);
   /*   opacity: 0.85;
  */
   padding: 0.5rem 0;
@@ -74,7 +74,7 @@ section.photo-back h1 {
   border: none;
   padding: 0.2rem;
 }
-.header-nav section[data-name="submenu"] {
+.header-nav section[data-name='submenu'] {
   position: fixed;
   top: 0;
   background: rgb(0, 0, 0);
@@ -84,21 +84,21 @@ section.photo-back h1 {
   height: 100vh;
   transform: translateX(-100%);
 }
-.header-nav section[data-name="submenu"] ul {
+.header-nav section[data-name='submenu'] ul {
   padding: 0;
   margin-top: 20vh;
   text-align: center;
   list-style: none;
 }
-.header-nav section[data-name="submenu"] ul li {
+.header-nav section[data-name='submenu'] ul li {
   font-size: 1.2rem;
   padding: 1rem;
 }
-.header-nav section[data-name="submenu"] ul li a {
+.header-nav section[data-name='submenu'] ul li a {
   text-decoration-line: none;
   color: #ffffff;
 }
-.header-nav section[data-name="submenu"] img {
+.header-nav section[data-name='submenu'] img {
   width: 15px;
   padding: 0 0.4rem;
 }
@@ -116,7 +116,7 @@ section.photo-back h1 {
     transform: translateX(0%);
   }
 }
-.header-nav section[data-name="submenu"].show {
+.header-nav section[data-name='submenu'].show {
   animation: show;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
@@ -130,7 +130,7 @@ section.photo-back h1 {
     transform: translateX(-100%);
   }
 }
-.header-nav section[data-name="submenu"].removeShow {
+.header-nav section[data-name='submenu'].removeShow {
   animation: remove;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
@@ -146,10 +146,10 @@ section.catalogue {
 /* Links */
 li {
   color: #fff;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
 }
 
-.header-nav section[data-name="submenu"] ul li a:hover {
+.header-nav section[data-name='submenu'] ul li a:hover {
   color: rgb(132, 243, 188);
   letter-spacing: 0.1rem;
   transition: 0.4s;
@@ -178,13 +178,13 @@ button.buyer {
     4px 4px 0px rgb(57, 7, 114), 5px 5px 0px rgb(22, 4, 102), 6px 16px 5px #000;
 }
 button.colaborator {
-  background-image: url("./assets/images/proveedor.png");
+  background-image: url('./assets/images/proveedor.png');
 }
 button.organizer {
-  background-image: url("./assets/images/organizador.png");
+  background-image: url('./assets/images/organizador.png');
 }
 button.buyer {
-  background-image: url("./assets/images/comprador.png");
+  background-image: url('./assets/images/comprador.png');
 }
 
 /* BUTTON: user type */
@@ -284,7 +284,7 @@ main.main-login {
   height: 100vh;
   margin: auto 0;
   padding: 1rem;
-  background-image: url("./assets/images/login.png");
+  background-image: url('./assets/images/login.png');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
@@ -351,7 +351,7 @@ main.main-login section div {
 
 .foot {
   background-color: #063852;
-  font-family: "Rubik", sans-serif;
+  font-family: 'Rubik', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -417,10 +417,10 @@ main.main-login section div {
   .foot {
     display: grid;
     grid-template-areas:
-      " social logo"
-      " social elements"
-      " social elements"
-      " copyright copyright";
+      ' social logo'
+      ' social elements'
+      ' social elements'
+      ' copyright copyright';
   }
 
   .social {
@@ -432,15 +432,15 @@ main.main-login section div {
     flex-direction: column;
   }
 
-  .social [alt="instagram"] {
+  .social [alt='instagram'] {
     padding-top: 6px;
   }
 
-  .social [alt="linkedin"] {
+  .social [alt='linkedin'] {
     padding-top: 6px;
   }
 
-  .social [alt="twitter"] {
+  .social [alt='twitter'] {
     padding-top: 6px;
   }
 
@@ -469,6 +469,23 @@ main.main-login section div {
   .logo {
     margin-right: 5rem;
   }
+}
+
+/* Pag. About */
+.intro {
+  padding-top: 5rem;
+}
+
+.content img {
+  padding: 1rem 0 1rem 0;
+}
+
+.contact {
+  padding-top: 3rem;
+}
+
+.job {
+  padding: 4rem 0 4rem 0;
 }
 
 /* Pág. product */
