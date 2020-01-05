@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './shared/context/auth-context';
+import { CartProvider } from './shared/context/cart-context';
 import { PrivateRoute } from './components/PrivateRoute';
 
 import './styles.css';
@@ -23,44 +24,46 @@ function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
-        <Switch>
-          <Route exact path='/'>
-            <Homepage />
-          </Route>
-          <Route path='/login'>
-            <Login />
-          </Route>
-          <Route path='/register'>
-            <Register />
-          </Route>
-          <Route path='/catalogue'>
-            <Catalogue />
-          </Route>
-          <Route path='/fqa'>
-            <Fqa />
-          </Route>
-          <Route path='/legal'>
-            <Legal />
-          </Route>
-          <Route path='/about'>
-            <About />
-          </Route>
-          <PrivateRoute exact path='/profileBuyer' allowedRole='buyer'>
-            <ProfileBuyer />
-          </PrivateRoute>
-          <PrivateRoute exact path='/profileColaborator' allowedRole='colaborator'>
-            <ProfileColaborator />
-          </PrivateRoute>
-          <PrivateRoute exact path='/product' allowedRole='colaborator'>
-            <Product />
-          </PrivateRoute>
-          <PrivateRoute exact path='/profileOrganizer' allowedRole='organizer'>
-            <ProfileOrganizer />
-          </PrivateRoute>
-          <Route path="*">
-            <NotFound />
-          </Route>
-        </Switch>
+        <CartProvider>
+          <Switch>
+            <Route exact path='/'>
+              <Homepage />
+            </Route>
+            <Route path='/login'>
+              <Login />
+            </Route>
+            <Route path='/register'>
+              <Register />
+            </Route>
+            <Route path='/catalogue'>
+              <Catalogue />
+            </Route>
+            <Route path='/fqa'>
+              <Fqa />
+            </Route>
+            <Route path='/legal'>
+              <Legal />
+            </Route>
+            <Route path='/about'>
+              <About />
+            </Route>
+            <PrivateRoute exact path='/profileBuyer' allowedRole='buyer'>
+              <ProfileBuyer />
+            </PrivateRoute>
+            <PrivateRoute exact path='/profileColaborator' allowedRole='colaborator'>
+              <ProfileColaborator />
+            </PrivateRoute>
+            <PrivateRoute exact path='/productCo' allowedRole='colaborator'>
+              <Product />
+            </PrivateRoute>
+            <PrivateRoute exact path='/profileOrganizer' allowedRole='organizer'>
+              <ProfileOrganizer />
+            </PrivateRoute>
+            <Route path="*">
+              <NotFound />
+            </Route>
+          </Switch>
+        </CartProvider>
       </AuthProvider>
     </BrowserRouter>
   );

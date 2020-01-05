@@ -1,3 +1,40 @@
+import React, { useState, useEffect } from "react";
+import { getCatalogue } from '../http/CatalogueService';
+import { Link } from "react-router-dom";
+
+function Catalogue() {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    getCatalogue()
+      .then(response => setProducts(response.data));
+  }, []);
+
+  return (
+    <ul>
+      {products.map(product => (
+        <li key={product.id}>
+          <Link to={`/product/${product.id}`}>
+            <img src={product.photo} />
+          </Link>
+          <div>
+            <p>{product.name}</p>
+            <p>{product.description}</p>
+            <p>
+              <span className="iprice">{`${product.init_price}€ `}</span>
+              <span className="dis">{` -${product.discount}% `}</span>
+              <span className="fprice">{` ${product.final_price}€`}</span>
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
+export { Catalogue };
+
+
 // import React, { useEffect, useReducer } from 'react';
 // import { getCatalogue } from '../http/CatalogueService';
 // import { CatalogueList } from '../components/CatalogueList';
