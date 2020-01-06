@@ -28,7 +28,6 @@ export function CreateProduct() {
   };
 
   return (
-    // <form className="create" onSubmit={handleSubmit(handleCreate)} name='createProduct' enctype="multipart/form-data">
     <form onSubmit={handleFormSubmit} className='form-create-product' id='createProduct' name='createProduct'>
       <fieldset>
         <label>Nombre</label>
@@ -55,7 +54,6 @@ export function CreateProduct() {
       </fieldset>
       <fieldset>
         <label>Imagen</label>
-        {/* <input type="file" onChange={handleChange} name="img" id='img' ref={register({})} /> */}
         <input type="file" name='photo' id='photo' />
       </fieldset>
       <fieldset>

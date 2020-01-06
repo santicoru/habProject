@@ -18,6 +18,9 @@ import { ProfileOrganizer } from './pages/ProfileOrganizer';
 import { ProfileBuyer } from './pages/ProfileBuyer';
 import { About } from './pages/About';
 import { Product } from './pages/Product';
+import { ShoppingCart } from './pages/ShoppingCart';
+import { Confirmation } from './components/Confirmation';
+import { CatalogueProduct } from './components/CatalogueProduct';
 
 
 function App() {
@@ -37,6 +40,15 @@ function App() {
             </Route>
             <Route path='/catalogue'>
               <Catalogue />
+            </Route>
+            <Route path='/catalogueProduct/:productId'>
+              <CatalogueProduct />
+            </Route>
+            <Route path="/ShoppingCart">
+              <ShoppingCart />
+            </Route>
+            <Route path="/confirmation">
+              <Confirmation />
             </Route>
             <Route path='/fqa'>
               <Fqa />
