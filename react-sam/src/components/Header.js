@@ -70,9 +70,9 @@ export function Header() {
           </Link>
         </button>
         <button>
-          <a href="">
+          <Link to="/shoppingCart">
             <img src={addCart} alt="carrito" />
-          </a>
+          </Link>
         </button>
       </nav>
 

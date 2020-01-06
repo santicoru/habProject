@@ -52,7 +52,7 @@ export function CartProvider({ children }) {
   const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
 
   const totalPrice = cart.reduce(
-    (acc, item) => acc + item.quantity * parseInt(item.price, 0),
+    (acc, item) => acc + item.quantity * parseInt(item.final_price, 0),
     0
   );
 
