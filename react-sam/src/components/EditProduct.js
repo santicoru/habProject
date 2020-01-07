@@ -1,5 +1,4 @@
 import React, { useEffect, useReducer, useState } from 'react';
-import { useAuth } from '../shared/context/auth-context';
 import { getProductCo } from '../http';
 import { deleteProduct } from '../http/ProductService';
 import { ProductListCo } from './ProductListCo';
@@ -21,7 +20,7 @@ function productsReducer(state, action) {
 }
 
 export function EditProduct() {
-  const { logout } = useAuth();
+
 
   const [state, dispatch] = useReducer(productsReducer, {
     products: [],
