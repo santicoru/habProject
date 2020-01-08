@@ -18,6 +18,7 @@ app.use("/api/product", routes.product);
 app.use("/api/catalogue", routes.catalogue);
 app.use('/api/ordersHistory', routes.ordersHistory);
 app.use('/api/orderFinal', routes.orderFinal);
+app.use('/api/rateProduct', routes.rateProduct);
 
 app.get("/", (req, res, next) => {
   res.send("base url: /api");

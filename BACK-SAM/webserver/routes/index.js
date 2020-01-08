@@ -7,6 +7,7 @@ const product = require("./product-router");
 const catalogue = require("./catalogue-router");
 const ordersHistory = require('./ordersHistory-router');
 const orderFinal = require('./orderFinal-router');
+const rateProduct = require('./rateProduct-router');
 
 module.exports = {
   account,
@@ -16,4 +17,5 @@ module.exports = {
   product,
   catalogue,
   orderFinal,
+  rateProduct,
 };

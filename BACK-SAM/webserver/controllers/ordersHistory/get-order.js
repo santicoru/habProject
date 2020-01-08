@@ -53,9 +53,7 @@ async function getOrder(req, res, next) {
         const [orderData] = await connection.execute(getOrdersQuery);
         connection.release();
 
-        return res.send({
-            data: orderData,
-        });
+        return res.status(200).send(orderData);
     } catch (e) {
         console.error(e);
         res.status(500).send({
