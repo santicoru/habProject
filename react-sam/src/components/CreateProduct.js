@@ -1,13 +1,7 @@
-import React, { useState } from 'react';
-import useForm from 'react-hook-form';
+import React from 'react';
 import { createProductCo } from '../http/ProductService';
-import { useAuth } from '../shared/context/auth-context';
-import axios from 'axios';
 
 export function CreateProduct() {
-
-  const [file, setFile] = useState();
-  const [datos, setDatos] = useState();
 
   const handleFormSubmit = e => {
     e.preventDefault();

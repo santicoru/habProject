@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth } from '../shared/context/auth-context';
 import { CreateProduct } from '../components/CreateProduct';
 import { EditProduct } from '../components/EditProduct';
 import { Header } from "../components/Header";

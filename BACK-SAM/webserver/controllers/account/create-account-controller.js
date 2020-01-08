@@ -67,9 +67,6 @@ async function createAccount(req, res, next) {
   const createdAt = now.toISOString().substring(0, 19).replace('T', ' ');
   const securePassword = await bcrypt.hash(accountData.password, 10);
 
-  /*
-  *  REVISAR BASE DE DATOS Y MODIFICAR INSERCIONES
-  */
   try {
     const connection = await mysqlPool.getConnection();
     const sqlInsercion = 'INSERT INTO user SET ?';
