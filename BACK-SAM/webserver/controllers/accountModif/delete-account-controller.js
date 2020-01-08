@@ -5,11 +5,8 @@ const mysqlPool = require('../../../database/mysql-pool');
 
 async function deleteAccount(req, res, next) {
 
-  //berería ser:
   const { userId } = req.claims;
-
-  // por ahora  usaremos para probar si borra:
-  // const userId = req.params.userId
+  console.log(userId);
   try {
     const sqlDeleteUser = `DELETE FROM user WHERE id='${userId}'`;
 

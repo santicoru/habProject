@@ -12,6 +12,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/account", routes.account);
+app.use('/api/acModif', routes.accountModif)
 app.use("/api/auth", routes.auth);
 app.use("/api/product", routes.product);
 app.use("/api/catalogue", routes.catalogue);
