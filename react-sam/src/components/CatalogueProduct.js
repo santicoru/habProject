@@ -28,7 +28,7 @@ export function CatalogueProduct() {
           <p>{product.description}</p>
           <p>
             <span className="iprice">{`${product.init_price}€ `}</span>
-            <span className="dis">{` -${product.discount}% `}</span>
+            ......<span className="dis">{` -${product.discount}% `}</span>
             <span className="fprice">{` ${product.final_price}€`}</span>
           </p>
         </div>

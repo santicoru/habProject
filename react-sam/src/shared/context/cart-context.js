@@ -56,9 +56,8 @@ export function CartProvider({ children }) {
     0
   );
 
-  const resetCart = () => {
+  const resetCart = async () => {
     localStorage.removeItem("cart");
-    setCart([]);
   };
 
   return (

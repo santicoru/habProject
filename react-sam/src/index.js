@@ -21,7 +21,8 @@ import { Product } from './pages/Product';
 import { ShoppingCart } from './pages/ShoppingCart';
 import { Confirmation } from './components/Confirmation';
 import { CatalogueProduct } from './components/CatalogueProduct';
-
+import { OrderHistory } from './pages/OrderHistory';
+import { RateProduct } from './pages/RateProduct';
 
 function App() {
   return (
@@ -49,6 +50,12 @@ function App() {
             </Route>
             <Route path="/confirmation">
               <Confirmation />
+            </Route>
+            <Route path='/ordersHistory'>
+              <OrderHistory />
+            </Route>
+            <Route path='/rateProduct/:productId'>
+              <RateProduct />
             </Route>
             <Route path='/fqa'>
               <Fqa />

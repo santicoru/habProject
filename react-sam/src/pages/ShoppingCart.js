@@ -2,10 +2,13 @@ import React from 'react';
 import { useHistory } from 'react-router';
 import { useCart } from '../shared/context/cart-context';
 import { Link } from 'react-router-dom';
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
+import { useAuth } from '../shared/context/auth-context';
+import { orderF } from '../http/orderFinal';
 
 function ShoppingCart() {
+  const { role } = useAuth();
   const {
     cart,
     totalPrice,
@@ -14,8 +17,26 @@ function ShoppingCart() {
     addItemToCart,
     removeItem
   } = useCart();
+
   const history = useHistory();
 
+  const buy = () => {
+    if (role) {
+      const order = (localStorage.getItem('cart'));
+      console.log(order);
+      const price_final = totalPrice;
+      console.log(price_final);
+      const orderFinal = { order, price_final };
+      console.log(orderFinal);
+      history.push("/confirmation")
+      return orderF({ orderFinal }).catch(error => {
+        console.log(error);
+      });
+    }
+    else {
+      history.push("/login")
+    }
+  }
   return (
     <React.Fragment>
       <Header />
@@ -56,7 +77,7 @@ function ShoppingCart() {
       </ul>
       <p>Total price = {`${totalPrice}€`}</p>
       {totalItems > 0 && (
-        <button onClick={() => history.push("/confirmation")}>Comprar</button>
+        <button onClick={buy}>Comprar</button>
       )}
       <Footer />
     </React.Fragment>

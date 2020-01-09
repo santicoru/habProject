@@ -12,16 +12,16 @@ export function Footer() {
     <footer className="foot">
       <section className="social">
         <ul>
-          <a href="">
+          <a href="samFacebook">
             <img src={facebook} alt="facebook" />
           </a>
-          <a href="">
+          <a href="samInstagram">
             <img src={instagram} alt="instagram" />
           </a>
-          <a href="">
+          <a href="samLinkedin">
             <img src={linkedin} alt="linkedin" />
           </a>
-          <a href="">
+          <a href="sanTwitter">
             <img src={twitter} alt="twitter" />
           </a>
         </ul>
