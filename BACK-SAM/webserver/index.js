@@ -12,11 +12,13 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/api/account", routes.account);
+app.use('/api/acModif', routes.accountModif)
 app.use("/api/auth", routes.auth);
 app.use("/api/product", routes.product);
 app.use("/api/catalogue", routes.catalogue);
 app.use('/api/ordersHistory', routes.ordersHistory);
-
+app.use('/api/orderFinal', routes.orderFinal);
+app.use('/api/rateProduct', routes.rateProduct);
 
 app.get("/", (req, res, next) => {
   res.send("base url: /api");

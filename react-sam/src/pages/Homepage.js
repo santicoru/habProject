@@ -1,5 +1,4 @@
 import React from "react";
-import logo from "../assets/images/SAMlogotipo.png";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 

@@ -21,7 +21,7 @@ async function getOrder(req, res, next) {
         inner join order_final of
         on eproo.id_order = of.id
         inner join user us
-        on of.id = us.id
+        on of.user_id = us.id
         where us.id=${userId}
 
         union all
@@ -46,16 +46,14 @@ async function getOrder(req, res, next) {
         inner join order_final of
         on epaqo.id_order = of.id
         inner join user us
-        on of.id = us.id
+        on of.user_id = us.id
         where us.id=${userId}`;
 
         const connection = await mysqlPool.getConnection();
         const [orderData] = await connection.execute(getOrdersQuery);
         connection.release();
 
-        return res.send({
-            data: orderData,
-        });
+        return res.status(200).send(orderData);
     } catch (e) {
         console.error(e);
         res.status(500).send({

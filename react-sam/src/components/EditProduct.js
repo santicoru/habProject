@@ -1,4 +1,4 @@
-import React, { useEffect, useReducer, useState } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { getProductCo } from '../http';
 import { deleteProduct } from '../http/ProductService';
 import { ProductListCo } from './ProductListCo';
