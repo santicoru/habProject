@@ -14,8 +14,7 @@ export function CatalogueProduct() {
   useEffect(() => {
     getCatalogueProduct(params.productId)
       .then(response => setProduct(response.data[0]));
-  }, [params.producId]);
-
+  }, [params.productId]);
   console.log(product);
   if (!product) return null;
 
