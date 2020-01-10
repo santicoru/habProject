@@ -1,0 +1,167 @@
+.product-co {
+  font-family: 'Ubuntu', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-co h1 {
+  padding-top: 1rem;
+  font-size: 30px;
+  letter-spacing: 0.22rem;
+}
+
+/*Botones*/
+
+/*Botón crear-editar producto*/
+
+.select-product button,
+.send-btn {
+  background: transparent;
+  border-radius: 6px;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  margin: 1.6rem;
+  text-align: center;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.select-product button,
+.send-btn {
+  background-color: none;
+  color: white;
+  border: none;
+}
+
+.select-product button:hover,
+.send-btn:hover {
+  background-color: #f1f3ce;
+  color: black;
+}
+
+/*Botón publicar*/
+
+.send-btn {
+  background: transparent;
+  border-radius: 6px;
+  border: none;
+  color: black;
+  padding: 16px 32px;
+  margin: 1.6rem;
+  text-align: center;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.send-btn {
+  background-color: none;
+  color: white;
+  border: none;
+  margin-bottom: 4rem;
+}
+
+.send-btn:hover {
+  background-color: #ff4646;
+  color: white;
+}
+
+/*Formulario*/
+
+.form-create-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  /*   background: #f3f889;
+ */
+  /* border-radius: 8px; */
+}
+
+.group1,
+.group2 {
+  position: relative;
+  margin: 20px 0 20px 0;
+  width: 100%;
+}
+
+.group1 input,
+#description {
+  background: transparent;
+  font-size: 18px;
+  padding: 8px 0px 6px 5px;
+  display: block;
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid rgb(150, 148, 138);
+  resize: none;
+}
+
+.group1 input:focus,
+#description:focus {
+  outline: none;
+  color: white;
+}
+
+.group1 input:focus ~ label,
+.group1 input:valid ~ label,
+#description:focus ~ label,
+#description:valid ~ label {
+  position: absolute;
+  top: -8px;
+  font-size: 12px;
+  color: #c0e0fa;
+}
+
+div.grou2 {
+  margin-right: 0;
+}
+
+#category {
+  margin-left: 4rem;
+  padding: 0.2rem;
+  font-size: 16px;
+  font-family: 'Rubik', 'sans serif';
+  border-radius: 6px;
+}
+
+#photo {
+  padding-left: 5rem;
+}
+
+.form-create-product label {
+  color: black;
+  font-size: 16px;
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  transition: 0.5s ease all;
+  pointer-events: none;
+}
+
+.group1 input:focus ~ .bar::before,
+#description:focus ~ .bar::before {
+  width: 100%;
+}
+.bar {
+  position: relative;
+  display: block;
+  width: 95%;
+}
+.bar::before {
+  content: '';
+  height: 3px;
+  width: 0%;
+  bottom: 0;
+  position: absolute;
+  background: linear-gradient(to right, #6a82fb, #fc5c7d);
+  transition: 0.3s ease all;
+  left: 0%;
+}
