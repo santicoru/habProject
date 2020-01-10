@@ -8,6 +8,7 @@ const catalogue = require("./catalogue-router");
 const ordersHistory = require('./ordersHistory-router');
 const orderFinal = require('./orderFinal-router');
 const rateProduct = require('./rateProduct-router');
+const filterCatalogue = require('./filters-router');
 
 module.exports = {
   account,
@@ -18,4 +19,5 @@ module.exports = {
   catalogue,
   orderFinal,
   rateProduct,
+  filterCatalogue,
 };
