@@ -16,7 +16,7 @@ export function CatalogueProduct() {
     getCatalogueProduct(params.productId)
       .then(response => setProduct(response.data));
   }, [params.producId]);
-
+  
   console.log(product);
   if (!product) return null;
 

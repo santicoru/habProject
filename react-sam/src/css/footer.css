@@ -1,0 +1,122 @@
+.foot {
+  background-image: url('../assets/images/patron.png');
+  font-family: 'Rubik', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 0;
+  left: 0;
+  position: relative;
+  width: 100vw;
+}
+
+.social ul a img {
+  height: 40px;
+  width: auto;
+  padding: 0 2rem;
+}
+
+.social ul a img:hover {
+  color: rgb(61, 173, 70);
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+  padding-left: 2rem;
+}
+
+.elements ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.elements ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  padding: 0 3rem;
+}
+
+.elements a:hover {
+  color: rgb(68, 133, 253);
+  transition: 0.3s;
+}
+
+.copyright {
+  padding-bottom: 0.5rem;
+  font-size: 13px;
+}
+
+@media screen and (max-width: 770px) {
+  .social {
+    grid-area: social;
+  }
+  .elements {
+    grid-area: elements;
+  }
+  .logo {
+    grid-area: logo;
+  }
+  .copyright {
+    grid-area: copyright;
+    justify-self: center;
+  }
+
+  .foot {
+    display: grid;
+    grid-template-areas:
+      ' social logo'
+      ' social elements'
+      ' social elements'
+      ' copyright copyright';
+  }
+
+  .social {
+    place-self: center;
+  }
+
+  .social ul {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .social [alt='instagram'] {
+    padding-top: 6px;
+  }
+
+  .social [alt='linkedin'] {
+    padding-top: 6px;
+  }
+
+  .social [alt='twitter'] {
+    padding-top: 6px;
+  }
+
+  .logo {
+    place-self: center;
+    padding-top: 1rem;
+  }
+
+  .elements ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-right: 2rem;
+  }
+
+  .elements ul a {
+    padding-bottom: 0.5rem;
+  }
+
+  .copyright {
+    padding: 0 0.5rem 0.5rem 0.5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .logo {
+    margin-right: 5rem;
+  }
+}
