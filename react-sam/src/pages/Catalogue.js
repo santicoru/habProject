@@ -29,6 +29,27 @@ function Catalogue() {
   const minP = (e) => setProductFilter({ ...productsFilter, minPrice: e.target.value });
   const maxP = (e) => setProductFilter({ ...productsFilter, maxPrice: e.target.value });
   const selC = (e) => setProductFilter({ ...productsFilter, category: e.target.value });
+
+  const showP = () => {
+    return (<ul>
+      {products.map(product => (
+        <li key={product.id}>
+          <Link to={`/catalogueProduct/${product.id}`}>
+            <img src={product.photo} />
+          </Link>
+          <div>
+            <p>{product.name}</p>
+            <p>{product.description}</p>
+            <p>
+              <span className="iprice">{`${product.init_price}€ `}</span>
+              <span className="dis">{` -${product.discount}% `}</span>
+              <span className="fprice">{` ${product.final_price}€`}</span>
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>)
+  }
   return (
     <React.Fragment>
       <Header />
@@ -50,44 +71,10 @@ function Catalogue() {
         <button type='submit' id='buttonFilters'>Buscar</button>
       </form>
       {show === false && (
-        <ul>
-          {products.map(product => (
-            <li key={product.id}>
-              <Link to={`/catalogueProduct/${product.id}`}>
-                <img src={product.photo} />
-              </Link>
-              <div>
-                <p>{product.name}</p>
-                <p>{product.description}</p>
-                <p>
-                  <span className="iprice">{`${product.init_price}€ `}</span>
-                  <span className="dis">{` -${product.discount}% `}</span>
-                  <span className="fprice">{` ${product.final_price}€`}</span>
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        showP()
       )}
       {show === true && (
-        <ul>
-          {products.map(product => (
-            <li key={product.id}>
-              <Link to={`/catalogueProduct/${product.id}`}>
-                <img src={product.photo} />
-              </Link>
-              <div>
-                <p>{product.name}</p>
-                <p>{product.description}</p>
-                <p>
-                  <span className="iprice">{`${product.init_price}€ `}</span>
-                  <span className="dis">{` -${product.discount}% `}</span>
-                  <span className="fprice">{` ${product.final_price}€`}</span>
-                </p>
-              </div>
-            </li>
-          ))}
-        </ul>
+        showP()
       )}
       <Footer />
     </React.Fragment>

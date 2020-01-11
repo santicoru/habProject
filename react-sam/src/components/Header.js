@@ -48,6 +48,10 @@ export function Header() {
     }
   };
 
+  const nameSearch = () => {
+    console.log('hola');
+  }
+
   return (
     <header className="header-nav">
       <nav>
@@ -60,6 +64,7 @@ export function Header() {
           placeholder="estoy buscando ..."
           id="hidden-mobile"
           className={display}
+          onChange={nameSearch}
         />
         <button id="search" onClick={changeVisibility}>
           <img src={lente} alt="lupa" />
