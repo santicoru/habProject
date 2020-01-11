@@ -10,8 +10,7 @@ function Catalogue() {
   const [show, setShow] = useState(false);
 
   useEffect(() => {
-    getCatalogue()
-      .then(response => setProducts(response.data));
+    getCatalogue().then(response => setProducts(response.data));
     console.log(products);
   }, []);
 

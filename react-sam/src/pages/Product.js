@@ -35,7 +35,6 @@ export function Product() {
           <div>{showEdit}</div>
         </section>
       </section>
-      <Footer />
     </React.Fragment>
   );
 }
