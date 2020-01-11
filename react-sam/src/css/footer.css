@@ -6,7 +6,7 @@
   align-items: center;
   bottom: 0;
   left: 0;
-  position: relative;
+  position: absolute;
   width: 100vw;
 }
 
@@ -40,7 +40,7 @@
 }
 
 .elements a:hover {
-  color: rgb(68, 133, 253);
+  color: var(--gradiente);
   transition: 0.3s;
 }
 
@@ -83,7 +83,7 @@
   }
 
   .social [alt='instagram'] {
-    padding-top: 6px;
+    padding: 6px 0 0 0;
   }
 
   .social [alt='linkedin'] {
@@ -91,7 +91,7 @@
   }
 
   .social [alt='twitter'] {
-    padding-top: 6px;
+    padding: 6px 0 0 0;
   }
 
   .logo {
@@ -102,6 +102,7 @@
   .elements ul {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding-right: 2rem;
   }

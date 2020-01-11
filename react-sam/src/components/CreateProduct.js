@@ -27,7 +27,7 @@ export function CreateProduct() {
       id='createProduct'
       name='createProduct'
     >
-      <h4>Crear producto</h4>
+      <h2>Crear producto</h2>
       <div className='group1'>
         <input type='text' name='name' id='name' required />
         <span class='bar'></span>

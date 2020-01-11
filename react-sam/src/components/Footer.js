@@ -1,51 +1,59 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-import facebook from "../assets/images/facebook.png";
-import instagram from "../assets/images/instagram.png";
-import linkedin from "../assets/images/linkedin.png";
-import twitter from "../assets/images/twitter.png";
-import logo from "../assets/images/logo-a.png";
+import facebook from '../assets/images/facebook.png';
+import instagram from '../assets/images/instagram.png';
+import linkedin from '../assets/images/linkedin.png';
+import twitter from '../assets/images/twitter.png';
+import logo from '../assets/images/logo-a.png';
 
 export function Footer() {
   return (
-    <footer className="foot">
-      <section className="social">
+    <footer className='foot'>
+      <section className='social'>
         <ul>
-          <a href="samFacebook">
-            <img src={facebook} alt="facebook" />
+          <a href='samFacebook'>
+            <img src={facebook} alt='facebook' />
           </a>
-          <a href="samInstagram">
-            <img src={instagram} alt="instagram" />
+          <a href='samInstagram'>
+            <img src={instagram} alt='instagram' />
           </a>
-          <a href="samLinkedin">
-            <img src={linkedin} alt="linkedin" />
+          <a href='samLinkedin'>
+            <img src={linkedin} alt='linkedin' />
           </a>
-          <a href="sanTwitter">
-            <img src={twitter} alt="twitter" />
+          <a href='sanTwitter'>
+            <img src={twitter} alt='twitter' />
           </a>
         </ul>
       </section>
-      <section className="logo">
-        <img src={logo} alt="logo" />
+      <section className='logo'>
+        <img src={logo} alt='logo' />
       </section>
-      <section className="elements">
+      <section className='elements'>
         <ul>
           <li>
-            <Link to="/about">Sobre nosotros</Link>
+            <Link to='/about' className='link1'>
+              Sobre nosotros
+            </Link>
           </li>
           <li>
-            <Link to="">Contacto</Link>
+            <Link to='' className='link2'>
+              Contacto
+            </Link>
           </li>
           <li>
-            <Link to="/legal">Privacidad</Link>
+            <Link to='/legal' className='link3'>
+              Privacidad
+            </Link>
           </li>
           <li>
-            <Link to="/fqa">FAQs</Link>
+            <Link to='/fqa' className='link4'>
+              FAQs
+            </Link>
           </li>
         </ul>
       </section>
-      <section className="copyright">
+      <section className='copyright'>
         Developed by: Santi, Andy y Martín. Copyright SAM (c).
       </section>
     </footer>
