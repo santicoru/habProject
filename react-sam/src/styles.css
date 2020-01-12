@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Rubik:400,500,700|Ubuntu:400,700&display=swap');
 @import url('/css/homepage.css');
 @import url('css/gestionar-productos.css');
+@import url('css/catalogue.css');
 @import url('css/about.css');
 @import url('css/footer.css');
 
 :root {
   --azul1: #01496b;
   --rojo1: #fd5c5c;
+  --gris1: rgb(180, 178, 166);
   --gradiente: linear-gradient(to right, #6a82fb, #fc5c7d);
   --ubuntu: 'Ubuntu', sans-serif;
   --rubik: 'Rubik', sans-serif;
