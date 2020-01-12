@@ -7,7 +7,7 @@ import { Footer } from '../components/Footer';
 import { useAuth } from '../shared/context/auth-context';
 import { orderF } from '../http/orderFinal';
 
-function ShoppingCart() {
+export function ShoppingCart() {
   const { role } = useAuth();
   const {
     cart,
@@ -83,5 +83,3 @@ function ShoppingCart() {
     </React.Fragment>
   );
 }
-
-export { ShoppingCart };

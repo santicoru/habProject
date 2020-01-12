@@ -12,6 +12,9 @@ body {
   height: 100%;
 }
 
+.inputHidden{
+  display: none;
+}
 /* homepage */
 
 img.logo-homepage {
@@ -45,7 +48,7 @@ section.photo-back h1 {
   width: 100vw;
   top: 0;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   border-top: 1px solid black;
   border-bottom: 1px solid black;

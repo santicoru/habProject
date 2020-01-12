@@ -8,7 +8,7 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
   const [product, setProduct] = useState(defaultProduct);
 
   const { register, handleSubmit, setError } = useForm({
-    mode: "onBlur" // Lanza validaciones cada vez que hago blur
+    mode: "onBlur"
   });
 
   const handleUpdate = formData => {
@@ -20,13 +20,12 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
     })
   };
 
-
   return (
     <div className='product-co'>
       <p>Nombre: {defaultProduct.name}</p>
       <p>Descripción: {defaultProduct.description}</p>
       <p>Categoría: {defaultProduct.category}</p>
-      <img src={defaultProduct.photo} />
+      <img src={defaultProduct.photo} alt='imagen producto' />
       <form onSubmit={handleSubmit(handleUpdate)}>
         <label>Precio inical: </label>
         <input type='number' name='init_price' placeholder={defaultProduct.init_price} ref={register(EDITPRODUCT_VALIDATIONS.init_price)} />
