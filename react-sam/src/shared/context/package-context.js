@@ -7,6 +7,9 @@ export function PackProvider({ children }) {
     JSON.parse(localStorage.getItem("pack")) || []
   );
 
+  const [code, setCode] = useState('');
+
+
   const addItemToPack = packItem => {
     let updatedPack = null;
 
@@ -41,7 +44,9 @@ export function PackProvider({ children }) {
         removeItem,
         totalItems,
         totalPrice,
-        resetPack
+        resetPack,
+        code,
+        setCode
       }}
     >
       {children}

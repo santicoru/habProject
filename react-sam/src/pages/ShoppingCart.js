@@ -75,8 +75,19 @@ export function ShoppingCart() {
         ))}
       </ul>
       <p>Total price = {`${totalPrice}€`}</p>
+<<<<<<< HEAD
+      <button><Link to='/catalogue'>Seguir comprando</Link></button>
+      {totalItems > 0 && (
+        <button onClick={buy}>Comprar</button>
+      )}
+      <Footer />
+    </React.Fragment>
+  );
+}
+=======
       {totalItems > 0 && <button onClick={buy}>Comprar</button>}
     </React.Fragment>
   );
 }
 
+>>>>>>> cc7e5ae8d1fd331a4bf54ec598587b732b3bce16

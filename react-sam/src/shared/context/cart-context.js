@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from "react-router-dom";
 
 const CartContext = React.createContext();
 
@@ -6,6 +7,7 @@ export function CartProvider({ children }) {
   const [cart, setCart] = useState(
     JSON.parse(localStorage.getItem("cart")) || []
   );
+  const history = useHistory();
 
   const addItemToCart = cartItem => {
     let updatedCart = null;
@@ -23,6 +25,7 @@ export function CartProvider({ children }) {
 
     setCart(updatedCart);
     localStorage.setItem("cart", JSON.stringify(updatedCart));
+    history.push("/shoppingCart");
   };
 
   const removeItemFromCart = cartItem => {

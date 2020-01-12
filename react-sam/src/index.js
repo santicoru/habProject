@@ -14,9 +14,6 @@ import { Register } from './pages/Register';
 import { Catalogue } from './pages/Catalogue';
 import { Fqa } from './pages/Fqa';
 import { Legal } from './pages/Legal';
-import { ProfileColaborator } from './pages/ProfileColaborator';
-import { ProfileOrganizer } from './pages/ProfileOrganizer';
-import { ProfileBuyer } from './pages/ProfileBuyer';
 import { About } from './pages/About';
 import { Product } from './pages/Product';
 import { ShoppingCart } from './pages/ShoppingCart';
@@ -26,6 +23,7 @@ import { OrderHistory } from './pages/OrderHistory';
 import { RateProduct } from './pages/RateProduct';
 import { PackOr } from './components/PackOr';
 import { CreatePack } from './pages/CreatePack';
+import { PersonalAccount } from './pages/PersonalAccount';
 
 function App() {
   return (
@@ -70,17 +68,11 @@ function App() {
               <Route path='/about'>
                 <About />
               </Route>
-              <PrivateRoute exact path='/profileBuyer' allowedRole='buyer'>
-                <ProfileBuyer />
-              </PrivateRoute>
-              <PrivateRoute exact path='/profileColaborator' allowedRole='colaborator'>
-                <ProfileColaborator />
-              </PrivateRoute>
+              <Route path='/personalAccount'>
+                <PersonalAccount />
+              </Route>
               <PrivateRoute exact path='/productCo' allowedRole='colaborator'>
                 <Product />
-              </PrivateRoute>
-              <PrivateRoute exact path='/profileOrganizer' allowedRole='organizer'>
-                <ProfileOrganizer />
               </PrivateRoute>
               <PrivateRoute exact path='/packOr' allowedRole='organizer'>
                 <PackOr />
