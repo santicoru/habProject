@@ -1,0 +1,100 @@
+.catalogue-complete {
+  font-family: var(--ubuntu);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title h2 {
+  padding-top: 1rem;
+  font-size: 30px;
+  letter-spacing: 0.22rem;
+}
+
+.form-catalogue-filters {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: none;
+}
+
+select#category {
+  background: var (--gris1);
+  letter-spacing: 0.2rem;
+  margin-left: 0;
+  padding-left: 2rem;
+
+  margin-top: 1rem;
+}
+
+input#priceMin {
+  width: 120px;
+}
+
+div.group1[name='max'] {
+  margin-top: 0;
+}
+
+input#priceMax {
+  width: 120px;
+}
+
+#priceMin:focus ~ .bar::before,
+#priceMax:focus ~ .bar::before {
+  width: 100%;
+}
+.bar {
+  position: relative;
+  display: block;
+  width: 135px;
+}
+.bar::before {
+  content: '';
+  height: 3px;
+  width: 0%;
+  bottom: 0;
+  position: absolute;
+  background: var(--gradiente);
+  transition: 0.3s ease all;
+  left: 0%;
+}
+
+@media (min-width: 900px) {
+  .catalogue-complete {
+    display: grid;
+    grid-template-columns: 300px 100vw;
+    grid-template-rows: 140px 1200px;
+    grid-template-areas:
+      'title title'
+      'filter prducts';
+  }
+
+  .title {
+    grid-area: title;
+    place-self: center;
+  }
+
+  .catalogue-filter {
+    grid-area: filter;
+    justify-self: center;
+    align-self: start;
+    padding-top: 3rem;
+  }
+
+  select#category {
+    width: 130px;
+    letter-spacing: 0;
+    padding-left: 0;
+  }
+
+  #buttonFilters {
+    margin-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .catalogue-products {
+    grid-area: products;
+  }
+}
