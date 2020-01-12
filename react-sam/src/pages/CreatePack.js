@@ -4,18 +4,17 @@ import { usePack } from '../shared/context/package-context';
 import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { useAuth } from '../shared/context/auth-context';
 import { createPack } from '../http/packService';
 
 export function CreatePack() {
   const [expireDate, setExpireDate] = useState();
-
-  const { role } = useAuth();
   const {
     pack,
     totalPrice,
     totalItems,
-    removeItem
+    removeItem,
+    code,
+    setCode
   } = usePack();
 
   console.log(pack);
@@ -33,9 +32,15 @@ export function CreatePack() {
     console.log(date_end);
     const createP = { order, date_end };
     console.log(createP);
-    return createPack({ createP }).catch(error => {
-      console.log(error);
-    });
+    history.push('/confirmation');
+    return createPack({ createP })
+      .then(response => {
+        console.log(response.data);
+        setCode(response.data);
+      })
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   return (
@@ -68,6 +73,9 @@ export function CreatePack() {
       <p>Total price = {`${totalPrice}€`}</p>
       {totalItems > 0 && (
         <button onClick={buy}>GENERAR PAQUETE</button>
+      )}
+      {code.length > 0 && (
+        <p>Codigo: {code}</p>
       )}
       <Footer />
     </React.Fragment>

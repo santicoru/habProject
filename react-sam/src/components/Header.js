@@ -34,18 +34,10 @@ export function Header() {
   };
 
   const selectProfile = () => {
-    switch (role) {
-      case "organizer":
-        return "/profileOrganizer";
-        break;
-      case "colaborator":
-        return "/profileColaborator";
-        break;
-      case "buyer":
-        return "/profileBuyer";
-        break;
-      default:
-        return "/login";
+    if (role) {
+      return "personalAccount"
+    } else {
+      return "/login"
     }
   };
 

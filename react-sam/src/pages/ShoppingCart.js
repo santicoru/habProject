@@ -76,6 +76,7 @@ export function ShoppingCart() {
         ))}
       </ul>
       <p>Total price = {`${totalPrice}€`}</p>
+      <button><Link to='/catalogue'>Seguir comprando</Link></button>
       {totalItems > 0 && (
         <button onClick={buy}>Comprar</button>
       )}

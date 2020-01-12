@@ -28,7 +28,7 @@ export function CatalogueProduct() {
     getCatalogueProduct(params.productId)
       .then(response => setProduct(response.data));
   }, [params.producId]);
-  
+
   console.log(product);
   if (!product) return null;
 
@@ -120,7 +120,6 @@ export function CatalogueProduct() {
           Back
       </a>
         {role === 'organizer' && (
-          // <button onClick={formPack()}>Ofertar en paquete</button>
           <button onClick={() => addItemToPack(productOffered)}>Añadir a paquete</button>
         )}
         <button onClick={() => addItemToCart(product[0])}>Añadir al carrito</button>

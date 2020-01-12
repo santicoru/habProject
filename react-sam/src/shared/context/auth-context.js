@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
       setIsAuthenticated(true);
 
       if (token) {
-        history.push("/");
+        history.push("/catalogue");
       }
     } catch (error) {
       return Promise.reject(error);
@@ -47,7 +47,7 @@ export function AuthProvider({ children }) {
       setRole(theRole.role);
       setIsAuthenticated(true);
       if (token) {
-        history.push("/");
+        history.push("/catalogue");
       }
     } catch (error) {
       return Promise.reject(error);
