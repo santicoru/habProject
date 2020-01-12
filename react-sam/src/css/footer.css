@@ -8,6 +8,11 @@
   width: 100vw;
   bottom: 0;
   left: 0;
+<<<<<<< HEAD
+=======
+  position: absolute;
+  width: 100vw;
+>>>>>>> cc7e5ae8d1fd331a4bf54ec598587b732b3bce16
 }
 
 .social ul a img {
@@ -40,7 +45,7 @@
 }
 
 .elements a:hover {
-  color: rgb(68, 133, 253);
+  color: var(--gradiente);
   transition: 0.3s;
 }
 
@@ -83,7 +88,7 @@
   }
 
   .social [alt='instagram'] {
-    padding-top: 6px;
+    padding: 6px 0 0 0;
   }
 
   .social [alt='linkedin'] {
@@ -91,7 +96,7 @@
   }
 
   .social [alt='twitter'] {
-    padding-top: 6px;
+    padding: 6px 0 0 0;
   }
 
   .logo {
@@ -102,6 +107,7 @@
   .elements ul {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     padding-right: 2rem;
   }

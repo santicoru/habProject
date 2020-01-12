@@ -13,8 +13,8 @@ export function ProductListCo({ products, selectedIndex, onProductSelected }) {
 
   return (
     <div className='list-products-co'>
-      <h1>PRODUCTOS OFERTADOS:</h1>
-      <ul>
+      <h2>Productos publicados</h2>
+      <ul className='product-list'>
         {products.map((product, index) => (
           <li
             key={product.id}
@@ -29,5 +29,5 @@ export function ProductListCo({ products, selectedIndex, onProductSelected }) {
         ))}
       </ul>
     </div>
-  )
+  );
 }

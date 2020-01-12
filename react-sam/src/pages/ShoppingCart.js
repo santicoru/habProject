@@ -22,21 +22,20 @@ export function ShoppingCart() {
 
   const buy = () => {
     if (role) {
-      const order = (localStorage.getItem('cart'));
+      const order = localStorage.getItem('cart');
       console.log(order);
       const price_final = totalPrice;
       console.log(price_final);
       const orderFinal = { order, price_final };
       console.log(orderFinal);
-      history.push("/confirmation")
+      history.push('/confirmation');
       return orderF({ orderFinal }).catch(error => {
         console.log(error);
       });
+    } else {
+      history.push('/login');
     }
-    else {
-      history.push("/login")
-    }
-  }
+  };
   return (
     <React.Fragment>
       <Header />
@@ -76,6 +75,7 @@ export function ShoppingCart() {
         ))}
       </ul>
       <p>Total price = {`${totalPrice}€`}</p>
+<<<<<<< HEAD
       <button><Link to='/catalogue'>Seguir comprando</Link></button>
       {totalItems > 0 && (
         <button onClick={buy}>Comprar</button>
@@ -84,3 +84,10 @@ export function ShoppingCart() {
     </React.Fragment>
   );
 }
+=======
+      {totalItems > 0 && <button onClick={buy}>Comprar</button>}
+    </React.Fragment>
+  );
+}
+
+>>>>>>> cc7e5ae8d1fd331a4bf54ec598587b732b3bce16
