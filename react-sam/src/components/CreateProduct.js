@@ -2,7 +2,6 @@ import React from 'react';
 import { createProductCo } from '../http/ProductService';
 
 export function CreateProduct() {
-
   const handleFormSubmit = e => {
     e.preventDefault();
     createP().then(response => {
@@ -15,54 +14,72 @@ export function CreateProduct() {
     const formData = new FormData(cProduct);
     const config = {
       headers: {
-        "content-type": "multipart/form-data"
+        'content-type': 'multipart/form-data'
       }
     };
     return createProductCo(formData, config);
   };
 
   return (
-    <form onSubmit={handleFormSubmit} className='form-create-product' id='createProduct' name='createProduct'>
-      <fieldset>
+    <form
+      onSubmit={handleFormSubmit}
+      className='form-create-product'
+      id='createProduct'
+      name='createProduct'
+    >
+      <h4>Crear producto</h4>
+      <div className='group1'>
+        <input type='text' name='name' id='name' required />
+        <span class='bar'></span>
         <label>Nombre</label>
-        <input type="text" name="name" id='name' />
-      </fieldset>
-      <fieldset>
-        <label>Descripción</label>
+      </div>
+      <div className='group1'>
         <textarea
-          name="description"
+          name='description'
           id='description'
-          cols="30"
-          rows="10"
-          placeholder="Descripción..."
+          cols='30'
+          rows='2'
+          required
         ></textarea>
-      </fieldset>
-      <fieldset>
-        <label>Categoría</label>
-        <select name="category" id="category">
-          <option value="">Seleccionar</option>
-          <option value="admin">Administración</option>
-          <option value="desing">Diseño</option>
-          <option value="developer">Desarrollo</option>
+        <span class='bar'></span>
+        <label>Descripción</label>
+      </div>
+      <div className='group2'>
+        Categoría
+        <select name='category' id='category' required>
+          <option value=''>Seleccionar</option>
+          <option value='admin'>Administración</option>
+          <option value='desing'>Diseño</option>
+          <option value='developer'>Desarrollo</option>
         </select>
-      </fieldset>
-      <fieldset>
-        <label>Imagen</label>
-        <input type="file" name='photo' id='photo' />
-      </fieldset>
-      <fieldset>
+      </div>
+      <div className='group2'>
+        Imagen
+        <input type='file' name='photo' id='photo' />
+      </div>
+      <div className='group1'>
+        <input type='number' name='init_price' id='init_price' required />
+        <span class='bar'></span>
         <label>Precio inicial</label>
-        <input type="number" name="init_price" id='init_price' placeholder='€' />
-      </fieldset>
-      <fieldset>
+      </div>
+      <div className='group1'>
+        <input type='number' name='discount' id='discount' required />
+        <span class='bar'></span>
         <label>Descuento</label>
-        <input type="number" name="discount" id='discount' placeholder='%' />
-      </fieldset>
-      <fieldset>
+      </div>
+      <div className='group1'>
+        <input type='number' name='final_price' id='final_price' required />
+        <span className='bar'></span>
         <label>Precio final</label>
-        <input type="number" name="final_price" id='final_price' placeholder='€' />
-      </fieldset>
-      <button type="submit" value='submit' id='sendProdcut'>Publicar</button>
-    </form >
-  )
+      </div>
+      <button
+        type='submit'
+        value='submit'
+        id='sendProdcut'
+        className='send-btn'
+      >
+        Publicar
+      </button>
+    </form>
+  );
 }

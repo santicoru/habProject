@@ -1,31 +1,34 @@
 import React, { useState } from 'react';
 import { CreateProduct } from '../components/CreateProduct';
 import { EditProduct } from '../components/EditProduct';
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 export function Product() {
-
   const [showCreate, setShowCreate] = useState();
   const [showEdit, setShowEdit] = useState();
 
   const choiceCreate = () => {
     setShowEdit('');
     setShowCreate(<CreateProduct />);
-  }
+  };
 
   const choiceEdit = () => {
     setShowCreate('');
     setShowEdit(<EditProduct />);
-  }
+  };
   return (
     <React.Fragment>
       <Header />
       <section className='product-co'>
         <h1>Gestionar mis productos</h1>
         <section className='select-product'>
-          <button className='bto-product1' onClick={choiceCreate} >CREAR PRODUCTO</button>
-          <button className='bto-product' onClick={choiceEdit} >EDITAR PRODUCTO</button>
+          <button className='bto-product1' onClick={choiceCreate}>
+            Crear producto
+          </button>
+          <button className='bto-product' onClick={choiceEdit}>
+            Editar producto
+          </button>
         </section>
         <section className='selection-po'>
           <div>{showCreate}</div>
@@ -34,5 +37,5 @@ export function Product() {
       </section>
       <Footer />
     </React.Fragment>
-  )
+  );
 }
