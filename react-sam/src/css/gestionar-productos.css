@@ -1,5 +1,5 @@
 .product-co {
-  font-family: 'Ubuntu', sans-serif;
+  font-family: var(--ubuntu);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,22 +9,28 @@
   padding-top: 1rem;
   font-size: 30px;
   letter-spacing: 0.22rem;
+  text-align: center;
 }
 
 /*Botones*/
 
 /*Botón crear-editar producto*/
-
+.select-product {
+  display: flex;
+  flex-direction: column;
+}
 .select-product button,
 .send-btn {
   background: transparent;
   border-radius: 6px;
   border: none;
   color: black;
-  padding: 16px 32px;
+  padding: 16px 25px;
   margin: 1.6rem;
   text-align: center;
   font-size: 16px;
+  font-family: var(--rubik);
+  letter-spacing: 0.1rem;
   transition-duration: 0.4s;
   cursor: pointer;
   text-decoration: none;
@@ -54,6 +60,8 @@
   margin: 1.6rem;
   text-align: center;
   font-size: 16px;
+  font-family: var(--rubik);
+  letter-spacing: 0.1rem;
   transition-duration: 0.4s;
   cursor: pointer;
   text-decoration: none;
@@ -64,13 +72,15 @@
   background-color: none;
   color: white;
   border: none;
-  margin-bottom: 4rem;
+  /* margin-bottom: 4rem; */
 }
 
 .send-btn:hover {
-  background-color: #ff4646;
+  background-color: var(--rojo1);
   color: white;
 }
+
+/*Crear Producto*/
 
 /*Formulario*/
 
@@ -78,11 +88,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
 
-  /*   background: #f3f889;
- */
-  /* border-radius: 8px; */
+  align-items: center;
 }
 
 .group1,
@@ -115,25 +122,23 @@
 #description:focus ~ label,
 #description:valid ~ label {
   position: absolute;
-  top: -8px;
+  top: -10px;
   font-size: 12px;
   color: #c0e0fa;
-}
-
-div.grou2 {
-  margin-right: 0;
 }
 
 #category {
   margin-left: 4rem;
   padding: 0.2rem;
-  font-size: 16px;
-  font-family: 'Rubik', 'sans serif';
+  font-size: 14px;
+  font-family: var(--rubik);
   border-radius: 6px;
 }
 
-#photo {
+input#photo {
   padding-left: 5rem;
+  font-family: var(--rubik);
+  font-size: 14px;
 }
 
 .form-create-product label {
@@ -161,7 +166,57 @@ div.grou2 {
   width: 0%;
   bottom: 0;
   position: absolute;
-  background: linear-gradient(to right, #6a82fb, #fc5c7d);
+  background: var(--gradiente);
   transition: 0.3s ease all;
   left: 0%;
+}
+
+/*Editar Producto*/
+.list-products-co h2 {
+  text-align: center;
+}
+
+.product-list {
+  list-style-type: none;
+  text-align: center;
+  padding-left: 0;
+}
+
+#edit-prod {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 180px 1fr 300px 120px;
+  max-width: 800px;
+}
+
+.imageData {
+  justify-self: center;
+}
+
+.productData {
+  justify-self: flex-start;
+  padding: 0 0.75rem 0 0.75rem;
+}
+
+.productData p {
+  color: white;
+  font-style: italic;
+}
+
+.editForm {
+  justify-self: center;
+}
+.send-btn {
+  justify-self: center;
+}
+
+.delete-btn {
+  justify-self: center;
+  align-self: center;
+}
+
+@media (min-width: 450px) {
+  .select-product {
+    flex-direction: row;
+  }
 }
