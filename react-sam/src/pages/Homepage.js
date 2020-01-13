@@ -11,6 +11,7 @@ export function Homepage() {
           <h1>SOFTWARE A MEDIDA</h1>
         </section>
       </main>
+      <Footer />
     </React.Fragment>
   );
 }

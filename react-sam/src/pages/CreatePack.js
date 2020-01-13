@@ -46,37 +46,45 @@ export function CreatePack() {
   return (
     <React.Fragment>
       <Header />
-      <h1>Precios especiales:</h1>
-      <ul>
-        {pack.map(item => (
-          <li key={item.id}>
-            <p>
-              <span>{item.name}</span>
-              <span>{` ${item.oldPrice}€ `}</span>
-              <span>{`- ${item.discount}% `}</span>
-              <span>{`-> ${item.newPrice}€  `}</span>
-
-              <button
-                onClick={e => {
-                  e.preventDefault();
-                  removeItem(item.id);
-                }}
-              >
-                Quitar
-              </button>
-            </p>
-          </li>
-        ))}
-      </ul>
-      <label>Paquete valido hasta: </label>
-      <input type='date' name='expirationDate' onChange={expDate} required />
-      <p>Total price = {`${totalPrice}€`}</p>
+      {totalItems === 0 && (
+        <React.Fragment>
+          <h2>No hay productos seleccionados</h2>
+        </React.Fragment>
+      )}
       {totalItems > 0 && (
-        <button onClick={buy}>GENERAR PAQUETE</button>
+        <React.Fragment>
+          <h1>Precios especiales:</h1>
+          <ul>
+            {pack.map(item => (
+              <li key={item.id}>
+                <p>
+                  <span>{item.name}</span>
+                  <span>{` ${item.oldPrice}€ `}</span>
+                  <span>{`- ${item.discount}% `}</span>
+                  <span>{`-> ${item.newPrice}€  `}</span>
+
+                  <button
+                    onClick={e => {
+                      e.preventDefault();
+                      removeItem(item.id);
+                    }}
+                  >
+                    Quitar
+              </button>
+                </p>
+              </li>
+            ))}
+          </ul>
+          <label>Paquete valido hasta: </label>
+          <input type='date' name='expirationDate' onChange={expDate} required />
+          <p>Total price = {`${totalPrice}€`}</p>
+          <button onClick={buy}>GENERAR PAQUETE</button>
+        </React.Fragment>
       )}
       {code.length > 0 && (
         <p>Codigo: {code}</p>
       )}
+      <Link to="/catalogue"><button>Volver al catalogo</button></Link>
       <Footer />
     </React.Fragment>
   );

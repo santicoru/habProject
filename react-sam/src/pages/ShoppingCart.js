@@ -39,55 +39,52 @@ export function ShoppingCart() {
   return (
     <React.Fragment>
       <Header />
-      <ul>
-        {cart.map(item => (
-          <li>
-            <p>
-              <Link to={`/catalogueProduct/${item.id}`}>{item.name}</Link>
-              <span>{` ${item.final_price}€ - `}</span>
-              <span>{` x ${item.quantity} - `}</span>
-              <button
-                onClick={e => {
-                  e.preventDefault();
-                  addItemToCart(item);
-                }}
-              >
-                +
-              </button>
-              <button
-                onClick={e => {
-                  e.preventDefault();
-                  removeItemFromCart(item);
-                }}
-              >
-                -
-              </button>
-              <button
-                onClick={e => {
-                  e.preventDefault();
-                  removeItem(item.id);
-                }}
-              >
-                Remove
-              </button>
-            </p>
-          </li>
-        ))}
-      </ul>
-      <p>Total price = {`${totalPrice}€`}</p>
-<<<<<<< HEAD
-      <button><Link to='/catalogue'>Seguir comprando</Link></button>
-      {totalItems > 0 && (
-        <button onClick={buy}>Comprar</button>
+      {totalItems === 0 && (
+        <h2>Carrito vacio</h2>
       )}
+      {totalItems > 0 && (
+        <React.Fragment>
+          <ul>
+            {cart.map(item => (
+              <li>
+                <p>
+                  <Link to={`/catalogueProduct/${item.id}`}>{item.name}</Link>
+                  <span>{` ${item.final_price}€ - `}</span>
+                  <span>{` x ${item.quantity} - `}</span>
+                  <button
+                    onClick={e => {
+                      e.preventDefault();
+                      addItemToCart(item);
+                    }}
+                  >
+                    +
+              </button>
+                  <button
+                    onClick={e => {
+                      e.preventDefault();
+                      removeItemFromCart(item);
+                    }}
+                  >
+                    -
+              </button>
+                  <button
+                    onClick={e => {
+                      e.preventDefault();
+                      removeItem(item.id);
+                    }}
+                  >
+                    Remove
+              </button>
+                </p>
+              </li>
+            ))}
+          </ul>
+          <p>Total price = {`${totalPrice}€`}</p>
+          <button onClick={buy}>Comprar</button>
+        </React.Fragment>
+      )}
+      <Link to='/catalogue'><button>Seguir comprando</button></Link>
       <Footer />
     </React.Fragment>
   );
 }
-=======
-      {totalItems > 0 && <button onClick={buy}>Comprar</button>}
-    </React.Fragment>
-  );
-}
-
->>>>>>> cc7e5ae8d1fd331a4bf54ec598587b732b3bce16
