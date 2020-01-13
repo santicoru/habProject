@@ -35,7 +35,7 @@ export function Header() {
 
   const selectProfile = () => {
     if (role) {
-      return "personalAccount"
+      return "/personalAccount"
     } else {
       return "/login"
     }

@@ -58,7 +58,7 @@ input#priceMax {
   transition: 0.3s ease all;
   left: 0%;
 }
-
+/* 
 @media (min-width: 900px) {
   .catalogue-complete {
     display: grid;
@@ -97,4 +97,4 @@ input#priceMax {
   .catalogue-products {
     grid-area: products;
   }
-}
+} */

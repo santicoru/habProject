@@ -133,11 +133,14 @@ body {
 }
 
 /* Links */
-li {
+li,
+a,
+a:visited {
   color: #fff;
   font-family: 'Rubik', sans-serif;
+  text-decoration: none;
+  list-style: none;
 }
-
 .header-nav section[data-name='submenu'] ul li a:hover {
   color: rgb(132, 243, 188);
   letter-spacing: 0.1rem;
