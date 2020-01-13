@@ -20,6 +20,7 @@ async function getCodePack(req, res, next) {
 
   try {
     const connection = await mysqlPool.getConnection();
+    const sqlDate = `SELECT date_end FROM package WHERE code_package='${code}'`
     const sqlQuery = `SELECT 
     product.id, product.name, product.photo, product.final_price as old_price,
     package.date_end,
@@ -30,9 +31,13 @@ async function getCodePack(req, res, next) {
     INNER JOIN package
     ON product_include_package.id_paq=package.id
     WHERE package.code_package='${code}'`;
+    const [dateEnd] = await connection.execute(sqlDate);
     const [productsInPack] = await connection.execute(sqlQuery);
     connection.release();
-    return res.status(200).send(productsInPack);
+    return res.status(200).send({
+      data: productsInPack,
+      dateEnd,
+    });
   } catch (e) {
     return res.status(500).send({
       message: e.message,
