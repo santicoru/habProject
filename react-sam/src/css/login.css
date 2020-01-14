@@ -96,12 +96,10 @@
   margin-left: 2.5rem;
 }
 
-.register-link {
-  font-family: var(--rubik);
-  text-decoration: none;
+.register-link a {
+  color: var(--azul1);
 }
 
-.register-link:hover {
+.register-link a:hover {
   text-decoration: underline;
-  text-decoration-color: blue;
 }
