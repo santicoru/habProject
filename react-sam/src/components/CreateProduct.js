@@ -31,7 +31,7 @@ export function CreateProduct() {
       <div className='group1'>
         <input type='text' name='name' id='name' required />
         <span class='bar'></span>
-        <label>Nombre</label>
+        <label className='label'>Nombre</label>
       </div>
       <div className='group1'>
         <textarea
@@ -42,7 +42,7 @@ export function CreateProduct() {
           required
         ></textarea>
         <span class='bar'></span>
-        <label>Descripción</label>
+        <label className='label'>Descripción</label>
       </div>
       <div className='group2'>
         Categoría
@@ -60,17 +60,17 @@ export function CreateProduct() {
       <div className='group1'>
         <input type='number' name='init_price' id='init_price' required />
         <span class='bar'></span>
-        <label>Precio inicial</label>
+        <label className='label'>Precio inicial</label>
       </div>
       <div className='group1'>
         <input type='number' name='discount' id='discount' required />
         <span class='bar'></span>
-        <label>Descuento</label>
+        <label className='label'>Descuento</label>
       </div>
       <div className='group1'>
         <input type='number' name='final_price' id='final_price' required />
         <span className='bar'></span>
-        <label>Precio final</label>
+        <label className='label'>Precio final</label>
       </div>
       <button
         type='submit'

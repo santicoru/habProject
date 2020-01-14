@@ -1,0 +1,148 @@
+.main-register {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  font-family: var(--ubuntu);
+}
+
+.main-register img {
+  padding-top: 0;
+  height: 70px;
+  width: auto;
+}
+
+.main-register h1 {
+  color: var(--azul1);
+  font-family: var(--ubuntu);
+  text-align: center;
+  margin-top: 0;
+}
+
+.election {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.election button {
+  background: transparent;
+  border-radius: 6px;
+  border: none;
+  color: black;
+  padding: 16px 25px;
+  margin: 1rem;
+  text-align: center;
+  font-size: 16px;
+  font-family: var(--rubik);
+  letter-spacing: 0.1rem;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.election button {
+  background-color: none;
+  color: white;
+  border: none;
+}
+
+.election button:hover {
+  background-color: #f1f3ce;
+  color: black;
+}
+
+.form-register {
+  width: 350px;
+  padding: 15px;
+  margin-bottom: 4rem;
+  border-radius: 10px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.group4,
+.only-buyer,
+.doc {
+  position: relative;
+  margin: 15px 0 18px 0;
+  width: 100%;
+}
+
+.form-register label {
+  margin-left: 16px;
+  color: var(--gris1);
+}
+
+.group4 input,
+.only-buyer input,
+#document_number {
+  background: transparent;
+  font-size: 18px;
+  display: block;
+  width: 90%;
+  border: none;
+  border-bottom: 1px solid var(--gris1);
+  resize: none;
+  margin-left: 1rem;
+}
+
+.group4 span {
+  margin-left: 1rem;
+}
+
+.group4 input:focus,
+.only-buyer input:focus,
+#document_number:focus {
+  outline: none;
+  color: var(--azul1);
+  border-bottom: 2px solid #01496b;
+  transition: 0.5s ease all;
+}
+
+#span-mail {
+  margin-bottom: 0;
+}
+
+select#document_type {
+  margin-left: 7.5rem;
+  padding-right: 2rem;
+}
+
+input#document_number {
+  width: 315px;
+  margin-right: 0.8rem;
+}
+
+input#birth_date {
+  color: var(--gris1);
+}
+
+.doc select {
+  background-color: var(--gris1);
+  border-radius: 3px;
+  padding-left: 2rem;
+}
+
+#send {
+  margin-top: 0.75rem;
+  color: black;
+}
+
+.cancel a {
+  color: var(--azul1);
+}
+
+.cancel a:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 900px) {
+  .election {
+    flex-direction: row;
+  }
+}

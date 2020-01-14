@@ -8,7 +8,7 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
   const [product, setProduct] = useState(defaultProduct);
 
   const { register, handleSubmit, setError } = useForm({
-    mode: "onBlur"
+    mode: 'onBlur'
   });
 
   const handleUpdate = formData => {
@@ -39,7 +39,7 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
             placeholder={defaultProduct.init_price}
             ref={register(EDITPRODUCT_VALIDATIONS.init_price)}
           />
-          <span class='bar'></span>
+          <span className='bar'></span>
           <label>Precio inical</label>
         </div>
         <div className='group1'>
@@ -49,7 +49,7 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
             placeholder={defaultProduct.discount}
             ref={register(EDITPRODUCT_VALIDATIONS.discount)}
           />
-          <span class='bar'></span>
+          <span className='bar'></span>
           <label>Descuento</label>
         </div>
         <div className='group1'>
@@ -59,7 +59,7 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
             placeholder={defaultProduct.final_price}
             ref={register(EDITPRODUCT_VALIDATIONS.final_price)}
           />
-          <span class='bar'></span>
+          <span className='bar'></span>
           <label>Precio de venta</label>
         </div>
         <button type='submit' className='send-btn'>
