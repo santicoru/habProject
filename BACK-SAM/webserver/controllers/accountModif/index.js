@@ -1,10 +1,10 @@
 'use strict';
 
 const deleteAccountController = require('./delete-account-controller');
-const getAccountController = require('./get-account-controller');
+const editAccountController = require('./edit-account-controller');
 const accountModifController = {
     deleteAccountController,
-    getAccountController,
+    editAccountController,
 };
 
 module.exports = accountModifController;

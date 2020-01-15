@@ -33,7 +33,7 @@ export function PersonalAccount() {
       </div>
       <section className='main-personalAccount'>
         <ul>
-          <li>MODIFICAR CONTRASEÑA</li>
+          <li><Link to='/password'>MODIFICAR CONTRASEÑA</Link></li>
           {role === 'colaborator' && (
             <li>
               <Link to='/productCo'>GESTIONAR MIS PRODUCTOS</Link>
