@@ -4,7 +4,6 @@ import { deleteProduct } from '../http/ProductService';
 import { ProductListCo } from './ProductListCo';
 import { ProductCo } from './ProductCo';
 
-
 function productsReducer(state, action) {
   switch (action.type) {
     case 'GET_PRODUCTS':
