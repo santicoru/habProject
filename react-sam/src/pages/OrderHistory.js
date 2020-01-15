@@ -33,11 +33,20 @@ export function OrderHistory() {
               <button onClick={() => onProductSelected(product)}>
                 VALORAR EL PRODUCTO
               </button>
-              {/* <Link to={`/rateProduct/${product.id}`}>VALORAR EL PRODUCTO</Link> */}
             </li>
           ))}
         </ul>
       </div>
+      <a
+        href="/"
+        className='return-btn'
+        onClick={e => {
+          e.preventDefault();
+          history.goBack();
+        }}
+      >
+        Volver
+      </a>
     </React.Fragment>
   );
 }

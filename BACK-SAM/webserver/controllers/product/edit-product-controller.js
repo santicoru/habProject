@@ -36,7 +36,7 @@ async function editProduct(req, res, next) {
       final_price: productData.final_price,
     });
     connection.release();
-    res.status(200).send('updated product');
+    res.status(200).send('Cambios realizados correctamente');
   } catch (e) {
     return res.status(500).send({
       message: e.message,

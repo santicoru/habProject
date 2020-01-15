@@ -8,6 +8,7 @@ import { createPack } from '../http/packService';
 
 export function CreatePack() {
   const [expireDate, setExpireDate] = useState();
+  const [error, setError] = useState(false);
   const {
     pack,
     totalPrice,
@@ -26,21 +27,27 @@ export function CreatePack() {
   console.log(expireDate);
 
   const buy = () => {
-    const order = (localStorage.getItem('pack'));
-    console.log(order);
-    const date_end = expireDate;
-    console.log(date_end);
-    const createP = { order, date_end };
-    console.log(createP);
-    history.push('/confirmation');
-    return createPack({ createP })
-      .then(response => {
-        console.log(response.data);
-        setCode(response.data);
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    if (expireDate !== undefined) {
+      const order = (localStorage.getItem('pack'));
+      console.log(order);
+      const date_end = expireDate;
+      console.log(date_end);
+      const createP = { order, date_end };
+      console.log(createP);
+      history.push('/confirmation');
+      return createPack({ createP })
+        .then(response => {
+          console.log(response.data);
+          setCode(response.data);
+        })
+        .catch(error => {
+          console.log(error);
+          setError(false);
+        });
+    } else {
+      setError(true);
+    }
+
   }
 
   return (
@@ -66,7 +73,7 @@ export function CreatePack() {
                   <button
                     onClick={e => {
                       e.preventDefault();
-                      removeItem(item.id);
+                      removeItem(item);
                     }}
                   >
                     Quitar
@@ -77,6 +84,9 @@ export function CreatePack() {
           </ul>
           <label>Paquete valido hasta: </label>
           <input type='date' name='expirationDate' onChange={expDate} required />
+          {error && (
+            <p>Debe introducir una fecha de validez</p>
+          )}
           <p>Total price = {`${totalPrice}€`}</p>
           <button onClick={buy}>GENERAR PAQUETE</button>
         </React.Fragment>

@@ -15,9 +15,11 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
     console.log(formData);
     const idProduct = product.id;
     console.log(idProduct);
-    return updateProduct(idProduct, formData).catch(error => {
-      setError(error);
-    });
+    return updateProduct(idProduct, formData)
+      .then(response => alert(response.data))
+      .catch(error => {
+        setError(error);
+      });
   };
 
   return (

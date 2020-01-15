@@ -27,18 +27,22 @@ export function ProductPackOr({ defaultProductPack = {} }) {
     console.log(formData);
     const idProductPack = productPack.id;
     console.log(idProductPack);
-    return updateProductPack(idProductPack, formData).catch(error => {
-      setError(error);
-    });
+    return updateProductPack(idProductPack, formData)
+      .then(response => alert(response.data))
+      .catch(error => {
+        setError(error);
+      });
   };
 
   return (
     <div className='product-co' id='edit-prod-pack'>
       <section className='productData'>
-        <p>Código: {defaultProductPack.code_package}</p>
         {productsInPack !== undefined && (
           <div>
-            <h2>Productos ofertados en paquete</h2>
+            <h2>
+              Productos ofertados con código:
+              <span className='code'>{defaultProductPack.code_package}</span>
+            </h2>
             <ul>
               {productsInPack.map(productIP => (
                 <li key={productIP.id}>
@@ -65,13 +69,12 @@ export function ProductPackOr({ defaultProductPack = {} }) {
             name='date_end'
             ref={register(EDITPRODUCT_VALIDATIONS.init_price)}
           />
-          <span class='bar'></span>
-          <label>Precio inical</label>
         </div>
         <button type='submit' className='send-btn'>
           Guardar cambios
         </button>
       </form>
+
     </div>
   );
 }

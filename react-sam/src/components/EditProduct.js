@@ -20,7 +20,6 @@ function productsReducer(state, action) {
 
 export function EditProduct() {
 
-
   const [state, dispatch] = useReducer(productsReducer, {
     products: [],
     selectedProduct: null,
@@ -47,7 +46,6 @@ export function EditProduct() {
   console.log(initialProducts);
   console.log(state);
   console.log(state.selectedProduct);
-
 
   return (
     <React.Fragment>

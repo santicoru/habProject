@@ -30,7 +30,11 @@ body {
   width: 100%;
   height: 100%;
 }
-
+/* puntuales */
+.code{
+  color:#fff;
+  font-size: 1.2rem;
+}
 .inputHidden {
   display: none;
 }

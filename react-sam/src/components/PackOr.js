@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { getPack } from '../http/packService';
 import { ProductPackListOr } from './ProductPackListOr';
 import { ProductPackOr } from './ProductPackOr';
-import { Link } from 'react-router-dom';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 
 function productsPackReducer(state, action) {
@@ -18,7 +19,6 @@ function productsPackReducer(state, action) {
 }
 
 export function PackOr() {
-
 
   const [state, dispatch] = useReducer(productsPackReducer, {
     productsPack: [],
@@ -40,11 +40,18 @@ export function PackOr() {
   console.log(state);
   console.log(state.selectedProductPack);
 
-
   return (
     <React.Fragment>
+      <Header />
       <main>
         <div className={`grid ${state.isProductPackOpened}`} />
+        <div>
+          {state.selectedProductPack !== null && (
+            <ProductPackOr
+              defaultProductPack={state.selectedProductPack}
+            />
+          )}
+        </div>
         <div>
           <ProductPackListOr
             productsPack={initialProductsPack}
@@ -55,21 +62,8 @@ export function PackOr() {
             }}
           />
         </div>
-        <div>
-          {state.selectedProductPack !== null && (
-            <ProductPackOr
-              defaultProductPack={state.selectedProductPack}
-            />
-          )}
-        </div>
-        <button
-          className=""
-          style={{ position: "fixed", bottom: "20px", left: "20px" }}
-          onClick={() => dispatch({ type: "TOGGLE_PRODUCT_PACK" })}
-        >
-          Volver
-        </button>
       </main>
+      <Footer />
     </React.Fragment>
   )
 }

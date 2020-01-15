@@ -34,7 +34,7 @@ async function editPack(req, res, next) {
 			date_end: productData.date_end,
 		});
 		connection.release();
-		res.status(200).send('updated product');
+		res.status(200).send('Fecha actualizada');
 	} catch (e) {
 		return res.status(500).send({
 			message: e.message,

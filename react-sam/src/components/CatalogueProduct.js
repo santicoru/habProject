@@ -112,12 +112,13 @@ export function CatalogueProduct() {
         )}
         <a
           href="/"
+          className='return-btn'
           onClick={e => {
             e.preventDefault();
             history.goBack();
           }}
         >
-          Back
+          Volver
       </a>
         {role === 'organizer' && (
           <button onClick={() => addItemToPack(productOffered)}>Añadir a paquete</button>

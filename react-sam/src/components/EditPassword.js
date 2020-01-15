@@ -2,16 +2,19 @@ import React from 'react';
 import useForm from 'react-hook-form';
 import { editPassword } from '../http/authService';
 import { REGISTER_VALIDATIONS } from '../shared/validations';
+import { useHistory } from 'react-router';
 
 export function EditPassword() {
 
   const { register, handleSubmit, setError } = useForm({
     mode: "onBlur"
   });
-
+  const history = useHistory();
   const editP = formData => {
     console.log(formData);
-    return editPassword(formData).catch(error => { setError(error) });
+    return editPassword(formData)
+      .then(response => alert(response.data))
+      .catch(error => { setError(error) });
   }
   return (
     <React.Fragment>
@@ -49,6 +52,16 @@ export function EditPassword() {
         </div>
         <button type='submit' className='send-btn'>Cambiar contraseña</button>
       </form>
+      <a
+        href="/"
+        className='return-btn'
+        onClick={e => {
+          e.preventDefault();
+          history.goBack();
+        }}
+      >
+        Volver
+      </a>
     </React.Fragment>
   )
 }

@@ -40,7 +40,7 @@ async function createRateProduct(req, res, next) {
       date_comment: createdAt,
     });
     connection.release();
-    res.status(201).send('product created');
+    res.status(201).send('Gracias por tu comentario');
 
   } catch (e) {
     console.error(e);
