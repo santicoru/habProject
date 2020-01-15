@@ -80,7 +80,7 @@ function Catalogue() {
                 placeholder='min'
                 onChange={minP}
               />
-              <span class='bar'></span>
+              <span className='bar'></span>
             </div>
             <div className='group1' name='max'>
               <input
@@ -90,7 +90,7 @@ function Catalogue() {
                 placeholder='max'
                 onChange={maxP}
               />
-              <span class='bar'></span>
+              <span className='bar'></span>
             </div>
             <label>Categoría</label>
             <select name='category' id='category' onChange={selC}>
