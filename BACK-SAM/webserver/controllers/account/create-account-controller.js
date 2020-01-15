@@ -11,9 +11,6 @@ const httpServerDomain = process.env.HTTP_SERVER_DOMAIN;
 sendgridMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 async function validateSchema(payload) {
-  /*
-  *  REVISAR BASE DE DATOS Y MODIFICAR VALIDACIONES
-  */
   const schema = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().regex(/^[a-zA-Z0-9]{8,30}$/).required(),
@@ -57,12 +54,12 @@ async function createAccount(req, res, next) {
     return res.status(400).send(e);
   }
 
-  //borrar???
-  // try {
-  //     await sendEmailRegistration(userEmail, verificationCode);
-  // } catch (e) {
-  //     return res.status(400).send(e, 'n0 n0 n0');
-  // }
+  try {
+    await sendEmailRegistration(userEmail);
+  } catch (e) {
+    return res.status(400).send(e);
+  }
+
   const now = new Date();
   const createdAt = now.toISOString().substring(0, 19).replace('T', ' ');
   const securePassword = await bcrypt.hash(accountData.password, 10);

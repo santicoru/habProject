@@ -28,7 +28,7 @@ export function PersonalAccount() {
     <React.Fragment>
       <Header />
       <ul>
-        <li>MODIFICAR CONTRASEÑA</li>
+        <li><Link to='/password'>MODIFICAR CONTRASEÑA</Link></li>
         {role === 'colaborator' && (
           <li><Link to='/productCo'>GESTIONAR MIS PRODUCTOS</Link></li>
         )}
