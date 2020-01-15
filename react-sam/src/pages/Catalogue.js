@@ -41,10 +41,10 @@ function Catalogue() {
       <ul>
         {products.map(product => (
           <li key={product.id}>
-            <Link to={`/catalogueProduct/${product.id}`}>
-              <img src={product.photo} />
-            </Link>
             <div>
+              <Link to={`/catalogueProduct/${product.id}`}>
+                <img src={product.photo} />
+              </Link>
               <p>{product.name}</p>
               <p>{product.description}</p>
               <p>

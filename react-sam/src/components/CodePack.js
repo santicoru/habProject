@@ -13,7 +13,6 @@ export function CodePack() {
     setProductsInPack(undefined);
     console.log(getCode);
     return getCodePack({ getCode }).then(response => {
-      ;
       setProductsInPack(response.data.data);
       setDateEnd(response.data.dateEnd[0].date_end.substring(0, 10));
     });

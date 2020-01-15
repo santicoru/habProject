@@ -67,11 +67,6 @@ export function Header() {
             <img src={user1} alt="login" />
           </Link>
         </button>
-        <button>
-          <Link to="/shoppingCart">
-            <img src={addCart} alt="carrito" />
-          </Link>
-        </button>
         {role === 'organizer' && (
           <button>
             <Link to="/createPack">
@@ -79,6 +74,11 @@ export function Header() {
             </Link>
           </button>
         )}
+        <button>
+          <Link to="/shoppingCart">
+            <img src={addCart} alt="carrito" />
+          </Link>
+        </button>
       </nav>
 
       <section data-name="submenu" className={submenu}>
