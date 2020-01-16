@@ -1,23 +1,19 @@
-.title-personalAccount h1 {
-  font-family: var(--ubuntu);
-  padding-top: 1rem;
-  font-size: 30px;
-  letter-spacing: 0.22rem;
-  text-align: center;
-}
 
-.main-personalAccount {
+.main-personalAccount div.ul{
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 9rem;
 }
 
-.main-personalAccount ul {
+.main-personalAccount div.ul {
   padding-left: 0;
 }
 
-.main-personalAccount ul li {
+.main-personalAccount div.ul a,
+.main-personalAccount div.ul div {
+  font-family: var(--rubik);
+  color: #ffffff;
   text-align: center;
   padding: 1rem;
   margin-top: 1.5rem;
@@ -25,12 +21,8 @@
   font-size: 18px;
 }
 
-.main-personalAccount ul li a {
-  background-color: transparent;
-}
-
-.main-personalAccount ul li:hover,
-.main-personalAccount ul li a:hover {
+.main-personalAccount div.ul a:hover,
+.main-personalAccount div.ul div:hover {
   color: black;
   background-color: white;
   border-radius: 6px;

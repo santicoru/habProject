@@ -44,6 +44,7 @@ export function PackOr() {
     <React.Fragment>
       <Header />
       <main className='top'>
+        <h1 className='main-title top'>Paquetes publicados</h1>
         <div className={`grid ${state.isProductPackOpened}`} />
         <div>
           {state.selectedProductPack !== null && (

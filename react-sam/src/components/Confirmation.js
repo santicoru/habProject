@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useCart } from '../shared/context/cart-context';
 import { useHistory } from 'react-router';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
@@ -18,8 +17,9 @@ const defaultOptions = {
 };
 
 function Confirmation() {
-  const { code } = usePack();
-  const { role } = useAuth();
+  const {
+    code
+  } = usePack();
 
   const history = useHistory();
 

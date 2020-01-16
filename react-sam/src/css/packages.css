@@ -1,0 +1,31 @@
+.products-publi{
+  color: #34495E;
+  font-family: var(--ubuntu);
+  font-weight: 400;
+  font-size: 1.5rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+ul.product-list{
+  width: fit-content;
+  border-top:1px solid #34495E;
+}
+ul.product-list li{
+  padding: 0.5rem 1rem;
+border-bottom:1px solid #34495E;
+}
+.code-list{
+  color: #34495E;
+  text-align: center;
+}
+/* p.code-dat{
+  color: #34495E;
+  text-align: center;
+}
+.code-date{
+  font-weight: 500;
+}
+.grid-product{
+  display:grid;
+  grid-template-columns: auto auto auto;
+} */

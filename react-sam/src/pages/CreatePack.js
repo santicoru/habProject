@@ -16,8 +16,7 @@ export function CreatePack() {
     totalItems,
     removeItem,
     code,
-    setCode,
-    resetPack
+    setCode
   } = usePack();
 
   console.log(pack);
@@ -42,8 +41,6 @@ export function CreatePack() {
           console.log(response.data);
           setCode(response.data);
         })
-        .then(resetPack())
-        .then(window.location.reload())
         .catch(error => {
           console.log(error);
           setError(false);
@@ -57,14 +54,16 @@ export function CreatePack() {
     <React.Fragment>
       <Header />
       <main className='top'>
+        <h1 className='main-title top'>Generando un paquete</h1>
+
         {totalItems === 0 && (
           <React.Fragment>
-            <h2>No hay productos seleccionados</h2>
+            <h2 className='code-list'>No hay productos seleccionados</h2>
           </React.Fragment>
         )}
         {totalItems > 0 && (
           <React.Fragment>
-            <h1>Precios especiales:</h1>
+            <h2 className='code-list'>Precios especiales:</h2>
             <ul>
               {pack.map(item => (
                 <li key={item.id}>

@@ -82,7 +82,6 @@ export function CatalogueProduct() {
   const handleModif = formData => {
     console.log(formData);
     setProductOffered(formData);
-    // addItemToPack(productOffered)
   };
 
   return (

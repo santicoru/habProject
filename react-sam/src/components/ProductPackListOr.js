@@ -17,12 +17,11 @@ export function ProductPackListOr({ productsPack, selectedIndex, onProductSelect
 
   return (
     <div className='list-products-co'>
-      <h2>Paquetes publicados</h2>
       {productsPack.length === 0 && (
-        <h3>Todavía no hay paquetes publicados</h3>
+        <h3 className='code-list'>Todavía no hay paquetes publicados</h3>
       )}
       {productsPack.length > 0 && (
-        <h3>Selecciona para mas información</h3>
+        <h3 className='code-list'>Selecciona para mas información</h3>
       )}
       <ul className='product-list'>
         {productsPack.map((productPack, index) => (

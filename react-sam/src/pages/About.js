@@ -26,12 +26,10 @@ export function About() {
   return (
     <React.Fragment>
       <Header />
-      <main className='top'>
+      <main>
+        <h1 className='main-title top'>¿Quién es SAM?</h1>
         <Container maxWidth='lg'>
           <section className='intro'>
-            <TypoGraphy variant='h2' gutterBottom>
-              ¿Quién es SAM?
-          </TypoGraphy>
             <p>
               <TypoGraphy variant='body1'>
                 SAM es el acróstico de Software A Medida. Nace tras ver la necesidad

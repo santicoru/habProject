@@ -29,31 +29,23 @@ export function PersonalAccount() {
     <React.Fragment>
       <Header />
       <div className='top'>
-        <div className='title-personalAccount'>
-          <h1>Mi Cuenta</h1>
-        </div>
+        <h1 className='main-title top'>Mi Cuenta</h1>
         <section className='main-personalAccount'>
-          <ul>
-            <li><Link to='/password'>MODIFICAR CONTRASEÑA</Link></li>
+          <div className='ul'>
+            <Link to='/password'>MODIFICAR CONTRASEÑA</Link>
             {role === 'colaborator' && (
-              <li>
-                <Link to='/productCo'>GESTIONAR MIS PRODUCTOS</Link>
-              </li>
+              <Link to='/productCo'>GESTIONAR MIS PRODUCTOS</Link>
             )}
             {role === 'organizer' && (
-              <li>
-                <Link to='/packOr'>GESTIONAR MIS PAQUETES</Link>
-              </li>
+              <Link to='/packOr'>GESTIONAR MIS PAQUETES</Link>
             )}
-            <li>
-              <Link to='/ordersHistory'>VER HISTORIAL DE PEDIDOS</Link>
-            </li>
-            <li onClick={out}>CERRAR SESIÓN</li>
-            <li onClick={delAccount}>ELIMINAR CUENTA</li>
-          </ul>
+            <Link to='/ordersHistory'>VER HISTORIAL DE PEDIDOS</Link>
+            <div onClick={out}>CERRAR SESIÓN</div>
+            <div onClick={delAccount}>ELIMINAR CUENTA</div>
+          </div>
         </section>
       </div>
       <Footer />
-    </React.Fragment>
+    </React.Fragment >
   );
 }
