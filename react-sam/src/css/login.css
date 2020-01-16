@@ -36,7 +36,7 @@
   font-size: 18px;
   padding: 8px 0px 6px 5px;
   display: block;
-  width: 90%;
+  width: 100%;
   border: none;
   border-bottom: 1px solid var(--gris1);
   resize: none;
@@ -45,55 +45,19 @@
 .group3 [name='email']:focus,
 .group3 [name='password']:focus {
   outline: none;
-  color: var(--azul1);
+  /*   color: var(--azul1);
+ */
   border-bottom: 2px solid #01496b;
   transition: 0.5s ease all;
 }
 
-/* .group3 [name='email']:focus ~ label,
-.group3 [name='email']:valid ~ label,
-.group3 [name='password']:focus ~ label,
-.group3 [name='password']:valid ~ label {
-  position: absolute;
-  top: -10px;
-  font-size: 12px;
-  color: #c0e0fa;
-} */
-
-/* .form-login label {
-  color: black;
-  font-size: 16px;
-  position: absolute;
-  left: 5px;
-  top: 10px;
-  transition: 0.5s ease all;
-  pointer-events: none;
-} */
-
-/* .group3 [name='email']:focus ~ .bar::before,
-.group3 [name='password']:focus ~ .bar::before {
-  width: 100%;
-} */
-/* .bar {
-  position: relative;
-  display: block;
-  width: 95%;
+.form-login label {
+  color: var(--azul1);
 }
-.bar::before {
-  content: '';
-  height: 3px;
-  width: 0%;
-  bottom: 0;
-  position: absolute;
-  background: var(--gradiente);
-  transition: 0.3s ease all;
-  left: 0%;
-} */
-/**/
 
-.form-login .send-btn {
+.form-login .red-btn {
   color: black;
-  margin-left: 2.5rem;
+  margin-left: 22%;
 }
 
 .register-link a {
@@ -102,4 +66,5 @@
 
 .register-link a:hover {
   text-decoration: underline;
+  color: red;
 }

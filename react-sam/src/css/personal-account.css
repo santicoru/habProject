@@ -13,7 +13,11 @@
   margin-bottom: 9rem;
 }
 
-.main-personalAccount ul li{
+.main-personalAccount ul {
+  padding-left: 0;
+}
+
+.main-personalAccount ul li {
   text-align: center;
   padding: 1rem;
   margin-top: 1.5rem;

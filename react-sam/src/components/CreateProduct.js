@@ -28,11 +28,13 @@ export function CreateProduct() {
       name='createProduct'
     >
       <h2>Crear producto</h2>
+
       <div className='group1'>
         <input type='text' name='name' id='name' required />
-        <span class='bar'></span>
+        <span className='bar'></span>
         <label className='label'>Nombre</label>
       </div>
+
       <div className='group1'>
         <textarea
           name='description'
@@ -41,7 +43,7 @@ export function CreateProduct() {
           rows='2'
           required
         ></textarea>
-        <span class='bar'></span>
+        <span className='bar'></span>
         <label className='label'>Descripción</label>
       </div>
       <div className='group2'>
@@ -59,12 +61,12 @@ export function CreateProduct() {
       </div>
       <div className='group1'>
         <input type='number' name='init_price' id='init_price' required />
-        <span class='bar'></span>
+        <span className='bar'></span>
         <label className='label'>Precio inicial</label>
       </div>
       <div className='group1'>
         <input type='number' name='discount' id='discount' required />
-        <span class='bar'></span>
+        <span className='bar'></span>
         <label className='label'>Descuento</label>
       </div>
       <div className='group1'>
@@ -72,12 +74,7 @@ export function CreateProduct() {
         <span className='bar'></span>
         <label className='label'>Precio final</label>
       </div>
-      <button
-        type='submit'
-        value='submit'
-        id='sendProdcut'
-        className='send-btn'
-      >
+      <button type='submit' value='submit' id='sendProdcut' className='red-btn'>
         Publicar
       </button>
     </form>
