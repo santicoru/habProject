@@ -7,19 +7,12 @@ import { usePack } from '../shared/context/package-context';
 import { useAuth } from '../shared/context/auth-context';
 
 function Confirmation() {
-  const { resetCart } = useCart();
   const {
-    resetPack,
     code
   } = usePack();
   const { role } = useAuth();
 
   const history = useHistory();
-
-  useEffect(() => {
-    resetCart();
-    resetPack();
-  }, []);
 
   const goCatalogue = () => history.push('/catalogue');
   console.log(code);

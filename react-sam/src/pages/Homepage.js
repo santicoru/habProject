@@ -1,13 +1,11 @@
 import React from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
-import { CodePack } from '../components/CodePack';
 import discount from '../assets/images/BANNER-DESCUENTO.svg';
 export function Homepage() {
   return (
     <React.Fragment>
       <Header />
-      <CodePack />
       <main className='main-homepage top'>
         <div className='title-homepage'>
           <h1>Software</h1>

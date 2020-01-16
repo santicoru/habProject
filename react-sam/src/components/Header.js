@@ -34,12 +34,7 @@ export function Header() {
         <button id="button-menu" onClick={showSubMenu}>
           <img src={menu} alt="menu" />
         </button>
-        <img src={logo} alt="logo" id="logo" />
-        <button className="login">
-          <Link to={selectProfile}>
-            <img src={user1} alt="login" />
-          </Link>
-        </button>
+        <Link to='/'> <img src={logo} alt="logo" id="logo" /></Link>
         {role === 'organizer' && (
           <button>
             <Link to="/createPack">
@@ -47,7 +42,12 @@ export function Header() {
             </Link>
           </button>
         )}
-        <button>
+        <button className="login">
+          <Link to={selectProfile}>
+            <img src={user1} alt="login" />
+          </Link>
+        </button>
+        <button className='shopping-cart'>
           <Link to="/shoppingCart">
             <img src={addCart} alt="carrito" />
           </Link>

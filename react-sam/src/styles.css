@@ -96,7 +96,7 @@ section.photo-back h1 {
   width: 100vw;
   top: 0;
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
   grid-template-rows: auto;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
@@ -105,7 +105,13 @@ section.photo-back h1 {
   /*   opacity: 0.85;
  */
   padding: 0.5rem 0;
-  z-index: 1;
+  z-index: 2;
+}
+.header-nav nav button.shopping-cart{
+  grid-column: 5;
+}
+.header-nav nav button.login{
+  grid-column: 4;
 }
 .header-nav #hidden-mobile {
   position: absolute;
@@ -171,6 +177,7 @@ section.photo-back h1 {
   animation: show;
   animation-duration: 0.5s;
   animation-fill-mode: forwards;
+  z-index: 1;
 }
 /* cuando se repliega el submenu */
 @keyframes remove {
