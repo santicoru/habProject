@@ -9,13 +9,8 @@ import { useAuth } from '../shared/context/auth-context';
 function Confirmation() {
   const { resetCart } = useCart();
   const {
-    pack,
-    totalPrice,
-    totalItems,
-    removeItem,
     resetPack,
-    code,
-    setCode
+    code
   } = usePack();
   const { role } = useAuth();
 
@@ -27,15 +22,22 @@ function Confirmation() {
   }, []);
 
   const goCatalogue = () => history.push('/catalogue');
-
+  console.log(code);
   return (
     <React.Fragment>
       <Header />
-      {role === 'organizer' && (
-        <p>CODIGO GENERADO: {code}</p>
-      )}
-      <p>GRACIAS POR COMPRAR EN SAM</p>
-      <button onClick={goCatalogue}>Seguir comprando</button>
+      <div className='top'>
+        {code.length > 0 && (
+          <div>
+            <p>CODIGO GENERADO: <span className='code'>{code}</span></p>
+            <p>Gracias por usar SAM</p>
+          </div>
+        )}
+        {code.length === 0 && (
+          <p>GRACIAS POR COMPRAR EN SAM</p>
+        )}
+        <button onClick={goCatalogue}>Seguir comprando</button>
+      </div>
       <Footer />
     </React.Fragment>
   )

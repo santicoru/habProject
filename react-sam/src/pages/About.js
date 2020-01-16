@@ -26,124 +26,124 @@ export function About() {
   return (
     <React.Fragment>
       <Header />
-      <Container maxWidth='lg'>
-        <section className='intro'>
-          <TypoGraphy variant='h2' gutterBottom>
-            ¿Quién es SAM?
+      <main className='top'>
+        <Container maxWidth='lg'>
+          <section className='intro'>
+            <TypoGraphy variant='h2' gutterBottom>
+              ¿Quién es SAM?
           </TypoGraphy>
-          <p>
-            <TypoGraphy variant='body1'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum
-              obcaecati hic ducimus culpa nam suscipit, iusto, voluptates
-              distinctio nesciunt dolore blanditiis eaque veritatis sed
-              laudantium velit. Tempore delectus veritatis quis.
+            <p>
+              <TypoGraphy variant='body1'>
+                SAM es el acróstico de Software A Medida. Nace tras ver la necesidad
+                de ofrecer a los asistentes a eventos obsequios mas practicos y
+                faciles de transportar que los 'paquetes de bienvenida'
             </TypoGraphy>
-          </p>
-        </section>
+            </p>
+          </section>
 
-        <section className='content'>
-          <img src={sobre} width='100%vw' />
-          <p>
-            <TypoGraphy variant='body1'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Id
-              quisquam ut laborum magnam, iste accusamus veritatis asperiores
-              consectetur voluptatibus eius quos molestiae quas. Itaque qui ut
-              fuga voluptates aspernatur et?
+          <section className='content'>
+            <img src={sobre} width='100%vw' />
+            <p>
+              <TypoGraphy variant='body1'>
+                No sólo vendemos el software mas actual y con mayor demanda para las soluciones
+                del día a día de las empresas y usuarios, sino que lo hacemos con los descuentos
+                mas atractivos. La idea es que encuentres lo que busques rapido, facil y economico
+                sin tener que perderte navegando por la web
             </TypoGraphy>
-          </p>
-          <p>
-            <TypoGraphy variant='body1'>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Error
-              minus totam dolorem neque similique et cumque obcaecati
-              accusantium consequuntur explicabo, deserunt est, architecto iste
-              minima consectetur vel ratione corrupti sit.
+            </p>
+            <p>
+              <TypoGraphy variant='body1'>
+                Tambien generamos software propio, estamos creciendo para poder dar respuesta a
+                la gran demanda por lo que si quieres trabajar con nosotros dejanos tus datos y
+                nos pondremos en contacto contigo
             </TypoGraphy>
-          </p>
-        </section>
+            </p>
+          </section>
 
-        <section className='contact' id='contactUs'>
-          <TypoGraphy variant='h4' gutterBottom>
-            Contáctanos
+          <section className='contact' id='contactUs'>
+            <TypoGraphy variant='h4' gutterBottom>
+              Contáctanos
           </TypoGraphy>
-          <DialogContent>
-            <TextField
-              autoFocus
-              margin='dense'
-              id='name'
-              label='Email'
-              type='email'
-              variant='standard'
-            />
-            <TextField
-              margin='dense'
-              id='name'
-              label='Texto'
-              type='text'
-              fullWidth
-            />
-          </DialogContent>
-          <Button variant='contained' color='primary'>
-            Enviar
-          </Button>
-        </section>
-
-        <div className='job'>
-          <Button
-            variant='contained'
-            color='secondary'
-            onClick={handleClickOpen}
-          >
-            ¿Quieres trabajar con nosotros?
-          </Button>
-          <Dialog
-            open={open}
-            onClose={handleClose}
-            aria-labelledby='form-dialog-title'
-          >
-            <DialogTitle id='form-dialog-title'>Datos</DialogTitle>
             <DialogContent>
-              <DialogContentText>Escribe aquí tus datos</DialogContentText>
               <TextField
-                autofocus
+                autoFocus
                 margin='dense'
                 id='name'
-                label='Nombre'
-                type='text'
-                fullWidth
-              />
-              <TextField
-                margin='dense'
-                id='surname'
-                label='Apellidos'
-                type='text'
-                fullWidth
-              />
-              <TextField
-                margin='dense'
-                id='phone'
-                label='Teléfono'
-                type='phone'
-                fullWidth
-              />
-              <TextField
-                margin='dense'
-                id='mail'
                 label='Email'
                 type='email'
+                variant='standard'
+              />
+              <TextField
+                margin='dense'
+                id='name'
+                label='Texto'
+                type='text'
                 fullWidth
               />
             </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose} color='primary'>
-                Cancelar
+            <Button variant='contained' color='primary'>
+              Enviar
+          </Button>
+          </section>
+
+          <div className='job'>
+            <Button
+              variant='contained'
+              color='secondary'
+              onClick={handleClickOpen}
+            >
+              ¿Quieres trabajar con nosotros?
+          </Button>
+            <Dialog
+              open={open}
+              onClose={handleClose}
+              aria-labelledby='form-dialog-title'
+            >
+              <DialogTitle id='form-dialog-title'>Datos</DialogTitle>
+              <DialogContent>
+                <DialogContentText>Escribe aquí tus datos</DialogContentText>
+                <TextField
+                  autofocus
+                  margin='dense'
+                  id='name'
+                  label='Nombre'
+                  type='text'
+                  fullWidth
+                />
+                <TextField
+                  margin='dense'
+                  id='surname'
+                  label='Apellidos'
+                  type='text'
+                  fullWidth
+                />
+                <TextField
+                  margin='dense'
+                  id='phone'
+                  label='Teléfono'
+                  type='phone'
+                  fullWidth
+                />
+                <TextField
+                  margin='dense'
+                  id='mail'
+                  label='Email'
+                  type='email'
+                  fullWidth
+                />
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleClose} color='primary'>
+                  Cancelar
               </Button>
-              <Button onClick={handleClose} color='primary'>
-                Enviar
+                <Button onClick={handleClose} color='primary'>
+                  Enviar
               </Button>
-            </DialogActions>
-          </Dialog>
-        </div>
-      </Container>
+              </DialogActions>
+            </Dialog>
+          </div>
+        </Container>
+      </main>
       <Footer />
     </React.Fragment>
   );

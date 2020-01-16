@@ -27,7 +27,7 @@ export function Register() {
   };
 
   const [type, setType] = useState('');
-  console.log(type);
+  console.log(type.length);
 
   const isType = () => {
     if (type.length === 0) {
@@ -49,87 +49,90 @@ export function Register() {
       <Link to='/'>
         <img src={logo} alt='logo' />
       </Link>
+      <h2>Escoge como vivir tu experiencia</h2>
       <ButtonsType onTypeChange={setType} />
-      <form
-        onSubmit={handleSubmit(handleSignUp)}
-        name='registry'
-        className='form-register'
-      >
-        <h1>{isType()}</h1>
-        <select
-          name='user_type'
-          id='user_type'
-          className='hidden'
-          ref={register({})}
+      {type.length > 0 && (
+        <form
+          onSubmit={handleSubmit(handleSignUp)}
+          name='registry'
+          className='form-register'
         >
-          <option value={type}></option>
-        </select>
-        <div className='group4'>
-          <label for='name'>Nombre / Razón social:</label>
-          <input type='text' name='name' ref={register({})} />
-        </div>
-        <div className='only-buyer'>
-          <label for='surname'>Apellidos:</label>
-          <input type='text' name='surname' ref={register({})} />
-        </div>
-        <div className='group4' id='span-mail'>
-          <label for='email'>Email:</label>
-          <input
-            type='email'
-            name='email'
-            id='email'
-            ref={register(REGISTER_VALIDATIONS.email)}
-          />
-          <span>{errors.email && errors.email.message}</span>
-        </div>
-        <div className='group4'>
-          <label for='password'>Contraseña:</label>
-          <input
-            type='password'
-            name='password'
-            id='password'
+          <h1>{isType()}</h1>
+          <select
+            name='user_type'
+            id='user_type'
+            className='hidden'
             ref={register({})}
-          />
-        </div>
-        <div className='doc'>
-          <label for='document_type'>Documento:</label>
-          <select name='document_type' id='document_type' ref={register({})}>
-            <option value='dni'>DNI</option>
-            <option value='nie'>NIE</option>
-            <option value='cif'>CIF</option>
+          >
+            <option value={type}></option>
           </select>
-          <input
-            type='text'
-            name='document_number'
-            id='document_number'
-            ref={register({})}
-          />
-        </div>
-        <div className='only-buyer'>
-          <label for='birth_date'>Fecha de nacimiento:</label>
-          <input
-            type='date'
-            name='birth_date'
-            id='birth_date'
-            ref={register({})}
-          />
-        </div>
-        <div className='group4'>
-          <label for='phone'>Teléfono:</label>
-          <input type='phone' name='phone' id='phone' ref={register({})} />
-        </div>
-        <button
-          className='red-btn'
-          type='submit'
-          id='send'
-          disabled={formState.isSubmitting}
-        >
-          REGISTRARSE
+          <div className='group4'>
+            <label for='name'>Nombre / Razón social:</label>
+            <input type='text' name='name' ref={register({})} />
+          </div>
+          <div className='only-buyer'>
+            <label for='surname'>Apellidos:</label>
+            <input type='text' name='surname' ref={register({})} />
+          </div>
+          <div className='group4' id='span-mail'>
+            <label for='email'>Email:</label>
+            <input
+              type='email'
+              name='email'
+              id='email'
+              ref={register(REGISTER_VALIDATIONS.email)}
+            />
+            <span>{errors.email && errors.email.message}</span>
+          </div>
+          <div className='group4'>
+            <label for='password'>Contraseña:</label>
+            <input
+              type='password'
+              name='password'
+              id='password'
+              ref={register({})}
+            />
+          </div>
+          <div className='doc'>
+            <label for='document_type'>Documento:</label>
+            <select name='document_type' id='document_type' ref={register({})}>
+              <option value='dni'>DNI</option>
+              <option value='nie'>NIE</option>
+              <option value='cif'>CIF</option>
+            </select>
+            <input
+              type='text'
+              name='document_number'
+              id='document_number'
+              ref={register({})}
+            />
+          </div>
+          <div className='only-buyer'>
+            <label for='birth_date'>Fecha de nacimiento:</label>
+            <input
+              type='date'
+              name='birth_date'
+              id='birth_date'
+              ref={register({})}
+            />
+          </div>
+          <div className='group4'>
+            <label for='phone'>Teléfono:</label>
+            <input type='phone' name='phone' id='phone' ref={register({})} />
+          </div>
+          <button
+            className='send-btn'
+            type='submit'
+            id='send'
+            disabled={formState.isSubmitting}
+          >
+            REGISTRARSE
         </button>
-        <div className='cancel'>
-          <Link to='/'>CANCELAR</Link>
-        </div>
-      </form>
+          <div className='cancel'>
+            <Link to='/'>CANCELAR</Link>
+          </div>
+        </form>
+      )}
     </main>
   );
 }

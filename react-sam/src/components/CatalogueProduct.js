@@ -88,7 +88,7 @@ export function CatalogueProduct() {
   return (
     <React.Fragment>
       <Header />
-      <div>
+      <div className='top'>
         <div className='product-single'>
           <section className='product-single-name'>
             <p>{product[0].name}</p>
@@ -185,6 +185,7 @@ export function CatalogueProduct() {
             Añadir al carrito
           </button>
         </div>
+
       </div>
       <Footer />
     </React.Fragment>

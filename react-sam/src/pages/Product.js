@@ -20,7 +20,7 @@ export function Product() {
   return (
     <React.Fragment>
       <Header />
-      <section className='product-co'>
+      <section className='product-co top'>
         <h1>Gestionar mis productos</h1>
         <section className='select-product'>
           <button className='bto-product1' onClick={choiceCreate}>
@@ -35,6 +35,7 @@ export function Product() {
           <div>{showEdit}</div>
         </section>
       </section>
+      <Footer />
     </React.Fragment>
   );
 }

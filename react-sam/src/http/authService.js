@@ -24,3 +24,7 @@ export function login(email, password) {
 export function deleteAccount() {
   return axios.delete(`${process.env.REACT_APP_BACKEND_URL}/api/acModif`);
 }
+
+export function editPassword(formData) {
+  return axios.put(`${process.env.REACT_APP_BACKEND_URL}/api/acModif`, formData);
+}

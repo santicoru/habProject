@@ -1,4 +1,5 @@
 import React, { useState, useContext } from "react";
+import { useHistory } from 'react-router';
 
 const PackContext = React.createContext();
 
@@ -8,7 +9,7 @@ export function PackProvider({ children }) {
   );
 
   const [code, setCode] = useState('');
-
+  const history = useHistory();
 
   const addItemToPack = packItem => {
     let updatedPack = null;
@@ -17,10 +18,16 @@ export function PackProvider({ children }) {
 
     setPack(updatedPack);
     localStorage.setItem("pack", JSON.stringify(updatedPack));
+    history.push("/createPack");
   };
 
-  const removeItem = id => {
-    const updatedPack = pack.filter(packItem => packItem.id !== id);
+  const removeItem = packItem => {
+    let updatedPack = null;
+
+
+    updatedPack = pack.filter(item => packItem.productId !== item.productId);
+
+
     setPack(updatedPack);
     localStorage.setItem("pack", JSON.stringify(updatedPack));
   };

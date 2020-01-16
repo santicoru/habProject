@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import useForm from 'react-hook-form';
 import { rate } from '../http/rateService';
 import { Header } from '../components/Header';
@@ -6,21 +6,27 @@ import { Footer } from '../components/Footer';
 import { useParams, useHistory } from 'react-router';
 
 export function RateProduct() {
-  const { register, errors, formState, handleSubmit, setError } = useForm({
+  const { register, formState, handleSubmit, setError } = useForm({
     mode: 'onBlur'
   });
+  const history = useHistory();
   const params = useParams();
   const productId = params.productId;
 
   const handleRate = formData => {
     console.log(formData);
-    return rate(formData, productId);
+    return rate(formData, productId)
+      .then(response => alert(response.data))
+      .catch(error => {
+        alert('ya ha valorado este producto con anterioridad');
+        setError(error);
+      });
   };
 
   return (
     <React.Fragment>
       <Header />
-      <main className='main-rate'>
+      <main className='main-rate top'>
         <h1> TU OPINION NOS IMPORTA</h1>
         <form
           onSubmit={handleSubmit(handleRate)}
@@ -53,7 +59,18 @@ export function RateProduct() {
             VALORAR
           </button>
         </form>
+        <a
+          href="/"
+          className='return-btn'
+          onClick={e => {
+            e.preventDefault();
+            history.goBack();
+          }}
+        >
+          Volver
+      </a>
       </main>
+      <Footer />
     </React.Fragment>
   );
 }

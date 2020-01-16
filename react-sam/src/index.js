@@ -24,6 +24,8 @@ import { RateProduct } from './pages/RateProduct';
 import { PackOr } from './components/PackOr';
 import { CreatePack } from './pages/CreatePack';
 import { PersonalAccount } from './pages/PersonalAccount';
+import { EditPassword } from './components/EditPassword';
+import { Code } from './components/Code';
 
 function App() {
   return (
@@ -43,6 +45,9 @@ function App() {
               </Route>
               <Route path='/catalogue'>
                 <Catalogue />
+              </Route>
+              <Route path='/code'>
+                <Code />
               </Route>
               <Route path='/catalogueProduct/:productId'>
                 <CatalogueProduct />
@@ -70,6 +75,9 @@ function App() {
               </Route>
               <Route path='/personalAccount'>
                 <PersonalAccount />
+              </Route>
+              <Route path='/password'>
+                <EditPassword />
               </Route>
               <PrivateRoute exact path='/productCo' allowedRole='colaborator'>
                 <Product />

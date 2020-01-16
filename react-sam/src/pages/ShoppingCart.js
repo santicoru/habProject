@@ -101,6 +101,7 @@ export function ShoppingCart() {
           </Link>
         </section>
       </section>
+
       <Footer />
     </React.Fragment>
   );

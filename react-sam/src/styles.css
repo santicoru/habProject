@@ -34,8 +34,59 @@ body {
   height: 100%;
 }
 
+*.top{
+  margin-top:5rem;
+}
+/* puntuales */
+.code{
+  color:#fff;
+  font-size: 1.2rem;
+}
 .inputHidden {
   display: none;
+}
+ 
+/* faq */
+section.FAQ h1{
+  font-family: var(--ubuntu);
+  padding-top: 1rem;
+  font-size: 30px;
+  letter-spacing: 0.22rem;
+  text-align: center;
+}
+section.FAQ li{
+    padding: 0;
+    list-style: none;   
+    padding: 0.5rem 0;
+    text-align: center;
+}
+section.FAQ li p{
+  color:#000000;
+}
+section.FAQ .hidden{
+    display: none;
+}
+/* homepage */
+
+img.logo-homepage {
+  width: 30%;
+  margin: 2% 31% 0%;
+}
+section.photo-back {
+  margin-top: 2rem;
+  height: 100vh;
+  background-image: url('./assets/images/principal.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+section.photo-back h1 {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 35px;
+  letter-spacing: 0.75rem;
+  text-align: center;
+  color: #000000;
+  text-shadow: #ffffff 1px 1px 1px;
+  margin-bottom: 0;
 }
 
 /* header-nav */
@@ -44,7 +95,7 @@ body {
   width: 1.8rem;
 }
 .header-nav nav {
-  position: sticky;
+  position: fixed;
   width: 100vw;
   top: 0;
   display: grid;

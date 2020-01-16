@@ -4,7 +4,6 @@ import { deleteProduct } from '../http/ProductService';
 import { ProductListCo } from './ProductListCo';
 import { ProductCo } from './ProductCo';
 
-
 function productsReducer(state, action) {
   switch (action.type) {
     case 'GET_PRODUCTS':
@@ -20,7 +19,6 @@ function productsReducer(state, action) {
 }
 
 export function EditProduct() {
-
 
   const [state, dispatch] = useReducer(productsReducer, {
     products: [],
@@ -48,7 +46,6 @@ export function EditProduct() {
   console.log(initialProducts);
   console.log(state);
   console.log(state.selectedProduct);
-
 
   return (
     <React.Fragment>
