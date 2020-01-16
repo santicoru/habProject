@@ -13,12 +13,11 @@ export function Fqa() {
     show.classList.toggle('hidden');
   }
 
-
   return (
     <React.Fragment>
       <Header />
       <section className="FAQ top">
-        <h1>Preguntas más frecuentes:</h1>
+        <h1 className='main-title'>Preguntas frecuentes</h1>
         <ul>
           <li className="question" onClick={showTheAnswer}>
             <a href="#faq1">¿Mi licencia de software caduca?</a>

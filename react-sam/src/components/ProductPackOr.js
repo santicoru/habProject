@@ -74,7 +74,6 @@ export function ProductPackOr({ defaultProductPack = {} }) {
           Guardar cambios
         </button>
       </form>
-
     </div>
   );
 }

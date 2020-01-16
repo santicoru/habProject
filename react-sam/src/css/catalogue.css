@@ -5,12 +5,6 @@
   align-items: center;
 }
 
-.title h2 {
-  padding-top: 1rem;
-  font-size: 30px;
-  letter-spacing: 0.22rem;
-}
-
 .form-catalogue-filters {
   display: flex;
   flex-direction: column;
@@ -85,7 +79,7 @@ input#priceMax {
   .catalogue-complete {
     display: grid;
     grid-template-columns: 300px 100vw;
-    grid-template-rows: 140px auto;
+    grid-template-rows: 3px auto;
     grid-template-areas:
       'title title'
       'filter prducts';
@@ -100,7 +94,7 @@ input#priceMax {
     grid-area: filter;
     justify-self: center;
     align-self: start;
-    padding-top: 3rem;
+    padding-top: 1rem;
   }
 
   select#category {
@@ -119,7 +113,7 @@ input#priceMax {
   .catalogue-products ul {
     grid-area: products;
     align-self: start;
-    padding-top: 3rem;
+    padding-top: 1rem;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;

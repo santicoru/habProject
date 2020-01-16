@@ -61,9 +61,9 @@ function Catalogue() {
   return (
     <React.Fragment>
       <Header />
-      <main className='catalogue-complete top'>
+      <h1 className='main-title top'>Catálogo</h1>
+      <main className='catalogue-complete'>
         <div className='title'>
-          <h2>Catálogo</h2>
         </div>
         <section className='catalogue-filter'>
           <form
