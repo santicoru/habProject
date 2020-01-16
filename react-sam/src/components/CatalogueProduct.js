@@ -83,7 +83,7 @@ export function CatalogueProduct() {
   return (
     <React.Fragment>
       <Header />
-      <div>
+      <div className='top'>
         <div>
           <img src={product[0].photo} alt='ip' />
           <p>{product[0].name}</p>

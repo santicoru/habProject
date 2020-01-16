@@ -26,7 +26,7 @@ export function RateProduct() {
   return (
     <React.Fragment>
       <Header />
-      <main className='main-rate'>
+      <main className='main-rate top'>
         <h1> TU OPINION NOS IMPORTA</h1>
         <form
           onSubmit={handleSubmit(handleRate)}

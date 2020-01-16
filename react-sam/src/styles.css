@@ -30,6 +30,10 @@ body {
   width: 100%;
   height: 100%;
 }
+
+*.top{
+  margin-top:5rem;
+}
 /* puntuales */
 .code{
   color:#fff;
@@ -37,6 +41,27 @@ body {
 }
 .inputHidden {
   display: none;
+}
+ 
+/* faq */
+section.FAQ h1{
+  font-family: var(--ubuntu);
+  padding-top: 1rem;
+  font-size: 30px;
+  letter-spacing: 0.22rem;
+  text-align: center;
+}
+section.FAQ li{
+    padding: 0;
+    list-style: none;   
+    padding: 0.5rem 0;
+    text-align: center;
+}
+section.FAQ li p{
+  color:#000000;
+}
+section.FAQ .hidden{
+    display: none;
 }
 /* homepage */
 
@@ -67,7 +92,7 @@ section.photo-back h1 {
   width: 1.8rem;
 }
 .header-nav nav {
-  position: sticky;
+  position: fixed;
   width: 100vw;
   top: 0;
   display: grid;
