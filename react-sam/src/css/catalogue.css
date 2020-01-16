@@ -64,10 +64,21 @@ input#priceMax {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 80%;
 }
 
 .catalogue-products li {
   width: 400px;
+  height: auto;
+  margin: 0.35rem;
+  flex: grid;
+  grid-template-rows: 240px 50px 160px 60px;
+  background-color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.catalogue-products li img {
+  width: 100%;
 }
 
 @media (min-width: 900px) {

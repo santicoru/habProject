@@ -6,6 +6,7 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { useAuth } from '../shared/context/auth-context';
 import { orderF } from '../http/orderFinal';
+import { trash } from '../assets/images/trash.png';
 
 export function ShoppingCart() {
   const { role } = useAuth();
@@ -43,54 +44,65 @@ export function ShoppingCart() {
   return (
     <React.Fragment>
       <Header />
-      <div className='top'>
-        {totalItems === 0 && (
-          <h2>Carrito vacio</h2>
-        )}
-        {totalItems > 0 && (
-          <div>
-            <h2>Articulos en el carrito</h2>
-            <ul>
-              {cart.map(item => (
-                <li>
-                  <p>
-                    <Link to={`/catalogueProduct/${item.id}`}>{item.name}</Link>
-                    <span>{` ${item.final_price}€ - `}</span>
-                    <span>{` x ${item.quantity} - `}</span>
-                    <button
-                      onClick={e => {
-                        e.preventDefault();
-                        addItemToCart(item);
-                      }}
-                    >
-                      +
+      <section className='cart-main top'>
+        <section className='cart-detail'>
+          {totalItems === 0 && <h2>Carrito vacio</h2>}
+          {totalItems > 0 && (
+            <React.Fragment>
+              <h2>Articulos en el carrito</h2>  
+              <ul>
+                {cart.map(item => (
+                  <li>
+                    <p>
+                      <Link to={`/catalogueProduct/${item.id}`}>
+                        {item.name}
+                      </Link>
+                      <span>{` ${item.final_price} €  `}</span>
+                      <span>{`- x ${item.quantity} - `}</span>
+                      <button
+                        className='plus'
+                        onClick={e => {
+                          e.preventDefault();
+                          addItemToCart(item);
+                        }}
+                      >
+                        +
+                      </button>
+                      <button
+                        className='minus'
+                        onClick={e => {
+                          e.preventDefault();
+                          removeItemFromCart(item);
+                        }}
+                      >
+                        -
+                      </button>
+                      <button
+                        className='trash'
+                        onClick={e => {
+                          e.preventDefault();
+                          removeItem(item.id);
+                        }}
+                      ></button>
+                    </p>
+                  </li>
+                ))}
+              </ul>
+              <div className='total-price'>
+                <p>Total = {`${totalPrice}€`}</p>
+              </div>
+              <button className='send-btn' id='buy-btn' onClick={buy}>
+                Comprar
               </button>
-                    <button
-                      onClick={e => {
-                        e.preventDefault();
-                        removeItemFromCart(item);
-                      }}
-                    >
-                      -
-              </button>
-                    <button
-                      onClick={e => {
-                        e.preventDefault();
-                        removeItem(item.id);
-                      }}
-                    >
-                      Remove
-              </button>
-                  </p>
-                </li>
-              ))}
-            </ul>
-            <p>Total price = {`${totalPrice}€`}</p>
-            <button onClick={buy}>Comprar</button>
-          </div>
-        )}
-        <Link to='/catalogue'><button>Seguir comprando</button></Link>
-      </div>
+            </React.Fragment>
+          )}
+        </section>
+        <section className='cart-btn'>
+          <Link to='/catalogue'>
+            <button className='continue'>Seguir comprando</button>
+          </Link>
+        </section>
+      </section>
       <Footer />
     </React.Fragment>
   );

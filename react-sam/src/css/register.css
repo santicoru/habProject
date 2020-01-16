@@ -75,7 +75,7 @@
 
 .form-register label {
   margin-left: 16px;
-  color: var(--gris1);
+  color: var(--azul1);
 }
 
 .group4 input,
@@ -139,6 +139,7 @@ input#birth_date {
 
 .cancel a:hover {
   text-decoration: underline;
+  color: red;
 }
 
 @media (min-width: 900px) {
