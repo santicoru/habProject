@@ -1,0 +1,90 @@
+.cart-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3rem;
+  font-family: var(--ubuntu);
+}
+
+.cart-detail ul {
+  padding-left: 0;
+}
+
+.cart-detail ul li p {
+  display: grid;
+  grid-template-columns: 260px 100px 70px;
+  grid-template-rows: 30px 50px auto;
+  align-items: center;
+}
+
+.cart-detail a {
+  align-items: flex-start;
+}
+
+p button {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 40px;
+  height: 50px;
+  border-radius: 50%;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  font-size: 45px;
+  color: var(--rojo1);
+  cursor: pointer;
+}
+
+button.trash {
+  border-radius: 50%;
+  background-image: url('../assets/images/trash.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 32px;
+}
+
+button.plus {
+  justify-self: right;
+  font-size: 40px;
+}
+
+p button.minus {
+  justify-self: center;
+}
+
+.total-price p {
+  text-align: end;
+  font-size: 22px;
+  margin-right: 0;
+  font-family: var(--rubik);
+  align-items: center;
+  margin-right: 0;
+  width: 145px;
+  border-bottom: 2px solid var(--rojo1);
+}
+
+.continue {
+  background: transparent;
+  border-radius: 6px;
+  border: none;
+  padding: 16px 32px;
+  margin: 1.6rem;
+  text-align: center;
+  font-size: 16px;
+  font-family: var(--rubik);
+  letter-spacing: 0.1rem;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: white;
+}
+
+.continue:hover {
+  background-color: white;
+  color: black;
+}
+
+/* footer {
+  position: absolute;
+} */

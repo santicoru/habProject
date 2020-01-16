@@ -4,8 +4,8 @@ import { useCart } from '../shared/context/cart-context';
 import { usePack } from '../shared/context/package-context';
 import { useAuth } from '../shared/context/auth-context';
 import { getCatalogueProduct } from '../http/CatalogueService';
-import { Header } from "../components/Header";
-import { Footer } from "../components/Footer";
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 import useForm from 'react-hook-form';
 import { EDITPRODUCT_VALIDATIONS } from '../shared/validations';
 
@@ -19,14 +19,15 @@ export function CatalogueProduct() {
   const { role } = useAuth();
 
   const { register, handleSubmit, setError } = useForm({
-    mode: "onBlur"
+    mode: 'onBlur'
   });
 
   const [productOffered, setProductOffered] = useState();
 
   useEffect(() => {
-    getCatalogueProduct(params.productId)
-      .then(response => setProduct(response.data));
+    getCatalogueProduct(params.productId).then(response =>
+      setProduct(response.data)
+    );
   }, [params.producId]);
 
   console.log(product);
@@ -41,20 +42,24 @@ export function CatalogueProduct() {
     }
     const result = total / num;
     if (isNaN(result)) {
-      return 'sin valoraciones'
+      return 'sin valoraciones';
     } else {
       return result;
     }
-  }
+  };
 
   const showRate = () => {
     const rat = [];
     for (let rate in product) {
-      let r = { value: product[rate].value_in_rate, date: (product[rate].date_comment).substring(0, 10), comment: product[rate].comment_in_rate }
+      let r = {
+        value: product[rate].value_in_rate,
+        date: product[rate].date_comment.substring(0, 10),
+        comment: product[rate].comment_in_rate
+      };
       rat.push(r);
     }
     setRate(rat);
-  }
+  };
   console.log(rate);
 
   const showRates = () => {
@@ -70,59 +75,116 @@ export function CatalogueProduct() {
           </li>
         ))}
       </ul>
-    )
-  }
+    );
+  };
   console.log(rate);
 
   const handleModif = formData => {
     console.log(formData);
     setProductOffered(formData);
     // addItemToPack(productOffered)
-  }
+  };
 
   return (
     <React.Fragment>
       <Header />
       <div>
-        <div>
+        <div className='product-single'>
+          <section className='product-single-name'>
+            <p>{product[0].name}</p>
+          </section>
           <img src={product[0].photo} alt='ip' />
-          <p>{product[0].name}</p>
-          <p>Valoración media: {rateOfTheProduct()}  {!isNaN(rateOfTheProduct()) && (<button onClick={showRate}>Ver valoraciones</button>)}</p>
+
+          <p>
+            <span>Valoración media: </span>
+            {rateOfTheProduct()}{' '}
+            {!isNaN(rateOfTheProduct()) && (
+              <button onClick={showRate}>Ver valoraciones</button>
+            )}
+          </p>
+
           <p>{product[0].description}</p>
           <p>
-            <span className="iprice">{`${product[0].init_price}€ `}</span>
-            ...<span className="dis">{` -${product[0].discount}% `}</span>
-            ...<span className="fprice">{` ${product[0].final_price}€`}</span>
+            <span className='iprice'>{`${product[0].init_price}€ `}</span>
+            <span className='dis'>{` -${product[0].discount}% `}</span>
+            <span className='fprice'>{` ${product[0].final_price}€`}</span>
           </p>
         </div>
         <div>{showRates()}</div>
         {role === 'organizer' && (
-          <form onSubmit={handleSubmit(handleModif)}>
+          <form className='form-offer' onSubmit={handleSubmit(handleModif)}>
             <h2>Editar producto para ofertar</h2>
-            <input type='number' name='productId' value={product[0].id} ref={register(EDITPRODUCT_VALIDATIONS.productId)} className='inputHidden' />
-            <input type='text' name='name' value={product[0].name} ref={register(EDITPRODUCT_VALIDATIONS.theRest)} className='inputHidden' />
-            <input type='number' name='oldPrice' value={product[0].final_price} ref={register(EDITPRODUCT_VALIDATIONS.theRest)} className='inputHidden' />
 
-            <label>Descuento adicional: </label>
-            <input type='number' name='discount' ref={register(EDITPRODUCT_VALIDATIONS.discount)} />
-            <label>Precio Oferta:</label>
-            <input type='number' name='newPrice' ref={register(EDITPRODUCT_VALIDATIONS.final_price)} />
-            <button type='submit'>Guardar</button>
+            <input
+              type='number'
+              name='productId'
+              value={product[0].id}
+              ref={register(EDITPRODUCT_VALIDATIONS.productId)}
+              className='inputHidden'
+            />
+
+            <input
+              type='text'
+              name='name'
+              value={product[0].name}
+              ref={register(EDITPRODUCT_VALIDATIONS.theRest)}
+              className='inputHidden'
+            />
+            <input
+              type='number'
+              name='oldPrice'
+              value={product[0].final_price}
+              ref={register(EDITPRODUCT_VALIDATIONS.theRest)}
+              className='inputHidden'
+            />
+            <div className='group1'>
+              <label>Descuento adicional: </label>
+              <input
+                type='number'
+                name='discount'
+                ref={register(EDITPRODUCT_VALIDATIONS.discount)}
+              />
+              <span className='bar'></span>
+            </div>
+            <div className='group1'>
+              <label>Precio Oferta:</label>
+              <input
+                type='number'
+                name='newPrice'
+                ref={register(EDITPRODUCT_VALIDATIONS.final_price)}
+              />
+              <span className='bar'></span>
+            </div>
+            <button className='send-btn' type='submit'>
+              Guardar
+            </button>
           </form>
         )}
-        <a
-          href="/"
-          onClick={e => {
-            e.preventDefault();
-            history.goBack();
-          }}
-        >
-          Back
-      </a>
-        {role === 'organizer' && (
-          <button onClick={() => addItemToPack(productOffered)}>Añadir a paquete</button>
-        )}
-        <button onClick={() => addItemToCart(product[0])}>Añadir al carrito</button>
+        <div className='group-btn'>
+          <a
+            href='/'
+            onClick={e => {
+              e.preventDefault();
+              history.goBack();
+            }}
+          >
+            Volver
+          </a>
+          {role === 'organizer' && (
+            <button
+              className='send-btn'
+              onClick={() => addItemToPack(productOffered)}
+            >
+              Añadir a paquete
+            </button>
+          )}
+          <button
+            className='send-btn'
+            onClick={() => addItemToCart(product[0])}
+          >
+            Añadir al carrito
+          </button>
+        </div>
       </div>
       <Footer />
     </React.Fragment>

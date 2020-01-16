@@ -119,7 +119,7 @@ export function Register() {
           <input type='phone' name='phone' id='phone' ref={register({})} />
         </div>
         <button
-          className='send-btn'
+          className='red-btn'
           type='submit'
           id='send'
           disabled={formState.isSubmitting}

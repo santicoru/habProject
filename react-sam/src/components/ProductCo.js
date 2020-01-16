@@ -33,6 +33,7 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
 
       <form onSubmit={handleSubmit(handleUpdate)} className='editForm'>
         <div className='group1'>
+          <label>Precio inical</label>
           <input
             type='number'
             name='init_price'
@@ -40,9 +41,9 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
             ref={register(EDITPRODUCT_VALIDATIONS.init_price)}
           />
           <span className='bar'></span>
-          <label>Precio inical</label>
         </div>
         <div className='group1'>
+          <label>Descuento</label>
           <input
             type='number'
             name='discount'
@@ -50,9 +51,9 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
             ref={register(EDITPRODUCT_VALIDATIONS.discount)}
           />
           <span className='bar'></span>
-          <label>Descuento</label>
         </div>
         <div className='group1'>
+          <label>Precio de venta</label>
           <input
             type='number'
             name='final_price'
@@ -60,23 +61,21 @@ export function ProductCo({ defaultProduct = {}, onDeleteProduct }) {
             ref={register(EDITPRODUCT_VALIDATIONS.final_price)}
           />
           <span className='bar'></span>
-          <label>Precio de venta</label>
         </div>
-        <button type='submit' className='send-btn'>
+        <button type='submit' className='white-btn'>
           Guardar cambios
         </button>
       </form>
-      <div className='delete-btn'>
-        <button
-          onClick={e => {
-            e.preventDefault();
-            onDeleteProduct(product.id);
-          }}
-          className='send-btn'
-        >
-          <a href='/'></a>Borrar
-        </button>
-      </div>
+
+      <button
+        onClick={e => {
+          e.preventDefault();
+          onDeleteProduct(product.id);
+        }}
+        className='red-btn'
+      >
+        <a href='/'></a>Borrar
+      </button>
     </div>
   );
 }

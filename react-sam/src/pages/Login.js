@@ -43,28 +43,28 @@ function Login() {
           <h3>Inicia sesión</h3>
           <form onSubmit={handleSubmit(handleSignin)}>
             <div className='group3'>
+              <label>Email</label>
               <Field
                 name='email'
                 type='text'
                 validations={register(LOGIN_VALIDATIONS.email)}
                 formState={formState}
                 errors={errors}
-                placeholder='Email'
               />
             </div>
             <div className='group3'>
+              <label>Contraseña</label>
               <Field
                 name='password'
                 type='password'
                 validations={register(LOGIN_VALIDATIONS.password)}
                 formState={formState}
                 errors={errors}
-                placeholder='Contraseña'
               />
             </div>
             <button
               type='submit'
-              className='send-btn'
+              className='red-btn'
               disabled={formState.isSubmitting}
             >
               Enviar

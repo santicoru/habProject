@@ -38,16 +38,16 @@ function Catalogue() {
 
   const showP = () => {
     return (
-      <ul>
+      <ul className='product-display'>
         {products.map(product => (
           <li key={product.id}>
             <Link to={`/catalogueProduct/${product.id}`}>
               <img src={product.photo} />
             </Link>
-            <div>
-              <p>{product.name}</p>
-              <p>{product.description}</p>
-              <p>
+            <div className='text-box'>
+              <p className='prod-name'>{product.name}</p>
+              <p className='prod-description'>{product.description}</p>
+              <p className='prod-data'>
                 <span className='iprice'>{`${product.init_price}€ `}</span>
                 <span className='dis'>{` -${product.discount}% `}</span>
                 <span className='fprice'>{` ${product.final_price}€`}</span>
@@ -100,7 +100,7 @@ function Catalogue() {
               <option value='developer'>Desarrollo</option>
             </select>
 
-            <button type='submit' id='buttonFilters' className='send-btn'>
+            <button type='submit' id='buttonFilters' className='red-btn'>
               Buscar
             </button>
           </form>
