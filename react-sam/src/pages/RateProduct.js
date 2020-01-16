@@ -33,8 +33,8 @@ export function RateProduct() {
           name='rate'
           className='form-rate'
         >
-          <fieldset>
-            <label for='value'>Valoración:</label>
+          <div className='group2'>
+            Valoración
             <select name='value' id='document_type' ref={register({})}>
               <option value=''></option>
               <option value='5'>EXCELENTE</option>
@@ -43,32 +43,37 @@ export function RateProduct() {
               <option value='2'>CUMPLE</option>
               <option value='1'>MALO</option>
             </select>
-          </fieldset>
-          <fieldset>
-            <label for='comment'>Mi opinión:</label>
+          </div>
+          <div className='group1'>
+            <label>Mi opinión</label>
             <textarea
               name='comment'
               id='comment'
               cols='30'
-              rows='10'
-              placeholder='mi opinión...'
+              rows='3'
               ref={register({})}
             ></textarea>
-          </fieldset>
-          <button type='submit' id='send' disabled={formState.isSubmitting}>
+            <span className='bar'></span>
+          </div>
+          <button
+            className='red-btn'
+            type='submit'
+            id='send'
+            disabled={formState.isSubmitting}
+          >
             VALORAR
           </button>
         </form>
         <a
-          href="/"
-          className='return-btn'
+          href='/'
+          className='white-btn'
           onClick={e => {
             e.preventDefault();
             history.goBack();
           }}
         >
           Volver
-      </a>
+        </a>
       </main>
       <Footer />
     </React.Fragment>

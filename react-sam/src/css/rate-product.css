@@ -1,0 +1,64 @@
+.main-rate {
+  font-family: var(--ubuntu);
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+}
+
+.form-rate {
+  text-align: center;
+}
+
+#comment {
+  background: transparent;
+  font-size: 18px;
+  margin: auto;
+  display: block;
+  width: 80%;
+  border: none;
+  border-bottom: 1px solid var(--gris1);
+  resize: none;
+}
+
+.form-rate label {
+  padding-right: 10rem;
+}
+
+#comment:focus {
+  outline: none;
+  color: white;
+}
+
+select#document_type {
+  padding: 0.2rem;
+  font-size: 14px;
+  font-family: var(--rubik);
+  border-radius: 6px;
+}
+
+.group2 #document_type {
+  margin-left: 5rem;
+}
+
+#comment:focus ~ .bar::before {
+  width: 92%;
+}
+
+.bar {
+  position: relative;
+  display: block;
+  width: 80%;
+  padding-left: 5rem;
+}
+
+.bar::before {
+  content: '';
+  height: 3px;
+  width: 0%;
+  bottom: 0;
+  position: absolute;
+  background: var(--gradiente);
+  transition: 0.3s ease all;
+  left: 0%;
+}

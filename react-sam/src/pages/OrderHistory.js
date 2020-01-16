@@ -22,7 +22,7 @@ export function OrderHistory() {
     <React.Fragment>
       <Header />
       <div className='products-order-history'>
-        <h1> Mis pedidos</h1>
+        <h1>Mis pedidos</h1>
         <ul>
           {products.map((product, index) => (
             <li key={product.id}>
@@ -30,23 +30,28 @@ export function OrderHistory() {
                 <img src={product.photo} />
                 <p>{product.name}</p>
               </div>
-              <button onClick={() => onProductSelected(product)}>
+              <button
+                className='white-btn'
+                onClick={() => onProductSelected(product)}
+              >
                 VALORAR EL PRODUCTO
               </button>
             </li>
           ))}
         </ul>
+        <button
+          href='/'
+          className='white-btn'
+          onClick={e => {
+            e.preventDefault();
+            history.goBack();
+          }}
+        >
+          Volver
+        </button>
       </div>
-      <a
-        href="/"
-        className='return-btn'
-        onClick={e => {
-          e.preventDefault();
-          history.goBack();
-        }}
-      >
-        Volver
-      </a>
+
+      <Footer />
     </React.Fragment>
   );
 }

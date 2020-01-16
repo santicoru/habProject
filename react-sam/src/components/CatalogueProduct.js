@@ -90,20 +90,20 @@ export function CatalogueProduct() {
       <Header />
       <div className='top'>
         <div className='product-single'>
+          <img src={product[0].photo} alt='ip' />
           <section className='product-single-name'>
             <p>{product[0].name}</p>
           </section>
-          <img src={product[0].photo} alt='ip' />
 
           <p>
-            <span>Valoración media: </span>
+            <span className='valoration-title'>Valoración media: </span>
             {rateOfTheProduct()}{' '}
             {!isNaN(rateOfTheProduct()) && (
               <button onClick={showRate}>Ver valoraciones</button>
             )}
           </p>
 
-          <p>{product[0].description}</p>
+          <p className='description-prod'>{product[0].description}</p>
           <p>
             <span className='iprice'>{`${product[0].init_price}€ `}</span>
             <span className='dis'>{` -${product[0].discount}% `}</span>
@@ -155,7 +155,7 @@ export function CatalogueProduct() {
               />
               <span className='bar'></span>
             </div>
-            <button className='send-btn' type='submit'>
+            <button className='red-btn' type='submit'>
               Guardar
             </button>
           </form>
@@ -172,20 +172,16 @@ export function CatalogueProduct() {
           </a>
           {role === 'organizer' && (
             <button
-              className='send-btn'
+              className='red-btn'
               onClick={() => addItemToPack(productOffered)}
             >
               Añadir a paquete
             </button>
           )}
-          <button
-            className='send-btn'
-            onClick={() => addItemToCart(product[0])}
-          >
+          <button className='red-btn' onClick={() => addItemToCart(product[0])}>
             Añadir al carrito
           </button>
         </div>
-
       </div>
       <Footer />
     </React.Fragment>

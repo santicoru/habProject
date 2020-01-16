@@ -1,0 +1,26 @@
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.top ul p {
+  display: grid;
+  grid-template-columns: 250px 70px 70px 70px 70px;
+  align-items: center;
+  border: 0.5px solid white;
+}
+
+.top p span:first-of-type {
+  padding-left: 1rem;
+}
+
+.top input {
+  max-width: 200px;
+  margin: auto;
+}
+
+.top label {
+  margin: auto;
+}
