@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import { createPack } from '../http/packService';
+import { trash } from '../assets/images/trash.png';
 
 export function CreatePack() {
   const [expireDate, setExpireDate] = useState();
@@ -21,14 +22,14 @@ export function CreatePack() {
   console.log(pack);
   const history = useHistory();
 
-  const expDate = (e) => {
+  const expDate = e => {
     setExpireDate(e.target.value);
-  }
+  };
   console.log(expireDate);
 
   const buy = () => {
     if (expireDate !== undefined) {
-      const order = (localStorage.getItem('pack'));
+      const order = localStorage.getItem('pack');
       console.log(order);
       const date_end = expireDate;
       console.log(date_end);
@@ -47,8 +48,7 @@ export function CreatePack() {
     } else {
       setError(true);
     }
-
-  }
+  };
 
   return (
     <React.Fragment>
@@ -74,30 +74,38 @@ export function CreatePack() {
                     <span>{`-> ${item.newPrice}€  `}</span>
 
                     <button
+                      className='trash'
                       onClick={e => {
                         e.preventDefault();
                         removeItem(item);
                       }}
-                    >
-                      Quitar
-              </button>
+                    ></button>
                   </p>
                 </li>
               ))}
             </ul>
-            <label>Paquete valido hasta: </label>
-            <input type='date' name='expirationDate' onChange={expDate} required />
-            {error && (
-              <p>Debe introducir una fecha de validez</p>
-            )}
+            <div className='group1'>
+              <label>Paquete valido hasta:</label>
+              <input
+                type='date'
+                name='expirationDate'
+                onChange={expDate}
+                required
+              />
+              <span className='bar'></span>
+
+              {error && <p>Debe introducir una fecha de validez</p>}
+            </div>
             <p>Total price = {`${totalPrice}€`}</p>
-            <button onClick={buy}>GENERAR PAQUETE</button>
+            <button className='red-btn' onClick={buy}>
+              GENERAR PAQUETE
+            </button>
           </React.Fragment>
         )}
-        {code.length > 0 && (
-          <p>Codigo: {code}</p>
-        )}
-        <Link to="/catalogue"><button>Volver al catalogo</button></Link>
+        {code.length > 0 && <p>Codigo: {code}</p>}
+        <Link to='/catalogue'>
+          <button className='white-btn'>Volver al catalogo</button>
+        </Link>
       </main>
       <Footer />
     </React.Fragment>

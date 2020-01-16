@@ -4,10 +4,11 @@
   flex-direction: column;
   justify-items: center;
   align-items: center;
-}
-
-.product-single p {
-  max-width: 85%;
+  max-width: 425px;
+  margin: auto;
+  background: #2e4777;
+  border: 0.5px solid rgb(57, 73, 145);
+  border-radius: 3px;
 }
 
 .product-single-name p {
@@ -20,7 +21,6 @@
 
 .product-single img {
   width: 425px;
-  margin: auto;
 }
 
 .product-val {
@@ -32,8 +32,17 @@
   width: 220px;
 }
 
-.product-single p span {
+.valoration-title {
   color: white;
+  font-size: 18px;
+}
+
+.description-prod {
+  width: 425px;
+  padding-left: 0.5rem;
+}
+
+.product-single p span {
   font-family: var(--rubik);
 }
 
@@ -96,16 +105,19 @@
 
 .form-offer label {
   font-family: var(--rubik);
+  color: var(--gris1);
 }
 
 @media (min-width: 900px) {
-  .product-single {
-    max-width: 900px;
-    align-content: center;
-    margin: auto;
-  }
+  /* div .product-single {
+    width: 60%;
+  } */
 
   .product-single img {
+    width: 800px;
+  }
+
+  .description-prod {
     width: 800px;
   }
 

@@ -7,8 +7,12 @@
 @import url('css/personal-account.css');
 @import url('css/about.css');
 @import url('css/cart.css');
+@import url('css/edit-password.css');
 @import url('css/product-display.css');
 @import url('css/catalogue-product.css');
+@import url('css/rate-product.css');
+@import url('css/order-history.css');
+@import url('css/create-pack.css');
 @import url('css/footer.css');
 @import url('css/packages.css');
 
@@ -39,34 +43,33 @@ body {
   margin-top:7rem;
 }
 /* puntuales */
-.code{
-  color:#fff;
+.code {
+  color: #fff;
   font-size: 1.2rem;
 }
 .inputHidden {
   display: none;
 }
- 
+
 /* faq */
-section.FAQ h1{
+section.FAQ h1 {
   font-family: var(--ubuntu);
   padding-top: 1rem;
   font-size: 30px;
   letter-spacing: 0.22rem;
   text-align: center;
 }
-section.FAQ li{
-    padding: 0;
-    list-style: none;   
-    padding: 0.5rem 0;
-    text-align: center;
+section.FAQ li {
+  padding: 0;
+  list-style: none;
+  padding: 0.5rem 0;
+  text-align: center;
 }
-section.FAQ li p{
-  color:#000000;
-
+section.FAQ li p {
+  color: #000000;
 }
-section.FAQ .hidden{
-    display: none;
+section.FAQ .hidden {
+  display: none;
 }
 /* homepage */
 
@@ -121,10 +124,10 @@ section.photo-back h1 {
   padding: 0.5rem 0;
   z-index: 2;
 }
-.header-nav nav button.shopping-cart{
+.header-nav nav button.shopping-cart {
   grid-column: 5;
 }
-.header-nav nav button.login{
+.header-nav nav button.login {
   grid-column: 4;
 }
 .header-nav #hidden-mobile {

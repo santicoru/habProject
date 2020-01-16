@@ -92,15 +92,17 @@ export function ShoppingCart() {
               <div className='total-price'>
                 <p>Total = {`${totalPrice}€`}</p>
               </div>
-              <button className='send-btn' id='buy-btn' onClick={buy}>
-                Comprar
-              </button>
+              <div className='buy-red-btn'>
+                <button className='red-btn' id='buy-btn' onClick={buy}>
+                  Comprar
+                </button>
+              </div>
             </React.Fragment>
           )}
         </section>
         <section className='cart-btn'>
           <Link to='/catalogue'>
-            <button className='continue'>Seguir comprando</button>
+            <button className='white-btn'>Seguir comprando</button>
           </Link>
         </section>
       </section>

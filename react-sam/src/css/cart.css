@@ -7,6 +7,10 @@
   font-family: var(--ubuntu);
 }
 
+.cart-detail h1 {
+  text-align: center;
+}
+
 .cart-detail ul {
   padding-left: 0;
 }
@@ -20,8 +24,13 @@
 
 .cart-detail a {
   align-items: flex-start;
+  padding-left: 1rem;
+  font-size: 20px;
 }
 
+p span {
+  font-size: 20px;
+}
 p button {
   display: flex;
   flex-direction: row-reverse;
@@ -42,6 +51,7 @@ button.trash {
   background-repeat: no-repeat;
   background-position: center;
   background-size: 32px;
+  justify-self: center;
 }
 
 button.plus {
@@ -53,38 +63,15 @@ p button.minus {
   justify-self: center;
 }
 
+.buy-red-btn {
+  text-align: center;
+}
+
 .total-price p {
-  text-align: end;
   font-size: 22px;
+  color: white;
   margin-right: 0;
   font-family: var(--rubik);
-  align-items: center;
-  margin-right: 0;
-  width: 145px;
+  width: 420px;
   border-bottom: 2px solid var(--rojo1);
 }
-
-.continue {
-  background: transparent;
-  border-radius: 6px;
-  border: none;
-  padding: 16px 32px;
-  margin: 1.6rem;
-  text-align: center;
-  font-size: 16px;
-  font-family: var(--rubik);
-  letter-spacing: 0.1rem;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  text-transform: uppercase;
-  color: white;
-}
-
-.continue:hover {
-  background-color: white;
-  color: black;
-}
-
-/* footer {
-  position: absolute;
-} */

@@ -13,13 +13,16 @@ function productsReducer(state, action) {
     case 'TOOGLE_PRODUCT':
       return { ...state, isProductOpened: !state.isProductOpened };
     case 'DELETE_PRODUCT':
-      return { ...state, products: state.products.filter(product => product.id !== action.id) };
-    default: return state;
+      return {
+        ...state,
+        products: state.products.filter(product => product.id !== action.id)
+      };
+    default:
+      return state;
   }
 }
 
 export function EditProduct() {
-
   const [state, dispatch] = useReducer(productsReducer, {
     products: [],
     selectedProduct: null,
@@ -70,13 +73,12 @@ export function EditProduct() {
           )}
         </div>
         <button
-          className=""
-          style={{ position: "fixed", bottom: "20px", left: "20px" }}
-          onClick={() => dispatch({ type: "TOGGLE_PRODUCT" })}
+          className='white-btn'
+          onClick={() => dispatch({ type: 'TOGGLE_PRODUCT' })}
         >
           Volver
         </button>
       </main>
     </React.Fragment>
-  )
+  );
 }

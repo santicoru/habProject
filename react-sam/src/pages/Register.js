@@ -67,15 +67,15 @@ export function Register() {
             <option value={type}></option>
           </select>
           <div className='group4'>
-            <label for='name'>Nombre / Razón social:</label>
+            <label>Nombre / Razón social:</label>
             <input type='text' name='name' ref={register({})} />
           </div>
           <div className='only-buyer'>
-            <label for='surname'>Apellidos:</label>
+            <label>Apellidos:</label>
             <input type='text' name='surname' ref={register({})} />
           </div>
           <div className='group4' id='span-mail'>
-            <label for='email'>Email:</label>
+            <label>Email:</label>
             <input
               type='email'
               name='email'
@@ -85,7 +85,7 @@ export function Register() {
             <span>{errors.email && errors.email.message}</span>
           </div>
           <div className='group4'>
-            <label for='password'>Contraseña:</label>
+            <label>Contraseña:</label>
             <input
               type='password'
               name='password'
@@ -94,7 +94,7 @@ export function Register() {
             />
           </div>
           <div className='doc'>
-            <label for='document_type'>Documento:</label>
+            <label>Documento:</label>
             <select name='document_type' id='document_type' ref={register({})}>
               <option value='dni'>DNI</option>
               <option value='nie'>NIE</option>
@@ -108,7 +108,7 @@ export function Register() {
             />
           </div>
           <div className='only-buyer'>
-            <label for='birth_date'>Fecha de nacimiento:</label>
+            <label>Fecha de nacimiento:</label>
             <input
               type='date'
               name='birth_date'
@@ -117,17 +117,17 @@ export function Register() {
             />
           </div>
           <div className='group4'>
-            <label for='phone'>Teléfono:</label>
+            <label>Teléfono:</label>
             <input type='phone' name='phone' id='phone' ref={register({})} />
           </div>
           <button
-            className='send-btn'
+            className='red-btn'
             type='submit'
             id='send'
             disabled={formState.isSubmitting}
           >
             REGISTRARSE
-        </button>
+          </button>
           <div className='cancel'>
             <Link to='/'>CANCELAR</Link>
           </div>
