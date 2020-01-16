@@ -16,7 +16,8 @@ export function ShoppingCart() {
     totalItems,
     removeItemFromCart,
     addItemToCart,
-    removeItem
+    removeItem,
+    resetCart
   } = useCart();
 
   const history = useHistory();
@@ -30,9 +31,12 @@ export function ShoppingCart() {
       const orderFinal = { order, price_final };
       console.log(orderFinal);
       history.push('/confirmation');
-      return orderF({ orderFinal }).catch(error => {
-        console.log(error);
-      });
+      return orderF({ orderFinal })
+        .then(resetCart())
+        .then(window.location.reload())
+        .catch(error => {
+          console.log(error);
+        });
     } else {
       history.push('/login');
     }
@@ -40,14 +44,12 @@ export function ShoppingCart() {
   return (
     <React.Fragment>
       <Header />
-      <section className='cart-main'>
-        <div className='title'>
-          <h2>Artículos en el carrito</h2>
-        </div>
+      <section className='cart-main top'>
         <section className='cart-detail'>
           {totalItems === 0 && <h2>Carrito vacio</h2>}
           {totalItems > 0 && (
             <React.Fragment>
+              <h2>Articulos en el carrito</h2>  
               <ul>
                 {cart.map(item => (
                   <li>
@@ -101,7 +103,6 @@ export function ShoppingCart() {
           </Link>
         </section>
       </section>
-
       <Footer />
     </React.Fragment>
   );
