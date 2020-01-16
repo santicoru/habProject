@@ -28,29 +28,31 @@ export function PersonalAccount() {
   return (
     <React.Fragment>
       <Header />
-      <div className='title-personalAccount'>
-        <h1>Mi Cuenta</h1>
+      <div className='top'>
+        <div className='title-personalAccount'>
+          <h1>Mi Cuenta</h1>
+        </div>
+        <section className='main-personalAccount'>
+          <ul>
+            <li><Link to='/password'>MODIFICAR CONTRASEÑA</Link></li>
+            {role === 'colaborator' && (
+              <li>
+                <Link to='/productCo'>GESTIONAR MIS PRODUCTOS</Link>
+              </li>
+            )}
+            {role === 'organizer' && (
+              <li>
+                <Link to='/packOr'>GESTIONAR MIS PAQUETES</Link>
+              </li>
+            )}
+            <li>
+              <Link to='/ordersHistory'>VER HISTORIAL DE PEDIDOS</Link>
+            </li>
+            <li onClick={out}>CERRAR SESIÓN</li>
+            <li onClick={delAccount}>ELIMINAR CUENTA</li>
+          </ul>
+        </section>
       </div>
-      <section className='main-personalAccount'>
-        <ul>
-          <li><Link to='/password'>MODIFICAR CONTRASEÑA</Link></li>
-          {role === 'colaborator' && (
-            <li>
-              <Link to='/productCo'>GESTIONAR MIS PRODUCTOS</Link>
-            </li>
-          )}
-          {role === 'organizer' && (
-            <li>
-              <Link to='/packOr'>GESTIONAR MIS PAQUETES</Link>
-            </li>
-          )}
-          <li>
-            <Link to='/ordersHistory'>VER HISTORIAL DE PEDIDOS</Link>
-          </li>
-          <li onClick={out}>CERRAR SESIÓN</li>
-          <li onClick={delAccount}>ELIMINAR CUENTA</li>
-        </ul>
-      </section>
       <Footer />
     </React.Fragment>
   );

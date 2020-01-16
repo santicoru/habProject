@@ -8,7 +8,7 @@ export function Homepage() {
     <React.Fragment>
       <Header />
       <CodePack />
-      <main className='main-homepage'>
+      <main className='main-homepage top'>
         <div className='title-homepage'>
           <h1>Software</h1>
           <h2>a Medida</h2>
