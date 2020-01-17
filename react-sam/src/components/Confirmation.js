@@ -6,10 +6,10 @@ import { usePack } from '../shared/context/package-context';
 import { useAuth } from '../shared/context/auth-context';
 
 import Lottie from 'react-lottie';
-import noteData from '../assets/lotties/monkey.json';
+import noteData from '../assets/lotties/cart.json';
 
 const defaultOptions = {
-  loop: true,
+  loop: false,
   autoplay: true,
   renderSettings: {
     preserveAspectRatio: 'xMidyMid slice'
@@ -17,9 +17,7 @@ const defaultOptions = {
 };
 
 function Confirmation() {
-  const {
-    code
-  } = usePack();
+  const { code } = usePack();
 
   const history = useHistory();
 
@@ -37,8 +35,12 @@ function Confirmation() {
             <p>Gracias por usar SAM</p>
           </div>
         )}
-        {code.length === 0 && <p>GRACIAS POR COMPRAR EN SAM</p>}
-        <Lottie options={{ animationData: noteData, ...defaultOptions }} />
+        {code.length === 0 && (
+          <p className='main-title'>Gracias por comprar en SAM</p>
+        )}
+        <div className='animation-cart'>
+          <Lottie options={{ animationData: noteData, ...defaultOptions }} />
+        </div>
         <button className='white-btn' onClick={goCatalogue}>
           Seguir comprando
         </button>
