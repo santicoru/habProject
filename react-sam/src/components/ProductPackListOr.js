@@ -6,6 +6,8 @@ function Loading() {
 
 export function ProductPackListOr({ productsPack, selectedIndex, onProductSelectedPack }) {
   const [idPack, setIdPack] = useState();
+  const [productsInPack, setProductsInPack] = useState();
+
   if (productsPack === undefined) return <Loading />;
 
   if (productsPack === null) {
@@ -27,10 +29,7 @@ export function ProductPackListOr({ productsPack, selectedIndex, onProductSelect
         {productsPack.map((productPack, index) => (
           <li
             key={productPack.id}
-            onClick={() => {
-              onProductSelectedPack(productsPack[index]);
-              setIdPack(productsPack[index].id);
-            }}
+
           >
             <div className={`product-item ${selectedIndex === index}`}>
               <div>
@@ -43,10 +42,38 @@ export function ProductPackListOr({ productsPack, selectedIndex, onProductSelect
                   <p>Caducado</p>
                 )}
               </div>
+              <button onClick={() => {
+                onProductSelectedPack(productsPack[index]);
+                setIdPack(productsPack[index].id);
+                const getCode = productPack.code_package;
+                console.log(getCode);
+                return getCodePack({ getCode }).then(response => {
+                  setProductsInPack(response.data.data);
+                });
+              }}>
+                Ver productos de paquete
+                </button>
             </div>
           </li>
         ))}
       </ul>
-    </div>
+      <div>
+        {productsInPack !== undefined && (
+          <ul>
+            {productsInPack.map(productIP => (
+              <li key={productIP.id}>
+                <div>
+                  <img src={productIP.photo} alt='productimage' />
+                  <p>{productIP.name}</p>
+                  <p>Precio catalogo: {productIP.old_price}€</p>
+                  <p>Descuento Adicional {productIP.discount} %</p>
+                  <p>Precio ofertado: {productIP.final_price}€</p>
+                </div>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+    </div >
   );
 }

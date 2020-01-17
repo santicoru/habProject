@@ -47,13 +47,6 @@ export function PackOr() {
         <h1 className='main-title top'>Paquetes publicados</h1>
         <div className={`grid ${state.isProductPackOpened}`} />
         <div>
-          {state.selectedProductPack !== null && (
-            <ProductPackOr
-              defaultProductPack={state.selectedProductPack}
-            />
-          )}
-        </div>
-        <div>
           <ProductPackListOr
             productsPack={initialProductsPack}
             selectedIndex={state.selectedProductPack}
@@ -62,6 +55,13 @@ export function PackOr() {
               dispatch({ type: 'TOGGLE_PRODUCT_PACK' });
             }}
           />
+        </div>
+        <div>
+          {state.selectedProductPack !== null && (
+            <ProductPackOr
+              defaultProductPack={state.selectedProductPack}
+            />
+          )}
         </div>
       </main>
       <Footer />
