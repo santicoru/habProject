@@ -1,0 +1,537 @@
+-- Creación de tablas
+
+create table userSam ( -- tabla usuario
+id int(20) not null auto_increment,
+nameOrSocial varchar(50) default null,
+surname varchar (50) default null,
+userType varchar (20) not null,
+email varchar (50) default null unique,
+passwordAccount varchar(20) not null,
+phone varchar(20) default null,
+birthDate date default null,
+documentType varchar(20) default null,
+documentNumber varchar (20) default null,
+createdAt datetime null default null,
+primary key (id)
+);
+
+create table userVerification ( -- tabla verificación
+id int(20) not null auto_increment,
+verificationCode varchar(100) not null,
+createdAt datetime null default null,
+idUser int(20) not null unique,
+primary key (id),
+foreign key (idUser) references userSam(id)
+);
+
+create table product ( -- tabla producto
+id int(20) not null auto_increment,
+nameProduct varchar(50) default null,
+class varchar(50) default null,
+description varchar(5000) default null,
+initPrize float(6, 2) default null,
+discount varchar(10) default null,
+finalPrize float(6, 2) default null,
+photoRoute varchar(1000) default null,
+idUser int(20) not null unique,
+primary key (id),
+foreign key (idUser) references userSam(id)
+);
+
+create table orderFinal ( -- tabla pedido
+id int(20) not null auto_increment,
+priceFinal int (20) default null,
+orderDate date default null,
+idUser int(20) not null unique,
+primary key (id),
+foreign key (id) references userSam (id)
+);
+
+create table package ( -- tabla paquete
+id int(20) not null auto_increment,
+dateBegin date default null,
+dateEnd date default null,
+codePackage varchar (20) not null,
+idUser int(20) not null unique,
+primary key (id),
+foreign key (idUser) references userSam(id)
+);
+
+create table rate ( -- tabla valorar
+idUser int(20) not null unique,
+idProduct int (20) not null unique,
+commentInRate varchar (250) default null,
+valueInRate tinyint (5) default null,
+dateComment date,
+primary key (idUser, idProduct),
+foreign key (idUser) references userSam (id),
+foreign key (idProduct) references product (id)
+);
+
+create table productIncludePackage ( -- tabla incluido
+idProduct int(20) not null unique,
+idPaq int(20) not null unique,
+paqPrize int (20) default null,
+paqDisc varchar (20) default null,
+primary key (idProduct, idPaq),
+foreign key (idProduct) references product(id),
+foreign key (idPaq) references package(id)
+);
+
+create table enterProductOrder ( -- tabla EntraProdPed
+idProduct int (20) not null unique,
+idOrder int (20) not null unique,
+quantity int (200) default null,
+priceAtOrder int (200) default null,
+primary key (idProduct, idOrder),
+foreign key (idProduct) references product(id),
+foreign key (idOrder) references orderFinal(id)
+);
+
+create table enterPackageOrder ( -- tabla EntraPaqPedi
+idPaq int(20) not null unique,
+idOrder int (20) not null unique,
+primary key (idPaq, idOrder),
+foreign key (idPaq) references package(id),
+foreign key (idOrder) references orderFinal(id)
+);
+
+create table payMethod ( -- tabla MétodoPago
+id int(20) not null auto_increment,
+creditCard varchar (50) default null,
+transference varchar (100) default null,
+paypal varchar (100) default null,
+idOrder int (20) not null unique,
+primary key (id),
+foreign key (idOrder) references orderFinal(id)
+);
+
+
+
+-- Inserción de datos
+
+insert into userSam (nameOrSocial, surname, userType, email, 
+passwordAccount, phone, birthDate, documentType, 
+documentNumber, createdAt) 
+values (
+-- id: 1
+'Jonathan',
+'Harker',
+'Colaborator',
+'jonathanharker@hotmail.com',
+'3456fgJ7Xs',
+'600000001',
+'1975-03-25',
+'DNI',
+'12345678A',
+'1995-03-25 13:23:44'
+);
+
+insert into userSam (nameOrSocial, surname, userType, email, 
+passwordAccount, phone, birthDate, documentType, 
+documentNumber, createdAt) 
+values (
+-- id: 2
+'Mina',
+'Murray',
+'Buyer',
+'minamurray@hotmail.com',
+'34d7IKJ7Xs',
+'600304001',
+'1977-08-10',
+'DNI',
+'45678912B',
+'1997-05-03 10:20:21'
+);
+
+insert into userSam (nameOrSocial, surname, userType, email, 
+passwordAccount, phone, birthDate, documentType, 
+documentNumber, createdAt) 
+values (
+-- id: 3
+'Lucy',
+'Westenra',
+'Organizer',
+'lucywestenra@hotmail.com',
+'sD4YfgJ7Xs',
+'604577001',
+'1977-12-04',
+'DNI',
+'87654321C',
+'1997-07-28 21:00:54'
+);
+
+insert into userSam (nameOrSocial, surname, userType, email, 
+passwordAccount, phone, birthDate, documentType, 
+documentNumber, createdAt) 
+values (
+-- id: 4
+'Arthur',
+'Holmwood',
+'Colaborator',
+'arthurholmwood@hotmail.com',
+'dF3VfgJ7Xs',
+'600004378',
+'1970-07-14',
+'NIF',
+'X1234567A',
+'1990-07-08 14:14:25'
+);
+
+insert into userSam (nameOrSocial, surname, userType, email, 
+passwordAccount, phone, birthDate, documentType, 
+documentNumber, createdAt) 
+values (
+-- id: 5
+'Quincey',
+'Morris',
+'Buyer',
+'quinceymorris@hotmail.com',
+'3456tR52x',
+'600044762',
+'1970-01-08',
+'NIF',
+'X3456789B',
+'1990-11-07 20:54:02'
+);
+
+insert into userSam (nameOrSocial, surname, userType, email, 
+passwordAccount, phone, birthDate, documentType, 
+documentNumber, createdAt) 
+values (
+-- id: 6
+'John',
+'Seward',
+'Organizer',
+'johnseward@hotmail.com',
+'3456sXJ4',
+'634174762',
+'1970-03-24',
+'NIF',
+'X7654321C',
+'1990-10-11 10:43:14'
+);
+
+insert into userSam (nameOrSocial, surname, userType, email, 
+passwordAccount, phone, birthDate, documentType, 
+documentNumber, createdAt) 
+values (
+-- id: 7
+'Abraham',
+'van Helsing',
+'Colaborator',
+'abrahamvanhelsing@hotmail.com',
+'dF3VfhS41n',
+'644813378',
+'1963-01-11',
+'CIF',
+'A12345678',
+'1983-01-11 17:00:00'
+);
+
+insert into userSam (nameOrSocial, surname, userType, email, 
+passwordAccount, phone, birthDate, documentType, 
+documentNumber, createdAt) 
+values (
+-- id: 8
+'Phileas',
+'Fogg',
+'Buyer',
+'phileasfogg@hotmail.com',
+'34dA8b52x',
+'600331784',
+'1968-04-15',
+'CIF',
+'B32178945',
+'1988-01-14 14:00:00'
+);
+
+insert into userSam (nameOrSocial, surname, userType, email, 
+passwordAccount, phone, birthDate, documentType, 
+documentNumber, createdAt) 
+values (
+-- id: 9
+'Rodney',
+'Skinner',
+'Organizer',
+'rodneyskinner@hotmail.com',
+'Df3sUXJ4',
+'634142983',
+'1973-10-10',
+'CIF',
+'C87654321',
+'1993-12-01 16:14:32'
+);
+
+insert into userVerification(verificationCode, createdAt, idUser)
+values (
+-- id: 1
+'b4srehdgfr',
+'1995-03-26 13:23:44',
+1
+);
+
+insert into userVerification(verificationCode, createdAt, idUser)
+values (
+-- id: 2
+'67jjdfg',
+'1997-05-04 10:20:21',
+2
+);
+
+insert into userVerification(verificationCode, createdAt, idUser)
+values (
+-- id: 3
+'gh54yhhe5re4',
+'1997-07-29 21:00:54',
+3
+);
+
+insert into userVerification(verificationCode, createdAt, idUser)
+values (
+-- id: 4
+'dgggr4w545hdf',
+'1990-07-09 14:14:25',
+4
+);
+
+insert into userVerification(verificationCode, createdAt, idUser)
+values (
+-- id: 5
+'sd44435234g',
+'1990-11-08 20:54:02',
+5
+);
+
+insert into userVerification(verificationCode, createdAt, idUser)
+values (
+-- id: 6
+'dsg45ew46ht',
+'1990-10-12 10:43:14',
+6
+);
+
+insert into userVerification(verificationCode, createdAt, idUser)
+values (
+-- id: 7
+'srt4w46g',
+'1983-01-12 17:00:00',
+7
+);
+
+insert into userVerification(verificationCode, createdAt, idUser)
+values (
+-- id: 8
+'kjukyo09gy',
+'1988-01-15 14:00:00',
+8
+);
+
+insert into userVerification(verificationCode, createdAt, idUser)
+values (
+-- id: 9
+'se4634wtrdy',
+'1993-12-02 16:14:32',
+9
+);
+
+insert into product(nameProduct, class, description, initPrize, 
+discount, finalPrize, photoRoute, idUser) 
+values (
+-- id: 1
+'Nombre: producto 1',
+'Categoría: categoría 1',
+'Descripción: buen producto',
+20,
+10,
+15,
+'Dirección de la imagen: dirección 1',
+1
+);
+
+insert into product(nameProduct, class, description, initPrize, 
+discount, finalPrize, photoRoute, idUser) 
+values (
+-- id: 2
+'Nombre: producto 2',
+'Categoría: categoría 2',
+'Descripción: muy buen producto',
+50,
+15,
+40,
+'Dirección de la imagen: dirección 2',
+4
+);
+
+insert into product(nameProduct, class, description, initPrize, 
+discount, finalPrize, photoRoute, idUser) 
+values (
+-- id: 3
+'Nombre: producto 1',
+'Categoría: categoría 1',
+'Descripción: magnífico producto',
+80,
+25,
+68,
+'Dirección de la imagen: dirección 1',
+7
+);
+
+insert into orderFinal(priceFinal, orderDate, idUser) 
+values (
+-- id: 1
+20,
+'2019-07-12',
+2
+);
+
+insert into orderFinal(priceFinal, orderDate, idUser) 
+values (
+-- id: 2
+30,
+'2019-05-03',
+5
+);
+
+insert into orderFinal(priceFinal, orderDate, idUser) 
+values (
+-- id: 3
+40,
+'2019-09-18',
+8
+);
+
+insert into package(dateBegin, dateEnd, codePackage, idUser) 
+values (
+-- id: 1
+'2019-01-01',
+'2019-12-31',
+'PACdfCa23T',
+3
+);
+
+insert into package(dateBegin, dateEnd, codePackage, idUser) 
+values (
+-- id: 2
+'2020-02-15',
+'2020-10-15',
+'PACdfxs5Gi',
+6
+);
+
+insert into package(dateBegin, dateEnd, codePackage, idUser) 
+values (
+-- id: 3
+'2021-01-15',
+'2021-12-25',
+'PACdfcSd2B',
+9
+);
+
+insert into rate values (
+2,
+1,
+'El producto es muy bueno',
+3,
+'2017-04-05'
+);
+
+insert into rate values (
+5,
+2,
+'El producto es chachi pistachi',
+4,
+'2016-02-08'
+);
+
+insert into rate values (
+7,
+3,
+'El producto es de lo bueno lo mejor, de lo mejor lo superior',
+5,
+'2018-03-01'
+);
+
+insert into productIncludePackage values (
+1,
+1,
+70,
+'20%'
+);
+
+insert into productIncludePackage values (
+2,
+2,
+90,
+'40%'
+);
+
+insert into productIncludePackage values (
+3,
+3,
+120,
+'80%'
+);
+
+insert into enterProductOrder values (
+1,
+1,
+1,
+20
+);
+
+insert into enterProductOrder values (
+2,
+2,
+2,
+30
+);
+
+insert into enterProductOrder values (
+3,
+3,
+3,
+50
+);
+
+insert into enterPackageOrder values (
+1,
+1
+);
+
+insert into enterPackageOrder values (
+2,
+2
+);
+
+insert into enterPackageOrder values (
+3,
+3
+);
+
+insert into payMethod(creditCard, transference, paypal, idOrder) 
+values (
+-- id: 1
+'2341234561',
+null,
+null,
+1
+);
+
+insert into payMethod(creditCard, transference, paypal, idOrder) 
+values(
+null,
+-- id: 2
+'TRA0012235DF345623',
+null,
+2
+);
+
+insert into payMethod(creditCard, transference, paypal, idOrder) 
+values (
+-- id: 3
+null,
+null,
+'PAYP124432BF456346',
+3
+);
