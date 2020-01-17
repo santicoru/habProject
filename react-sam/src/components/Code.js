@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { getCodePack } from '../http/packService';
 import { useCart } from '../shared/context/cart-context';
+import { Header } from '../components/Header';
+import { Footer } from '../components/Footer';
 
 export function Code() {
   const [getCode, setGetCode] = useState();
@@ -50,25 +52,34 @@ export function Code() {
   }
   return (
     <React.Fragment>
-      <form onSubmit={showPack}
-        className='form-code-pack'
-        id='show-code-pack'
-      >
-        <label>¿Tienes un código promocional?</label>
-        <input
-          type='text'
-          name='codePack'
-          id='codePack'
-          placeholder='introduce aqui tu código'
-          onChange={(e) => setGetCode(e.target.value)} />
-        <button
-          type='submit'
-          id='button-code'
+      <Header />
+      <main id='main-code'>
+        <h1 className='main-title top'>Código Promocinal</h1>
+        <form onSubmit={showPack}
+          className='form-catalogue-filters'
+          id='show-code-pack'
         >
-          Ver
+          <div className='group1'>
+            <input
+              type='text'
+              name='codePack'
+              id='codePack'
+              placeholder='Introduce tu código'
+              required
+              onChange={(e) => setGetCode(e.target.value)} />
+            <span className='bar'></span>
+          </div>
+          <button
+            type='submit'
+            className='red-btn'
+            id='button-code'
+          >
+            Ver
         </button>
-      </form>
-      <div>{showProducts()}</div>
+        </form>
+        <div>{showProducts()}</div>
+      </main>
+      <Footer />
     </React.Fragment>
   );
 }

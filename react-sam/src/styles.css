@@ -15,6 +15,7 @@
 @import url('css/create-pack.css');
 @import url('css/footer.css');
 @import url('css/packages.css');
+@import url('css/code.css');
 
 :root {
   --azul1: #1b2631;
@@ -27,6 +28,10 @@
   --arial: ;
 }
 
+#root main form div input,
+#root main form div textarea{
+  color:var(--azul1);
+}
 body {
   box-sizing: border-box;
   margin: 0;
@@ -147,6 +152,10 @@ button#button-menu {
 }
 .header-nav #logo {
   width: 7rem;
+  margin-left:1rem ;
+}
+.header-nav a{
+  width: fit-content;
 }
 .header-nav nav button {
   background: none;
