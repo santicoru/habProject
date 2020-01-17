@@ -36,7 +36,7 @@ export function RateProduct() {
           <div className='group2'>
             Valoración
             <select name='value' id='document_type' ref={register({})}>
-              <option value=''></option>
+              <option>Seleccionar</option>
               <option value='5'>EXCELENTE</option>
               <option value='4'>MUY BUENO</option>
               <option value='3'>BUENO</option>

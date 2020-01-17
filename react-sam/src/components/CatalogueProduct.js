@@ -136,7 +136,7 @@ export function CatalogueProduct() {
               ref={register(EDITPRODUCT_VALIDATIONS.theRest)}
               className='inputHidden'
             />
-            <div className='group1'>
+            <div className='group3'>
               <label>Descuento adicional: </label>
               <input
                 type='number'
@@ -145,7 +145,7 @@ export function CatalogueProduct() {
               />
               <span className='bar'></span>
             </div>
-            <div className='group1'>
+            <div className='group3'>
               <label>Precio Oferta:</label>
               <input
                 type='number'

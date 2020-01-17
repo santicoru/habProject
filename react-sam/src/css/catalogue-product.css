@@ -91,22 +91,47 @@
 
 /*Organizador*/
 .form-offer {
+  width: 425px;
+  padding: 15px;
+  margin-top: 2rem;
+  border-radius: 10px;
+  background: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  place-self: center;
-  width: 350px;
-  margin: auto;
-}
-
-.form-offer h2 {
   font-family: var(--ubuntu);
 }
 
-.form-offer label {
-  font-family: var(--rubik);
-  color: var(--gris1);
+.form-offer h2 {
+  color: var(--azul1);
+}
+
+.form-offer .group3 label {
+  margin-left: 7rem;
+}
+
+.group3 [name='discount'],
+.group3 [name='newPrice'] {
+  background: transparent;
+  font-size: 18px;
+  padding: 8px 0px 6px 5px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid var(--gris1);
+  resize: none;
+}
+
+.group3 [name='discount']:focus,
+.group3 [name='newPrice']:focus {
+  outline: none;
+  border-bottom: 2px solid #01496b;
+  transition: 0.5s ease all;
+}
+
+.form-offer .red-btn {
+  color: black;
 }
 
 @media (min-width: 900px) {

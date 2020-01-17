@@ -22,7 +22,7 @@ export function OrderHistory() {
     <React.Fragment>
       <Header />
       <div className='products-order-history'>
-        <h1>Mis pedidos</h1>
+        <h1 className='main-title'>Mis pedidos</h1>
         <ul>
           {products.map((product, index) => (
             <li key={product.id}>
@@ -31,7 +31,7 @@ export function OrderHistory() {
                 <p>{product.name}</p>
               </div>
               <button
-                className='white-btn'
+                className='red-btn'
                 onClick={() => onProductSelected(product)}
               >
                 VALORAR EL PRODUCTO
