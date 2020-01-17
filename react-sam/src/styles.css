@@ -17,7 +17,8 @@
 @import url('css/packages.css');
 
 :root {
-  --azul1: #1B2631;
+  --azul1: #1b2631;
+  --azul2: #34495e;
   --rojo1: #fd5c5c;
   --gris1: rgb(160, 158, 145);
   --gradiente: linear-gradient(to right, #6a82fb, #fc5c7d);
@@ -39,8 +40,8 @@ body {
   height: 100%;
 } */
 
-*.top{
-  margin-top:7rem;
+*.top {
+  margin-top: 7rem;
 }
 /* puntuales */
 .code {
@@ -94,13 +95,13 @@ section.photo-back h1 {
   margin-bottom: 0;
 }
 /* pag titles */
-.main-title{
+.main-title {
   font-family: var(--ubuntu);
   font-weight: 400;
   font-size: 2.5rem;
   width: 100vw;
-  background:#34495E;
-  color:#ffffff;
+  background: #34495e;
+  color: #ffffff;
   text-align: center;
   padding: 0.5rem;
 }
@@ -140,7 +141,7 @@ section.photo-back h1 {
   height: 1.5rem;
   display: none;
 }
-button#button-menu{
+button#button-menu {
   margin-left: 1rem;
   justify-self: start;
 }

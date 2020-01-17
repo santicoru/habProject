@@ -63,8 +63,7 @@ function Catalogue() {
       <Header />
       <h1 className='main-title top'>Catálogo</h1>
       <main className='catalogue-complete'>
-        <div className='title'>
-        </div>
+        <div className='title'></div>
         <section className='catalogue-filter'>
           <form
             onSubmit={catalogueFilters}
@@ -72,7 +71,7 @@ function Catalogue() {
             id='form-catalogue-filters'
           >
             <div className='group1' name='min'>
-              <label for='price'>Rango de precios</label>
+              <label>Rango de precios</label>
               <input
                 type='number'
                 name='price'

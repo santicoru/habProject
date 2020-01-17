@@ -1,6 +1,12 @@
 .cart-main {
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.cart-detail {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 3rem;
@@ -46,7 +52,8 @@ p button {
 }
 
 button.trash {
-  border-radius: 50%;
+  background-color: var(--azul2);
+  border-radius: 6px;
   background-image: url('../assets/images/trash.png');
   background-repeat: no-repeat;
   background-position: center;
@@ -57,10 +64,14 @@ button.trash {
 button.plus {
   justify-self: right;
   font-size: 40px;
+  background-color: var(--azul2);
+  border-radius: 6px;
 }
 
 p button.minus {
   justify-self: center;
+  background-color: var(--azul2);
+  border-radius: 6px;
 }
 
 .buy-red-btn {
@@ -74,4 +85,13 @@ p button.minus {
   font-family: var(--rubik);
   width: 420px;
   border-bottom: 2px solid var(--rojo1);
+}
+
+@media (min-width: 900px) {
+  .cart-detail ul li p {
+    display: grid;
+    grid-template-columns: 260px 100px 70px 70px 70px 70px;
+    grid-template-rows: auto;
+    align-items: center;
+  }
 }

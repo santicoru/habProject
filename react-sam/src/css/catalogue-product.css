@@ -2,12 +2,8 @@
   font-family: var(--ubuntu);
   display: flex;
   flex-direction: column;
-  justify-items: center;
   align-items: center;
   max-width: 425px;
-  margin: auto;
-  background: #2e4777;
-  border: 0.5px solid rgb(57, 73, 145);
   border-radius: 3px;
 }
 
@@ -21,6 +17,7 @@
 
 .product-single img {
   width: 425px;
+  border-radius: 3px;
 }
 
 .product-val {
@@ -30,6 +27,10 @@
   color: white;
   font-family: var(--rubik);
   width: 220px;
+}
+
+.description-prod {
+  color: white;
 }
 
 .valoration-title {
@@ -109,10 +110,6 @@
 }
 
 @media (min-width: 900px) {
-  /* div .product-single {
-    width: 60%;
-  } */
-
   .product-single img {
     width: 800px;
   }
