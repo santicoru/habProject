@@ -16,7 +16,8 @@ export function CreatePack() {
     totalItems,
     removeItem,
     code,
-    setCode
+    setCode,
+    resetPack,
   } = usePack();
 
   console.log(pack);
@@ -41,6 +42,8 @@ export function CreatePack() {
           console.log(response.data);
           setCode(response.data);
         })
+        .then(resetPack())
+        .then(window.location.reload())
         .catch(error => {
           console.log(error);
           setError(false);
