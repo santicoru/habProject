@@ -17,15 +17,16 @@ input#priceMin{
   margin-top: 1rem;
 }
 
+.form-catalogue-filters label {
+  color: var(--gris1);
+}
+
 select#category {
   background: var (--gris1);
   letter-spacing: 0.2rem;
   margin-left: 0;
   margin-top: 1rem;
   width: 200px;
-}
-div.group1[name='max'] {
-  margin-top: 0;
 }
 #priceMin:focus ~ .catalogue-filter .bar::before,
 #priceMax:focus ~ .catalogue-filter .bar::before {
@@ -67,11 +68,13 @@ button#buttonFilters{
   flex: grid;
   grid-template-rows: 240px 50px 160px 60px;
   background-color: rgb(255, 255, 255);
+  border-radius: 3px;
   text-align: center;
 }
 
 .catalogue-products li img {
   width: 100%;
+  border-radius: 3px;
 }
 
 @media (min-width: 900px) {
@@ -116,5 +119,13 @@ button#buttonFilters{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+  }
+
+  .catalogue-products li {
+    height: 400px;
+  }
+
+  .catalogue-products .prod-description {
+    max-width: 100;
   }
 }

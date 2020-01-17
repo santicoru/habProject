@@ -31,7 +31,7 @@ export function OrderHistory() {
                 <p>{product.name}</p>
               </div>
               <button
-                className='white-btn'
+                className='red-btn'
                 onClick={() => onProductSelected(product)}
               >
                 VALORAR EL PRODUCTO

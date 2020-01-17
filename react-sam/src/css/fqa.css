@@ -1,0 +1,24 @@
+/* faq */
+
+section.FAQ {
+  flex-grow: 1;
+}
+section.FAQ h1 {
+  font-family: var(--ubuntu);
+  padding-top: 1rem;
+  font-size: 30px;
+  letter-spacing: 0.22rem;
+  text-align: center;
+}
+section.FAQ li {
+  padding: 0;
+  list-style: none;
+  padding: 0.5rem 0;
+  text-align: center;
+}
+section.FAQ li p {
+  color: #000000;
+}
+section.FAQ .hidden {
+  display: none;
+}

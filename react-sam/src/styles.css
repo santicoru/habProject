@@ -13,6 +13,7 @@
 @import url('css/rate-product.css');
 @import url('css/order-history.css');
 @import url('css/create-pack.css');
+@import url('css/fqa.css');
 @import url('css/footer.css');
 @import url('css/packages.css');
 @import url('css/code.css');
@@ -38,12 +39,24 @@ body {
   padding: 0;
   background-color: var(--azul1);
 }
-/* html,
+html,
 div#root,
 body {
   width: 100%;
   height: 100%;
-} */
+  min-height: 100vh;
+}
+
+div#root {
+  display: flex;
+  flex-direction: column;
+}
+
+/* QUITAME DE AQUI */
+
+.product-co {
+  flex-grow: 1;
+}
 
 *.top {
   margin-top: 7rem;
@@ -57,26 +70,6 @@ body {
   display: none;
 }
 
-/* faq */
-section.FAQ h1 {
-  font-family: var(--ubuntu);
-  padding-top: 1rem;
-  font-size: 30px;
-  letter-spacing: 0.22rem;
-  text-align: center;
-}
-section.FAQ li {
-  padding: 0;
-  list-style: none;
-  padding: 0.5rem 0;
-  text-align: center;
-}
-section.FAQ li p {
-  color: #000000;
-}
-section.FAQ .hidden {
-  display: none;
-}
 /* homepage */
 
 img.logo-homepage {

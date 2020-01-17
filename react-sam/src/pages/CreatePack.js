@@ -17,7 +17,7 @@ export function CreatePack() {
     removeItem,
     code,
     setCode,
-    resetPack,
+    resetPack
   } = usePack();
 
   console.log(pack);
@@ -56,7 +56,7 @@ export function CreatePack() {
   return (
     <React.Fragment>
       <Header />
-      <main>
+      <main className='create-pack top'>
         <h1 className='main-title top'>Generando un paquete</h1>
 
         {totalItems === 0 && (

@@ -1,13 +1,10 @@
 .foot {
-  position: relative;
   background-image: url('../assets/images/patron.png');
   font-family: 'Rubik', sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  bottom: 0;
-  left: 0;
 }
 
 .social ul a img {

@@ -12,8 +12,8 @@
 }
 
 .products-order-history ul li {
-  background: rgb(0, 112, 160);
-
+  background-color: white;
+  border-radius: 3px;
   margin-bottom: 2rem;
 }
 
@@ -24,12 +24,15 @@
 .product-order p {
   font-size: 24px;
   margin: 0.5rem 0 0.5rem 0;
+  color: var(--azul2);
 }
 
 .product-order img {
   width: 425px;
-  /* margin: auto; */
+  border-radius: 2px;
 }
 
-.products-order-history a .red-btn {
+.select-product button,
+.red-btn {
+  color: black;
 }
