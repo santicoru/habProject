@@ -45,12 +45,13 @@ export function ShoppingCart() {
     <React.Fragment>
       <Header />
       <section className='cart-main'>
+        <h1 className='main-title top'>Mi carrito</h1>
         <section className='cart-detail'>
-          {totalItems === 0 && <h1 className='main-title top'>Carrito vacio</h1>
+          {totalItems === 0 && <h2 className='code-list'>Carrito vacio</h2>
           }
           {totalItems > 0 && (
             <React.Fragment>
-              <h1 className='main-title'>Artículos en carrito</h1>
+              <h2 className='code-list'>Artículos en carrito</h2>
               <ul>
                 {cart.map(item => (
                   <li>

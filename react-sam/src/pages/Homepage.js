@@ -2,22 +2,20 @@ import React from 'react';
 import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 import discount from '../assets/images/BANNER-DESCUENTO.svg';
+import { useHistory } from 'react-router';
+
 export function Homepage() {
+  const history = useHistory();
+
   return (
     <React.Fragment>
       <Header />
-      <main className='main-homepage top'>
-        <div className='title-homepage'>
-          <h1>Software</h1>
-          <h2>a Medida</h2>
-        </div>
-        <div className='image-discount'>
-          <img src={discount} alt='discount' />
-        </div>
-        <div className='code'>
-          <input type='text' placeholder='código' />
-          <button type='submit' className='btn-code'>
-            Ingresar
+      <main>
+        <h1 className='top'>Software A Medida</h1>
+        <div>
+          <button
+            onClick={() => history.push('/code')}
+          >¿Tienes un código?
           </button>
         </div>
       </main>

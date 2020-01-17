@@ -28,8 +28,8 @@ export function PersonalAccount() {
   return (
     <React.Fragment>
       <Header />
-      <div className='top'>
-        <h1 className='main-title top'>Mi Cuenta</h1>
+      <h1 className='main-title top'>Mi Cuenta</h1>
+      <div>
         <section className='main-personalAccount'>
           <div className='ul'>
             <Link to='/password'>MODIFICAR CONTRASEÑA</Link>

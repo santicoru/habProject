@@ -17,7 +17,8 @@ export function CreateProduct() {
         'content-type': 'multipart/form-data'
       }
     };
-    return createProductCo(formData, config);
+    return createProductCo(formData, config)
+      .then(window.location.reload());
   };
 
   return (

@@ -21,8 +21,8 @@ export function OrderHistory() {
   return (
     <React.Fragment>
       <Header />
+      <h1 className='main-title top'>Mis pedidos</h1>
       <div className='products-order-history'>
-        <h1 className='main-title'>Mis pedidos</h1>
         <ul>
           {products.map((product, index) => (
             <li key={product.id}>
